@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NexoIA — Automatización e IA para Negocios</title>
+    <meta name="description"
+        content="Automatizamos WhatsApp, CRM y procesos repetitivos de tu negocio con IA. Diagnóstico gratuito. Implementación en días. Sin cambiar tus herramientas.">
+    <link rel="canonical" href="https://nexoia.ar/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NexoIA — Automatización e IA para Negocios">
+    <meta property="og:description"
+        content="Automatizamos WhatsApp, CRM y procesos repetitivos con IA. Diagnóstico gratuito.">
+    <meta property="og:url" content="https://nexoia.ar/">
+    <meta property="og:image" content="https://nexoia.ar/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { brand: { bg: '#0B0E14', surface: '#12151E', surface2: '#1A1E2A', border: '#242836', accent: '#3B82F6', accentHover: '#2563EB', green: '#10B981', text: '#F0F4FF', muted: '#8B95A7', mutedDark: '#5A6478' } }, fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'Helvetica Neue', 'Arial', 'sans-serif'] } } } }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px
+        }
+
+        body {
+            background: #0B0E14;
+            color: #F0F4FF
+        }
+
+        ::selection {
+            background: #3B82F6;
+            color: #fff
+        }
+
+        :focus-visible {
+            outline: 2px solid #3B82F6;
+            outline-offset: 3px
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 0;
+            padding: .5rem 1rem;
+            background: #3B82F6;
+            color: #fff;
+            z-index: 9999;
+            border-radius: 0 0 8px 0
+        }
+
+        .skip-link:focus {
+            top: 0
+        }
+
+        .glow-card {
+            border: 1px solid #242836;
+            transition: all .3s ease
+        }
+
+        .glow-card:hover {
+            border-color: rgba(59, 130, 246, .4);
+            box-shadow: 0 0 30px rgba(59, 130, 246, .08), 0 8px 32px rgba(0, 0, 0, .3);
+            transform: translateY(-2px)
+        }
+
+        .dot-pattern {
+            background-image: radial-gradient(rgba(59, 130, 246, .12) 1px, transparent 1px);
+            background-size: 24px 24px
+        }
+
+        @media(prefers-reduced-motion:no-preference) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(24px);
+                transition: opacity .6s ease, transform .6s ease
+            }
+
+            .reveal.visible {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .reveal {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .sticky-mobile {
+            transform: translateY(100%);
+            transition: transform .3s ease
+        }
+
+        .sticky-mobile.show {
+            transform: translateY(0)
+        }
+
+        @media(min-width:1024px) {
+            .sticky-mobile {
+                display: none !important
+            }
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease, padding .35s ease;
+            padding: 0 1.5rem
+        }
+
+        .faq-answer.open {
+            max-height: 600px;
+            padding: 0 1.5rem 1.25rem
+        }
+
+        .btn-glow {
+            position: relative;
+            overflow: hidden
+        }
+
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, .15), transparent 50%);
+            opacity: 0;
+            transition: opacity .3s
+        }
+
+        .btn-glow:hover::after {
+            opacity: 1
+        }
+
+        .gradient-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, .3), transparent)
+        }
+    </style>
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"NexoIA","url":"https://nexoia.ar","description":"Agencia de automatización e inteligencia artificial para pymes y negocios locales.","telephone":"+54 9 11 6006-1295","email":"hola@nexoia.ar","address":{"@type":"PostalAddress","addressCountry":"AR"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},"priceRange":"$$","areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Uruguay"},{"@type":"Country","name":"Chile"},{"@type":"Country","name":"Mexico"},{"@type":"Country","name":"Spain"}],"serviceType":["Automatización de procesos con IA","Chatbot WhatsApp empresarial","Desarrollo de landing pages con IA","Automatización de embudos de venta"]}
+</script>
+</head>
+
+<body class="font-sans antialiased">
+    <a href="#contacto" class="skip-link">Ir al formulario de contacto</a>
+
+    <!-- ═══ NAV ═══ -->
+    <header id="site-header"
+        class="fixed top-0 w-full z-50 bg-brand-surface/90 backdrop-blur-xl border-b border-brand-border">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-8 h-20 lg:h-24">
+            <a href="#inicio" class="flex items-center gap-3 group" aria-label="NexoIA — Inicio">
+                <div class="relative shrink-0">
+                    <svg width="60" height="60" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="h-12 lg:h-14 w-auto transition-transform group-hover:scale-110 duration-300">
+                        <circle cx="35" cy="35" r="32" fill="#1A1E2A" />
+                        <path d="M35 14L51.45 23.5V46.5L35 56L18.55 46.5V23.5L35 14Z" stroke="#3B82F6" stroke-width="2"
+                            stroke-opacity="0.6" />
+                        <path d="M35 21L45.5 27V43L35 49L24.5 43V27L35 21Z" stroke="#3B82F6" stroke-width="1.5" />
+                        <circle cx="35" cy="35" r="4" fill="#3B82F6" class="animate-pulse" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex items-center gap-1">
+                        <span class="text-2xl lg:text-3xl font-extrabold text-white tracking-tighter">Nexo</span>
+                        <span class="text-2xl lg:text-3xl font-extrabold text-brand-accent" style="text-shadow: 0 0 15px rgba(59, 130, 246, 0.4)">IA</span>
+                    </div>
+                    <span class="text-[9px] lg:text-[10px] font-bold text-brand-muted tracking-[0.2em] uppercase -mt-1">
+                        AUTOMATIZACIÓN INTELIGENTE
+                    </span>
+                </div>
+            </a>
+            <nav class="hidden lg:flex items-center gap-6 text-sm text-brand-muted" aria-label="Menú principal">
+                <a href="#servicios" class="hover:text-brand-text transition-colors">Servicios</a>
+                <a href="#proceso" class="hover:text-brand-text transition-colors">Cómo funciona</a>
+                <a href="#resultados" class="hover:text-brand-text transition-colors">Resultados</a>
+                <a href="#precios" class="hover:text-brand-text transition-colors">Precios</a>
+                <a href="#faq" class="hover:text-brand-text transition-colors">FAQ</a>
+                <a href="#contacto"
+                    class="ml-2 inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all btn-glow"
+                    data-track="nav_cta_click">
+                    Diagnóstico gratis — 20 min
+                </a>
+            </nav>
+            <button id="mobile-menu-btn" class="lg:hidden p-2 text-brand-muted hover:text-brand-text"
+                aria-label="Abrir menú" aria-expanded="false">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="lg:hidden hidden bg-brand-surface border-t border-brand-border">
+            <nav class="flex flex-col p-4 gap-3 text-sm" aria-label="Menú móvil">
+                <a href="#servicios" class="py-2 text-brand-muted hover:text-brand-text">Servicios</a>
+                <a href="#proceso" class="py-2 text-brand-muted hover:text-brand-text">Cómo funciona</a>
+                <a href="#resultados" class="py-2 text-brand-muted hover:text-brand-text">Resultados</a>
+                <a href="#precios" class="py-2 text-brand-muted hover:text-brand-text">Precios</a>
+                <a href="#faq" class="py-2 text-brand-muted hover:text-brand-text">FAQ</a>
+                <a href="#contacto"
+                    class="mt-2 text-center bg-brand-accent text-white font-semibold py-3 rounded-lg">Diagnóstico
+                    gratis</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══ HERO ═══ -->
+    <section id="inicio" class="relative pt-28 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <div class="absolute inset-0 dot-pattern opacity-40" aria-hidden="true"></div>
+        <div class="absolute top-20 right-0 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[120px]"
+            aria-hidden="true"></div>
+        <div class="relative max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="max-w-3xl">
+                <span
+                    class="inline-block text-xs font-semibold tracking-widest uppercase text-brand-accent mb-6 border border-brand-accent/30 px-3 py-1 rounded-full">Agencia
+                    de Inteligencia Artificial Aplicada</span>
+                <h1
+                    class="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.4rem] font-extrabold leading-[1.15] tracking-tight mb-6">
+                    Tu equipo dedica horas cada semana a tareas que ya podrían <span class="text-brand-accent">hacerse
+                        solas.</span>
+                </h1>
+                <p class="text-lg lg:text-xl text-brand-muted leading-relaxed mb-8 max-w-2xl">
+                    Webs que convierten, automatizaciones con n8n, embudos de ventas y mensajería inteligente.
+                    Implementados en días, conectados a lo que ya usas, sin que ninguna persona tenga que ejecutarlos a
+                    mano.
+                </p>
+                <ul class="space-y-3 mb-10 text-sm lg:text-base text-brand-muted">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span><strong class="text-brand-text">Diagnóstico gratuito de 20 minutos:</strong> detectamos
+                            los 3 procesos con más impacto en tu negocio</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span><strong class="text-brand-text">Sin cambiar tus herramientas:</strong> nos integramos con
+                            WhatsApp, Gmail, Tiendanube, Mercado Libre y más</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span><strong class="text-brand-text">Soporte incluido 30 días:</strong> si algo falla tras el
+                            lanzamiento, lo resolvemos sin coste adicional</span>
+                    </li>
+                </ul>
+                <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                    <a href="#contacto"
+                        class="inline-flex items-center justify-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold px-7 py-4 rounded-xl text-base transition-all btn-glow shadow-lg shadow-brand-accent/20"
+                        data-track="hero_cta_click">
+                        Pedí tu diagnóstico gratis — 20 min
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/5491160061295?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20automatizar%20mi%20operaci%C3%B3n"
+                        target="_blank" rel="noopener"
+                        class="inline-flex items-center justify-center gap-2 border-2 border-brand-accent/40 hover:border-brand-accent text-brand-accent hover:bg-brand-accent/10 font-semibold px-7 py-4 rounded-xl text-base transition-all"
+                        data-track="cta_whatsapp_click">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12.05 21.785a9.721 9.721 0 01-4.955-1.358l-.356-.21-3.681.964.984-3.595-.232-.369A9.727 9.727 0 012.27 12.01C2.27 6.632 6.632 2.27 12.01 2.27c2.603 0 5.05 1.014 6.89 2.854a9.669 9.669 0 012.852 6.887c-.003 5.378-4.365 9.74-9.742 9.74l-.008.034h.048zm8.326-18.12A11.7 11.7 0 0012.05 0C5.463 0 .104 5.335.101 11.893a11.856 11.856 0 001.59 5.945L0 24l6.335-1.652a11.921 11.921 0 005.71 1.453h.005c6.585 0 11.946-5.336 11.949-11.896a11.81 11.81 0 00-3.498-8.44l-.125.1z" />
+                        </svg>
+                        Escribinos por WhatsApp
+                    </a>
+                </div>
+                <p class="text-xs text-brand-mutedDark flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <path stroke-linecap="round"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    Sin spam · Sin compromiso · Respondemos antes de 24h
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PAIN BAR ═══ -->
+    <div
+        class="bg-gradient-to-r from-brand-accent/10 via-brand-accent/5 to-transparent border-y border-brand-accent/20">
+        <div
+            class="max-w-7xl mx-auto px-4 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+            <p class="text-brand-muted text-center sm:text-left">
+                <strong class="text-brand-text">Cada semana sin automatizar tiene un coste.</strong> ¿Cuántas horas
+                pierde tu equipo en tareas que ningún cliente ve ni paga?
+            </p>
+            <a href="#contacto"
+                class="shrink-0 text-brand-accent hover:text-brand-accentHover font-semibold transition-colors"
+                data-track="painbar_cta_click">Contanos en 20 min →</a>
+        </div>
+    </div>
+
+    <!-- ═══ SERVICIOS ═══ -->
+    <section id="servicios" class="py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Los 4 servicios que más tiempo <span
+                        class="text-brand-accent">devuelven a tu equipo</span></h2>
+                <p class="text-brand-muted max-w-2xl mx-auto">Si hay una tarea que tu equipo repite a diario sin que
+                    nadie haya preguntado si puede hacerse sola: probablemente puede. Aquí es donde entramos.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+
+                <!-- Card 1: Webs -->
+                <div class="glow-card bg-brand-surface rounded-2xl p-8 reveal" data-track="service_webs_click">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Webs con IA</h3>
+                    <p class="text-brand-accent text-sm font-medium mb-3">Una web que no convierte no es un activo. Es
+                        un gasto mensual.</p>
+                    <p class="text-brand-muted text-sm mb-5">Si tenés una web que nadie actualiza, que no genera
+                        contactos o que tardaste meses en construir y ya está obsoleta: esto es para vos.</p>
+                    <ul class="space-y-2.5 text-sm text-brand-muted mb-6">
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Landing pages de captación</strong> conectadas a tu CRM —
+                                ningún lead se enfría por falta de respuesta</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Webs corporativas</strong> optimizadas para conversión, sin
+                                depender de un técnico para cada cambio</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Tiendas online + chatbot</strong> que atienden y cualifican
+                                sin intervención manual</span></li>
+                    </ul>
+                    <a href="#contacto"
+                        class="text-brand-accent hover:text-brand-accentHover text-sm font-semibold transition-colors">Contanos
+                        qué tipo de web necesitás →</a>
+                </div>
+
+                <!-- Card 2: n8n -->
+                <div class="glow-card bg-brand-surface rounded-2xl p-8 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Automatizaciones con n8n</h3>
+                    <p class="text-brand-accent text-sm font-medium mb-3">Si algo ocurre por correo, mensaje o Excel:
+                        probablemente ya puede funcionar solo.</p>
+                    <p class="text-brand-muted text-sm mb-5">Si alguien copia datos de un sitio a otro, envía
+                        notificaciones a mano o genera informes cada semana: ese tiempo tiene un coste real.</p>
+                    <ul class="space-y-2.5 text-sm text-brand-muted mb-6">
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Sincronización entre apps</strong> — CRM, tienda,
+                                facturación conectados sin copiar nada a mano</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Alertas automáticas</strong> — tu equipo recibe lo que
+                                necesita sin depender de que alguien lo reenvíe</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Informes automáticos</strong> — datos consolidados y
+                                enviados sin intervención humana</span></li>
+                    </ul>
+                    <a href="#contacto"
+                        class="text-brand-accent hover:text-brand-accentHover text-sm font-semibold transition-colors">Describí
+                        el proceso que más tiempo te roba →</a>
+                </div>
+
+                <!-- Card 3: Embudos -->
+                <div class="glow-card bg-brand-surface rounded-2xl p-8 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Embudos de ventas con IA</h3>
+                    <p class="text-brand-accent text-sm font-medium mb-3">Los leads que no se contactan en las primeras
+                        horas no compran.</p>
+                    <p class="text-brand-muted text-sm mb-5">Si tu CRM está lleno de leads sin seguimiento o nadie los
+                        llama antes de que se enfríen: aquí tienes el problema resuelto.</p>
+                    <ul class="space-y-2.5 text-sm text-brand-muted mb-6">
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Cualificación automática</strong> — respuesta inmediata +
+                                filtro que prioriza al equipo de ventas</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Seguimiento por email/WhatsApp</strong> — nurturing activo
+                                sin que nadie tenga que recordarlo</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Pipeline CRM automatizado</strong> — sin actualizar fichas a
+                                mano, sin olvidar etapas</span></li>
+                    </ul>
+                    <a href="#contacto"
+                        class="text-brand-accent hover:text-brand-accentHover text-sm font-semibold transition-colors">Pedí
+                        una demo de tu flujo de ventas →</a>
+                </div>
+
+                <!-- Card 4: Mensajería -->
+                <div class="glow-card bg-brand-surface rounded-2xl p-8 reveal">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5">
+                        <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mensajería inteligente</h3>
+                    <p class="text-brand-accent text-sm font-medium mb-3">Tus clientes escriben fuera de horario.
+                        ¿Alguien les responde?</p>
+                    <p class="text-brand-muted text-sm mb-5">Si tu equipo pasa tiempo respondiendo los mismos mensajes
+                        de siempre — precios, disponibilidad, cómo reservar — eso ya puede funcionar solo.</p>
+                    <ul class="space-y-2.5 text-sm text-brand-muted mb-6">
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Chatbot WhatsApp 24/7</strong> — atiende, cualifica y deriva
+                                a un humano solo cuando hace falta</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Email con contexto</strong> — respuesta personalizada según
+                                tipo de consulta, no un genérico</span></li>
+                        <li class="flex items-start gap-2"><span class="text-brand-accent mt-1">▸</span><span><strong
+                                    class="text-brand-text">Recordatorios y encuestas</strong> — sin que nadie tenga que
+                                acordarse de enviarlos</span></li>
+                    </ul>
+                    <a href="#contacto"
+                        class="text-brand-accent hover:text-brand-accentHover text-sm font-semibold transition-colors">Ver
+                        cómo funciona un chatbot para tu negocio →</a>
+                </div>
+            </div>
+            <div class="text-center mt-12 reveal">
+                <a href="#contacto"
+                    class="text-brand-accent hover:text-brand-accentHover font-semibold transition-colors"
+                    data-track="servicios_cta_click">¿Cuál de estos procesos hace alguien a mano en tu empresa?
+                    Contanos →</a>
+            </div>
+        </div>
+    </section>
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ═══ PROCESO ═══ -->
+    <section id="proceso" class="py-20 lg:py-28 bg-brand-surface/50">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">De la primera llamada al proceso
+                    funcionando: <span class="text-brand-accent">5 pasos sin letra chica</span></h2>
+            </div>
+            <div class="grid md:grid-cols-5 gap-0 relative">
+                <div class="hidden md:block absolute top-10 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-brand-accent/0 via-brand-accent/30 to-brand-accent/0"
+                    aria-hidden="true"></div>
+
+                <div class="text-center px-3 mb-8 md:mb-0 reveal">
+                    <div
+                        class="w-10 h-10 rounded-full bg-brand-accent text-white font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">
+                        1</div>
+                    <h3 class="font-semibold mb-2 text-sm">Diagnóstico gratuito</h3>
+                    <p class="text-xs text-brand-muted">20 minutos para entender qué procesos manuales te roban tiempo.
+                        Sin ventas.</p>
+                </div>
+                <div class="text-center px-3 mb-8 md:mb-0 reveal">
+                    <div
+                        class="w-10 h-10 rounded-full bg-brand-accent text-white font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">
+                        2</div>
+                    <h3 class="font-semibold mb-2 text-sm">Propuesta en 48h</h3>
+                    <p class="text-xs text-brand-muted">Plan exacto: qué hacemos, con qué, en cuánto tiempo y a qué
+                        coste.</p>
+                </div>
+                <div class="text-center px-3 mb-8 md:mb-0 reveal">
+                    <div
+                        class="w-10 h-10 rounded-full bg-brand-accent text-white font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">
+                        3</div>
+                    <h3 class="font-semibold mb-2 text-sm">Implementación</h3>
+                    <p class="text-xs text-brand-muted">Nos conectamos a tus sistemas. Vos no configurás nada. 5–15
+                        días.
+                    </p>
+                </div>
+                <div class="text-center px-3 mb-8 md:mb-0 reveal">
+                    <div
+                        class="w-10 h-10 rounded-full bg-brand-accent text-white font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">
+                        4</div>
+                    <h3 class="font-semibold mb-2 text-sm">Pruebas contigo</h3>
+                    <p class="text-xs text-brand-muted">Testamos todo en vivo. Si algo no funciona como esperas, se
+                        ajusta antes de activar.</p>
+                </div>
+                <div class="text-center px-3 reveal">
+                    <div
+                        class="w-10 h-10 rounded-full bg-brand-green text-white font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">
+                        ✓</div>
+                    <h3 class="font-semibold mb-2 text-sm">Soporte 30 días</h3>
+                    <p class="text-xs text-brand-muted">Cualquier incidencia resuelta sin coste. Un proceso que falla
+                        cuesta más que el proyecto.</p>
+                </div>
+            </div>
+            <div
+                class="mt-10 p-4 rounded-xl bg-brand-accent/5 border border-brand-accent/20 text-center text-sm text-brand-muted reveal">
+                <strong class="text-brand-text">No cobramos hasta que apruebas la propuesta.</strong> Si hay un proceso
+                que depende de una sola persona, tienes un punto de fallo que la automatización puede eliminar.
+            </div>
+            <div class="text-center mt-8 reveal">
+                <a href="#contacto"
+                    class="inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow"
+                    data-track="proceso_cta_click">
+                    Reserva tu diagnóstico de 20 min →
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="gradient-divider" aria-hidden="true"></div>
+    <!-- ═══ RESULTADOS / PRUEBA SOCIAL ═══ -->
+    <section id="resultados" class="py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Lo que cambia cuando un proceso <span
+                        class="text-brand-accent">deja de ser manual</span></h2>
+                <p class="text-brand-muted max-w-2xl mx-auto">No publicamos resultados que no podemos demostrar.
+                    Mostramos qué tipo de cambios reportan nuestros clientes con el proceso concreto que se intervino.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="glow-card bg-brand-surface rounded-2xl p-6 reveal">
+                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider">Metodología</span>
+                    <h3 class="font-bold mt-3 mb-2">Diagnóstico basado en impacto</h3>
+                    <p class="text-sm text-brand-muted">Identificamos los 3 procesos manuales que más tiempo consumen en
+                        tu operación y priorizamos por retorno real, no por complejidad técnica.</p>
+                </div>
+                <div class="glow-card bg-brand-surface rounded-2xl p-6 reveal">
+                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider">Herramientas
+                        reales</span>
+                    <h3 class="font-bold mt-3 mb-2">n8n, WhatsApp API, OpenAI</h3>
+                    <p class="text-sm text-brand-muted">Usamos plataformas probadas y abiertas. Nada propietario que te
+                        ate a nosotros. Si tu software tiene API, podemos conectarlo.</p>
+                </div>
+                <div class="glow-card bg-brand-surface rounded-2xl p-6 reveal">
+                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider">Transparencia
+                        total</span>
+                    <h3 class="font-bold mt-3 mb-2">Propuesta antes de cobrar</h3>
+                    <p class="text-sm text-brand-muted">Recibes un documento detallado en 48h con plan, plazos y coste.
+                        No empezamos nada hasta que lo apruebas.</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 items-center opacity-40 mb-8 reveal"
+                aria-label="Herramientas con las que trabajamos">
+                <span class="text-sm font-semibold tracking-wide">n8n</span><span class="text-brand-border">|</span>
+                <span class="text-sm font-semibold tracking-wide">OpenAI</span><span class="text-brand-border">|</span>
+                <span class="text-sm font-semibold tracking-wide">WhatsApp API</span><span
+                    class="text-brand-border">|</span>
+                <span class="text-sm font-semibold tracking-wide">Mercado Libre</span><span class="text-brand-border">|</span>
+                <span class="text-sm font-semibold tracking-wide">Tiendanube</span><span class="text-brand-border">|</span>
+                <span class="text-sm font-semibold tracking-wide">Google Workspace</span><span
+                    class="text-brand-border">|</span>
+                <span class="text-sm font-semibold tracking-wide">Sheets / AFIP</span>
+            </div>
+            <div class="text-center reveal">
+                <a href="#contacto"
+                    class="text-brand-accent hover:text-brand-accentHover font-semibold transition-colors"
+                    data-track="resultados_cta_click">¿Quieres un caso concreto de tu sector? Pregúntanoslo →</a>
+            </div>
+        </div>
+    </section>
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ═══ PRECIOS ═══ -->
+    <section id="precios" class="py-20 lg:py-28 bg-brand-surface/50">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-6 reveal">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Cuánto cuesta automatizar. <span
+                        class="text-brand-accent">Sin rodeos.</span></h2>
+                <p class="text-brand-muted max-w-2xl mx-auto">Un proceso que tu equipo hace a mano implica tiempo,
+                    errores y dependencia de personas. Ese coste ocurre cada semana, aunque nadie lo facture como tal.
+                    Lo que ofrecemos tiene un coste una sola vez.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 mt-12">
+                <div class="glow-card bg-brand-surface rounded-2xl p-8 flex flex-col reveal">
+                    <h3 class="text-lg font-bold mb-1">Proyecto Esencial</h3>
+                    <p class="text-sm text-brand-muted mb-4">1–2 procesos clave automatizados</p>
+                    <ul class="text-sm text-brand-muted space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>Diagnóstico + implementación</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>30 días de soporte técnico</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>Plazo: 5–7 días</li>
+                    </ul>
+                    <p class="text-xs text-brand-muted mb-4">Ideal para un chatbot, un flujo de notificaciones o una
+                        integración entre dos apps.</p>
+                    <a href="#contacto"
+                        class="text-center bg-brand-surface2 hover:bg-brand-accent/10 border border-brand-border hover:border-brand-accent/40 text-brand-text font-semibold py-3 rounded-xl transition-all text-sm"
+                        data-track="pricing_esencial_click">Solicitar diagnóstico</a>
+                </div>
+                <div
+                    class="glow-card bg-brand-surface rounded-2xl p-8 flex flex-col ring-2 ring-brand-accent/40 relative reveal">
+                    <span
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-accent text-white text-xs font-bold px-4 py-1 rounded-full">Más
+                        habitual</span>
+                    <h3 class="text-lg font-bold mb-1">Proyecto Avanzado</h3>
+                    <p class="text-sm text-brand-muted mb-4">Múltiples flujos + CRM + comunicación</p>
+                    <ul class="text-sm text-brand-muted space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>Diagnóstico + arquitectura completa</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>Implementación + formación al equipo</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>30 días de soporte · Plazo: 10–20 días</li>
+                    </ul>
+                    <p class="text-xs text-brand-muted mb-4">El más habitual entre equipos de ventas o atención que
+                        pierden tiempo en seguimiento manual.</p>
+                    <a href="#contacto"
+                        class="text-center bg-brand-accent hover:bg-brand-accentHover text-white font-semibold py-3 rounded-xl transition-all text-sm btn-glow"
+                        data-track="pricing_avanzado_click">Solicitar diagnóstico</a>
+                </div>
+                <div class="glow-card bg-brand-surface rounded-2xl p-8 flex flex-col reveal">
+                    <h3 class="text-lg font-bold mb-1">Proyecto Integral</h3>
+                    <p class="text-sm text-brand-muted mb-4">Automatización completa de área operativa o ventas</p>
+                    <ul class="text-sm text-brand-muted space-y-2 mb-6 flex-grow">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>Todo lo anterior + web/landing</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>Automatización del embudo completo</li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>Plazo e inversión a medida</li>
+                    </ul>
+                    <p class="text-xs text-brand-muted mb-4">Para negocios que quieren automatizar toda su operativa
+                        desde cero.</p>
+                    <a href="#contacto"
+                        class="text-center bg-brand-surface2 hover:bg-brand-accent/10 border border-brand-border hover:border-brand-accent/40 text-brand-text font-semibold py-3 rounded-xl transition-all text-sm"
+                        data-track="pricing_integral_click">Hablar con un especialista</a>
+                </div>
+            </div>
+            <p class="text-center text-xs text-brand-muted mt-8 reveal">Los rangos son orientativos. El coste exacto va
+                en la propuesta, que recibes en 48h tras el diagnóstico. Sin letra pequeña.</p>
+            <div class="text-center mt-6 reveal"><a href="#contacto"
+                    class="text-brand-accent hover:text-brand-accentHover font-semibold text-sm transition-colors"
+                    data-track="precios_cta_click">¿No sabes qué nivel necesitas? El diagnóstico lo aclara gratis →</a>
+            </div>
+        </div>
+    </section>
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ═══ FAQ ═══ -->
+    <section id="faq" class="py-20 lg:py-28">
+        <div class="max-w-3xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-14 reveal">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Lo que nos preguntan <span
+                        class="text-brand-accent">antes de empezar</span></h2>
+            </div>
+            <div class="space-y-3" role="list">
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-1" data-track="faq_open"><span>¿Necesito conocimientos
+                            técnicos?</span><svg class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-1" class="faq-answer text-sm text-brand-muted">
+                        <p>No. Nos encargamos de toda la configuración y te enseñamos a supervisar lo que hemos montado.
+                            Tú no tocas código. Lo que sí ocurre es que dejas de tocar procesos que antes consumían
+                            tiempo de tu equipo cada día.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-2"><span>¿Tengo que cambiar las herramientas que ya
+                            uso?</span><svg class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-2" class="faq-answer text-sm text-brand-muted">
+                        <p>No. Trabajamos sobre lo que ya tienes: WhatsApp Business, Gmail, Sheets, Mercado Libre, Tiendanube,
+                            AFIP… Si tiene API o permite exportar datos, podemos conectarlo. El problema real es que tus herramientas no están
+                            conectadas entre sí.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-3"><span>¿Cuánto tiempo tarda en estar
+                            funcionando?</span><svg
+                            class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-3" class="faq-answer text-sm text-brand-muted">
+                        <p>Depende del proyecto. Los más sencillos: 5–7 días. Los complejos: 10–20 días. Esa fecha viene
+                            en la propuesta, que recibes en 48h. Ningún proceso manual debería seguir robándote tiempo
+                            semanas más por no haber empezado.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-4"><span>¿Qué pasa si la automatización
+                            falla?</span><svg class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-4" class="faq-answer text-sm text-brand-muted">
+                        <p>Incluimos 30 días de soporte sin coste tras cada lanzamiento. Cada flujo tiene manejo de
+                            errores y alertas automáticas: si algo falla, lo sabemos antes de que lo notes vos.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-5"><span>¿Es asequible para una empresa
+                            pequeña?</span><svg class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-5" class="faq-answer text-sm text-brand-muted">
+                        <p>Sí. En la mayoría de casos, el tiempo que el equipo deja de gastar en tareas manuales el
+                            primer mes ya compensa parte de la inversión. El diagnóstico es gratuito y te permite saber
+                            el coste exacto antes de comprometerte.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-6"><span>¿Qué es n8n y por qué lo usáis?</span><svg
+                            class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-6" class="faq-answer text-sm text-brand-muted">
+                        <p>n8n es una plataforma open-source de automatización. Es como Zapier o Make, pero más
+                            flexible, se instala en tu servidor para máxima privacidad, y su coste no escala con el
+                            volumen de operaciones.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-7"><span>¿Mis datos están seguros?</span><svg
+                            class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-7" class="faq-answer text-sm text-brand-muted">
+                        <p>Sí. APIs oficiales, GDPR, y la automatización puede correr en tu propio servidor si lo
+                            prefieres. Firmamos NDA. Sin datos innecesarios en terceros.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-8"><span>Ya tenemos CRM. ¿Sirve automatizarlo si no se
+                            usa bien?</span><svg class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-8" class="faq-answer text-sm text-brand-muted">
+                        <p>Precisamente por eso. Si el CRM no se usa es porque registrar datos a mano es tedioso. Cuando
+                            la info entra sola, el equipo lo usa porque ya no tiene que alimentarlo. Más datos = menos
+                            oportunidades perdidas.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-9"><span>¿En qué se diferencia de contratar un
+                            freelance?</span><svg
+                            class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-9" class="faq-answer text-sm text-brand-muted">
+                        <p>Un freelance implementa lo que le pides si sabes exactamente qué pedir. Nosotros
+                            diagnosticamos, diseñamos y damos soporte. El resultado no depende de tu conocimiento
+                            técnico, sino del nuestro.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-10"><span>¿Puedo empezar con algo pequeño y
+                            escalar?</span><svg class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-10" class="faq-answer text-sm text-brand-muted">
+                        <p>Es lo que recomendamos. Automatiza primero el proceso con más impacto, mide y después decide.
+                            Muchos clientes empiezan con un chatbot y terminan con el embudo completo automatizado.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-11"><span>¿Ofrecéis mantenimiento después del
+                            proyecto?</span><svg class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-11" class="faq-answer text-sm text-brand-muted">
+                        <p>Los 30 días están incluidos. Después, hay planes mensuales opcionales. Un flujo que nadie
+                            mantiene acaba rompiéndose; uno que alguien monitoriza, mejora.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-surface rounded-xl border border-brand-border reveal" role="listitem">
+                    <button
+                        class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base"
+                        aria-expanded="false" aria-controls="faq-12"><span>¿El diagnóstico es realmente
+                            gratuito?</span><svg class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
+                        </svg></button>
+                    <div id="faq-12" class="faq-answer text-sm text-brand-muted">
+                        <p>Ningún compromiso. 20 minutos, analizamos tu caso, te decimos qué automatizar y qué costaría.
+                            Si quieres seguir, propuesta en 48h. No cobramos hasta que la apruebas.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ═══ CONTACTO / FORMULARIO ═══ -->
+    <section id="contacto" class="py-20 lg:py-28 bg-brand-surface/50">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+                <div class="lg:col-span-2 reveal">
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-4">Contanos tu caso. Lo analizamos en <span
+                            class="text-brand-accent">20 minutos, gratis.</span></h2>
+                    <p class="text-brand-muted mb-8">Respondé en 2 minutos. Con esa info preparamos el diagnóstico para
+                        que sea útil desde el primer segundo — sin que tengas que explicar desde cero.</p>
+                    <div class="space-y-4 text-sm">
+                        <a href="tel:+5491160061295"
+                            class="flex items-center gap-3 text-brand-muted hover:text-brand-text transition-colors"
+                            data-track="cta_telefono_click">
+                            <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                            </svg>
+                            +54 9 11 6006-1295
+                        </a>
+                        <a href="https://wa.me/5491160061295?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20automatizar%20mi%20operaci%C3%B3n"
+                            target="_blank" rel="noopener"
+                            class="flex items-center gap-3 text-brand-muted hover:text-brand-text transition-colors"
+                            data-track="cta_whatsapp_click">
+                            <svg class="w-5 h-5 text-brand-green" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                            </svg>
+                            Escribinos por WhatsApp — respondemos hoy
+                        </a>
+                        <p class="flex items-center gap-3 text-brand-muted">
+                            <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            </svg>
+                            <a href="mailto:hola@nexoia.ar" class="hover:text-brand-text transition-colors">hola@nexoia.ar</a>
+                        </p>
+                        <p class="flex items-center gap-3 text-brand-muted">
+                            <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Lunes a Viernes, 9:00–19:00h (ARG 🇦🇷)
+                        </p>
+                        <div class="mt-8 pt-6 border-t border-brand-border">
+                            <p class="text-xs font-semibold text-brand-muted mb-2 uppercase tracking-wider">¿Sos de otro país?</p>
+                            <p class="text-xs text-brand-mutedDark leading-relaxed">También trabajamos con negocios en <span class="text-brand-text">Uruguay, Chile, México y España</span>. Adaptamos las automatizaciones a tus herramientas locales.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 reveal">
+                    <form id="form-diagnostico"
+                        class="bg-brand-surface border border-brand-border rounded-2xl p-6 lg:p-8 space-y-5"
+                        aria-label="Formulario de diagnóstico gratuito" novalidate>
+                        <div id="form-messages" aria-live="polite"></div>
+
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div><label for="f-nombre" class="block text-sm font-medium mb-1.5">Nombre completo <span
+                                        class="text-red-400">*</span></label><input type="text" id="f-nombre"
+                                    name="nombre" required placeholder="Tu nombre y apellido"
+                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                            </div>
+                            <div><label for="f-email" class="block text-sm font-medium mb-1.5">Email <span
+                                        class="text-red-400">*</span></label><input type="email" id="f-email"
+                                    name="email" required placeholder="tu@empresa.com"
+                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                            </div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div><label for="f-telefono" class="block text-sm font-medium mb-1.5">Teléfono <span
+                                        class="text-red-400">*</span></label><input type="tel" id="f-telefono"
+                                    name="telefono" required placeholder="+54 9 11 6006-1295"
+                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                            </div>
+                            <div><label for="f-contacto" class="block text-sm font-medium mb-1.5">Preferencia de
+                                    contacto <span class="text-red-400">*</span></label><select id="f-contacto"
+                                    name="contacto" required
+                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                    <option value="">Elige una opción</option>
+                                    <option value="llamada">📞 Llamada</option>
+                                    <option value="whatsapp">💬 WhatsApp</option>
+                                    <option value="email">📧 Email</option>
+                                </select></div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div><label for="f-negocio" class="block text-sm font-medium mb-1.5">Tipo de negocio <span
+                                        class="text-red-400">*</span></label><select id="f-negocio" name="negocio"
+                                    required
+                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                    <option value="">¿A qué se dedica tu negocio?</option>
+                                    <option value="ecommerce">E-commerce</option>
+                                    <option value="local">Negocio local</option>
+                                    <option value="servicios">Pyme de servicios</option>
+                                    <option value="ventas">Empresa con equipo de ventas</option>
+                                    <option value="otro">Otro</option>
+                                </select></div>
+                            <div><label for="f-servicio" class="block text-sm font-medium mb-1.5">Servicio de interés
+                                    <span class="text-red-400">*</span></label><select id="f-servicio" name="servicio"
+                                    required
+                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                    <option value="">¿Qué querés automatizar?</option>
+                                    <option value="web">Web con IA</option>
+                                    <option value="n8n">Automatización con n8n</option>
+                                    <option value="embudo">Embudo de ventas con IA</option>
+                                    <option value="mensajeria">Mensajería inteligente</option>
+                                    <option value="nosesabe">No lo tengo claro</option>
+                                </select></div>
+                        </div>
+                        <div id="proceso-wrapper" class="hidden"><label for="f-proceso"
+                                class="block text-sm font-medium mb-1.5">Proceso a automatizar</label><select
+                                id="f-proceso" name="proceso"
+                                class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                <option value="">Selecciona un proceso</option>
+                            </select></div>
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div><label for="f-urgencia" class="block text-sm font-medium mb-1.5">¿Cuándo lo necesitas?
+                                    <span class="text-red-400">*</span></label><select id="f-urgencia" name="urgencia"
+                                    required
+                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                    <option value="">Selecciona urgencia</option>
+                                    <option value="semana">Lo necesito esta semana</option>
+                                    <option value="mes">En el próximo mes</option>
+                                    <option value="comparando">Estoy comparando opciones</option>
+                                    <option value="info">Solo quiero información</option>
+                                </select></div>
+                            <div><label for="f-empleados" class="block text-sm font-medium mb-1.5">Nº empleados <span
+                                        class="text-red-400">*</span></label><select id="f-empleados" name="empleados"
+                                    required
+                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                    <option value="">Selecciona</option>
+                                    <option value="1-5">1–5</option>
+                                    <option value="6-20">6–20</option>
+                                    <option value="21-50">21–50</option>
+                                    <option value="50+">Más de 50</option>
+                                </select></div>
+                        </div>
+                        <div><label for="f-descripcion" class="block text-sm font-medium mb-1.5">¿Qué tarea te quita más
+                                timepo hoy?</label><textarea id="f-descripcion" name="descripcion" rows="3"
+                                maxlength="500"
+                                placeholder="Ej: Respondemos a mano WhatsApp, anota pedidos en Excel y los pasa a Mercado Libre o Tiendanube. Tenemos que bajar retenciones de AFIP cada día."
+                                class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"></textarea>
+                            <p class="text-xs text-brand-mutedDark mt-1">Cuanto más detallado, más útil es el
+                                diagnóstico.</p>
+                        </div>
+                        <div><label for="f-herramientas" class="block text-sm font-medium mb-1.5">Herramientas que usas
+                                <span class="text-xs text-brand-muted">(opcional)</span></label><input type="text"
+                                id="f-herramientas" name="herramientas" maxlength="200"
+                                placeholder="Ej: WhatsApp Business, Mercado Libre, Tiendanube, Calendly, Gmail…"
+                                class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                        </div>
+                        <div class="flex items-start gap-3"><input type="checkbox" id="f-privacidad" name="privacidad"
+                                required
+                                class="mt-1 w-4 h-4 rounded border-brand-border bg-brand-bg text-brand-accent focus:ring-brand-accent"><label
+                                for="f-privacidad" class="text-xs text-brand-muted">He leído y acepto la <a href="#"
+                                    class="underline hover:text-brand-text">Política de Privacidad</a> y consiento que
+                                NexoIA me contacte para gestionar mi solicitud. <span
+                                    class="text-red-400">*</span></label></div>
+                        <button type="submit" id="form-submit-btn"
+                            class="w-full bg-brand-accent hover:bg-brand-accentHover text-white font-semibold py-4 rounded-xl transition-all btn-glow text-base"
+                            data-track="click_CTA_diagnostico">Solicitar mi diagnóstico gratuito →</button>
+                        <p class="text-xs text-brand-mutedDark text-center">✓ Sin spam · ✓ Sin compromiso · ✓
+                            Respondemos antes de 24h</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="border-t border-brand-border py-12 lg:py-16">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                <div>
+                    <a href="#inicio" class="flex items-center gap-3 group" aria-label="NexoIA — Inicio">
+                        <div class="relative shrink-0">
+                            <svg width="60" height="60" viewBox="0 0 70 70" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" class="h-10 w-auto opacity-80 group-hover:opacity-100 transition-opacity">
+                                <circle cx="35" cy="35" r="32" fill="#1A1E2A" />
+                                <path d="M35 14L51.45 23.5V46.5L35 56L18.55 46.5V23.5L35 14Z" stroke="#3B82F6"
+                                    stroke-width="2" stroke-opacity="0.6" />
+                                <circle cx="35" cy="35" r="4" fill="#3B82F6" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-1">
+                                <span class="text-xl font-extrabold text-white tracking-tighter">Nexo</span>
+                                <span class="text-xl font-extrabold text-brand-accent">IA</span>
+                            </div>
+                            <span class="text-[8px] font-bold text-brand-muted tracking-[0.15em] uppercase -mt-0.5">
+                                AUTOMATIZACIÓN INTELIGENTE
+                            </span>
+                        </div>
+                    </a>
+                    <p class="text-sm text-brand-muted mt-3">Automatización e inteligencia artificial aplicada a
+                        negocios.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-3">Servicios</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="#servicios" class="hover:text-brand-text transition-colors">Webs con IA</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-text transition-colors">Automatizaciones
+                                n8n</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-text transition-colors">Embudos de ventas</a>
+                        </li>
+                        <li><a href="#servicios" class="hover:text-brand-text transition-colors">Mensajería
+                                inteligente</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-3">Empresa</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="#proceso" class="hover:text-brand-text transition-colors">Cómo trabajamos</a></li>
+                        <li><a href="#resultados" class="hover:text-brand-text transition-colors">Resultados</a></li>
+                        <li><a href="#precios" class="hover:text-brand-text transition-colors">Precios</a></li>
+                        <li><a href="#faq" class="hover:text-brand-text transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-sm mb-3">Contacto</h4>
+                    <ul class="space-y-2 text-sm text-brand-muted">
+                        <li><a href="mailto:hola@nexoia.ar" class="hover:text-brand-text transition-colors">hola@nexoia.ar</a></li>
+                        <li>+54 9 11 6006-1295</li>
+                        <li><a href="https://wa.me/5491160061295" target="_blank" rel="noopener"
+                                class="hover:text-brand-text transition-colors">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="border-t border-brand-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-mutedDark">
+                <p>© 2026 NexoIA · Hecho con IA en Argentina 🇦🇷</p>
+                <div class="flex gap-4"><a href="#" class="hover:text-brand-text transition-colors">Aviso Legal</a><a
+                        href="#" class="hover:text-brand-text transition-colors">Privacidad</a><a href="#"
+                        class="hover:text-brand-text transition-colors">Cookies</a></div>
+            </div>
+            <p class="text-center text-xs text-brand-mutedDark mt-6">¿Aún tenés dudas? <a
+                    href="https://wa.me/5491160061295" target="_blank" rel="noopener"
+                    class="text-brand-accent hover:underline">Escribinos — sin compromiso, sin formularios.</a></p>
+        </div>
+    </footer>
+
+    <!-- ═══ STICKY MOBILE BAR ═══ -->
+    <div id="sticky-bar"
+        class="sticky-mobile fixed bottom-0 left-0 right-0 z-40 bg-brand-surface/95 backdrop-blur border-t border-brand-border p-3 flex gap-2">
+        <a href="https://wa.me/5491160061295" target="_blank" rel="noopener"
+            class="flex-1 flex items-center justify-center gap-2 bg-brand-green/90 hover:bg-brand-green text-white font-semibold py-3 rounded-xl text-sm transition-colors"
+            data-track="sticky_cta_whatsapp">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            </svg>
+            WhatsApp
+        </a>
+        <a href="tel:+5491160061295"
+            class="flex items-center justify-center gap-2 bg-brand-surface2 border border-brand-border text-brand-text font-semibold py-3 px-5 rounded-xl text-sm transition-colors"
+            data-track="sticky_cta_phone">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+            Llamar
+        </a>
+        <a href="#contacto"
+            class="flex-1 flex items-center justify-center bg-brand-accent hover:bg-brand-accentHover text-white font-semibold py-3 rounded-xl text-sm transition-all"
+            data-track="sticky_cta_click">
+            Diagnóstico gratis
+        </a>
+    </div>
+
+    <!-- ═══ JS ═══ -->
+    <script>
+            (function () {
+                /* === TRACKING HOOKS === */
+                function trackEvent(n, p = {}) { console.log('[Track]', n, p); document.dispatchEvent(new CustomEvent('nexoia_track', { detail: { event: n, ...p } })); if (typeof gtag !== 'undefined') gtag('event', n, p) }
+                document.querySelectorAll('[data-track]').forEach(el => { el.addEventListener('click', () => trackEvent(el.dataset.track, { label: el.textContent.trim().substring(0, 60) })) });
+
+                /* === SCROLL DEPTH === */
+                const st = new Set();
+                window.addEventListener('scroll', () => { const p = Math.round(window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100);[25, 50, 75].forEach(t => { if (p >= t && !st.has(t)) { st.add(t); trackEvent('scroll_depth_' + t) } }) }, { passive: true });
+
+                /* === SMOOTH SCROLL === */
+                document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { const t = document.querySelector(this.getAttribute('href')); if (t) { e.preventDefault(); const y = t.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top: y, behavior: 'smooth' }); t.setAttribute('tabindex', '-1'); t.focus({ preventScroll: true }); const mm = document.getElementById('mobile-menu'); if (mm && !mm.classList.contains('hidden')) mm.classList.add('hidden') } }) });
+
+                /* === MOBILE MENU === */
+                const mb = document.getElementById('mobile-menu-btn'), mm = document.getElementById('mobile-menu');
+                mb?.addEventListener('click', () => { const o = mm.classList.toggle('hidden'); mb.setAttribute('aria-expanded', !o ? 'true' : 'false') });
+
+                /* === STICKY MOBILE BAR === */
+                const hero = document.getElementById('inicio'), sb = document.getElementById('sticky-bar');
+                if (hero && sb) { new IntersectionObserver(([e]) => sb.classList.toggle('show', !e.isIntersecting), { threshold: 0.1 }).observe(hero) }
+
+                /* === FAQ ACCORDION === */
+                document.querySelectorAll('.faq-btn').forEach(btn => { btn.addEventListener('click', () => { const ex = btn.getAttribute('aria-expanded') === 'true'; const ans = document.getElementById(btn.getAttribute('aria-controls')); document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); b.querySelector('.faq-icon').style.transform = ''; document.getElementById(b.getAttribute('aria-controls')).classList.remove('open') }); if (!ex) { btn.setAttribute('aria-expanded', 'true'); btn.querySelector('.faq-icon').style.transform = 'rotate(180deg)'; ans.classList.add('open'); trackEvent('faq_open', { question: btn.textContent.trim().substring(0, 50) }) } }) });
+
+                /* === SCROLL REVEAL === */
+                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { const ro = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target) } }) }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }); document.querySelectorAll('.reveal').forEach(el => ro.observe(el)) }
+
+                /* === DYNAMIC PROCESS SELECT === */
+                const svc = document.getElementById('f-servicio'), pw = document.getElementById('proceso-wrapper'), ps = document.getElementById('f-proceso');
+                const opts = { web: ['Nueva web corporativa o landing', 'Rediseño de web existente', 'Landing para campañas de captación', 'Tienda online', 'Integración de chatbot en web', 'Web multiidioma', 'Otro'], n8n: ['Facturación o presupuestos automáticos', 'Notificaciones internas al equipo', 'Sincronización de datos entre apps', 'Onboarding de nuevos clientes', 'Reportes automáticos', 'Gestión de pedidos o reservas', 'Otro'], embudo: ['Cualificación automática de leads', 'Seguimiento post-consulta', 'Nurturing por email o WhatsApp', 'Recuperación de carritos', 'Pipeline en CRM', 'Otro'], mensajeria: ['Chatbot WhatsApp Business', 'Respuesta automática email', 'Recordatorios de citas', 'Encuestas post-servicio', 'Soporte 24h', 'Otro'] };
+                svc?.addEventListener('change', () => { const v = svc.value; if (opts[v]) { pw.classList.remove('hidden'); ps.innerHTML = '<option value="">Selecciona un proceso</option>' + opts[v].map(o => `<option value="${o}">${o}</option>`).join('') } else { pw.classList.add('hidden'); ps.innerHTML = '<option value="">Selecciona un proceso</option>' } });
+
+                /* === FORM VALIDATION === */
+                const form = document.getElementById('form-diagnostico'), fbtn = document.getElementById('form-submit-btn'), fmsg = document.getElementById('form-messages');
+                let firstFocus = false;
+                form?.querySelector('input')?.addEventListener('focus', () => { if (!firstFocus) { firstFocus = true; trackEvent('form_start') } }, { once: true });
+
+                function showErr(msg) { fmsg.innerHTML = `<div class="bg-red-500/10 border border-red-500/30 text-red-300 text-sm p-4 rounded-xl mb-4">${msg}</div>`; fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' }) }
+                function clearErr() { fmsg.innerHTML = '' }
+
+                form?.addEventListener('submit', e => {
+                    e.preventDefault(); clearErr(); trackEvent('form_submit_attempt');
+                    const fd = new FormData(form); const errs = [];
+                    if (!fd.get('nombre') || fd.get('nombre').trim().length < 2) errs.push('Introduce tu nombre completo');
+                    if (!fd.get('email') || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get('email'))) errs.push('Revisa el formato — necesitamos un email al que responderte');
+                    if (!fd.get('telefono') || fd.get('telefono').replace(/\D/g, '').length < 9) errs.push('Introduce un teléfono válido');
+                    if (!fd.get('contacto')) errs.push('Indica cómo prefieres que te contactemos');
+                    if (!fd.get('negocio')) errs.push('Indica el tipo de negocio');
+                    if (!fd.get('servicio')) errs.push('Selecciona el servicio que te interesa');
+                    if (!fd.get('urgencia')) errs.push('Indica cuándo lo necesitas');
+                    if (!fd.get('empleados')) errs.push('Indica el número de empleados');
+                    if (!form.querySelector('[name=privacidad]').checked) errs.push('Acepta la política de privacidad para continuar');
+                    if (errs.length) { showErr(errs.map(e => '• ' + e).join('<br>')); return }
+                    fbtn.textContent = 'Enviando tu solicitud…'; fbtn.disabled = true;
+                    setTimeout(() => {
+                        trackEvent('form_submit_success');
+                        fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/30 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Hemos recibido tu solicitud.</p><p class="text-sm text-brand-muted">Revisaremos tu caso y te enviaremos un correo con los próximos pasos de tu diagnóstico.</p><p class="text-sm text-brand-muted mt-2">Si es urgente, escribinos ahora por <a href="https://wa.me/5491160061295" target="_blank" rel="noopener" class="text-brand-accent underline">WhatsApp</a>.</p></div>`
