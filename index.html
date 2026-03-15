@@ -897,7 +897,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                             </svg>
-                            <a href="mailto:hola@nexoia.ar" class="hover:text-brand-text transition-colors">hola@nexoia.ar</a>
+                            hola@nexoia.ar
                         </p>
                         <p class="flex items-center gap-3 text-brand-muted">
                             <svg class="w-5 h-5 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -1084,7 +1084,7 @@
                 <div>
                     <h4 class="font-semibold text-sm mb-3">Contacto</h4>
                     <ul class="space-y-2 text-sm text-brand-muted">
-                        <li><a href="mailto:hola@nexoia.ar" class="hover:text-brand-text transition-colors">hola@nexoia.ar</a></li>
+                        <li>hola@nexoia.ar</li>
                         <li>+54 9 11 6006-1295</li>
                         <li><a href="https://wa.me/5491160061295" target="_blank" rel="noopener"
                                 class="hover:text-brand-text transition-colors">WhatsApp</a></li>
@@ -1189,4 +1189,13 @@
                     fbtn.textContent = 'Enviando tu solicitud…'; fbtn.disabled = true;
                     setTimeout(() => {
                         trackEvent('form_submit_success');
-                        fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/30 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Hemos rec
+                        fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/30 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Hemos recibido tu solicitud.</p><p class="text-sm text-brand-muted">Revisaremos tu caso y te enviaremos un correo con los próximos pasos de tu diagnóstico.</p><p class="text-sm text-brand-muted mt-2">Si es urgente, escribinos ahora por <a href="https://wa.me/5491160061295" target="_blank" rel="noopener" class="text-brand-accent underline">WhatsApp</a>.</p></div>`;
+                        form.querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; el.classList.add('opacity-50') });
+                        fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                    }, 1200)
+                });
+            })();
+    </script>
+</body>
+
+</html>
