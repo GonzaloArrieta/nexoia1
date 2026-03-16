@@ -8,6 +8,9 @@
     <meta name="description"
         content="Automatizamos WhatsApp, CRM y procesos repetitivos de tu negocio con IA. Diagnóstico gratuito. Implementación en días. Sin cambiar tus herramientas.">
     <link rel="canonical" href="https://nexoia.ar/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
     <meta property="og:type" content="website">
     <meta property="og:title" content="NexoIA — Automatización e IA para Negocios">
     <meta property="og:description"
@@ -1134,67 +1137,93 @@
 
     <!-- ═══ JS ═══ -->
     <script>
-            (function () {
-                /* === TRACKING HOOKS === */
-                function trackEvent(n, p = {}) { console.log('[Track]', n, p); document.dispatchEvent(new CustomEvent('nexoia_track', { detail: { event: n, ...p } })); if (typeof gtag !== 'undefined') gtag('event', n, p) }
-                document.querySelectorAll('[data-track]').forEach(el => { el.addEventListener('click', () => trackEvent(el.dataset.track, { label: el.textContent.trim().substring(0, 60) })) });
+        (function () {
+            /* === TRACKING HOOKS === */
+            function trackEvent(n, p = {}) { console.log('[Track]', n, p); document.dispatchEvent(new CustomEvent('nexoia_track', { detail: { event: n, ...p } })); if (typeof gtag !== 'undefined') gtag('event', n, p) }
+            document.querySelectorAll('[data-track]').forEach(el => { el.addEventListener('click', () => trackEvent(el.dataset.track, { label: el.textContent.trim().substring(0, 60) })) });
 
-                /* === SCROLL DEPTH === */
-                const st = new Set();
-                window.addEventListener('scroll', () => { const p = Math.round(window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100);[25, 50, 75].forEach(t => { if (p >= t && !st.has(t)) { st.add(t); trackEvent('scroll_depth_' + t) } }) }, { passive: true });
+            /* === SCROLL DEPTH === */
+            const st = new Set();
+            window.addEventListener('scroll', () => { const p = Math.round(window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100);[25, 50, 75].forEach(t => { if (p >= t && !st.has(t)) { st.add(t); trackEvent('scroll_depth_' + t) } }) }, { passive: true });
 
-                /* === SMOOTH SCROLL === */
-                document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { const t = document.querySelector(this.getAttribute('href')); if (t) { e.preventDefault(); const y = t.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top: y, behavior: 'smooth' }); t.setAttribute('tabindex', '-1'); t.focus({ preventScroll: true }); const mm = document.getElementById('mobile-menu'); if (mm && !mm.classList.contains('hidden')) mm.classList.add('hidden') } }) });
+            /* === SMOOTH SCROLL === */
+            document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { const t = document.querySelector(this.getAttribute('href')); if (t) { e.preventDefault(); const y = t.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top: y, behavior: 'smooth' }); t.setAttribute('tabindex', '-1'); t.focus({ preventScroll: true }); const mm = document.getElementById('mobile-menu'); if (mm && !mm.classList.contains('hidden')) mm.classList.add('hidden') } }) });
 
-                /* === MOBILE MENU === */
-                const mb = document.getElementById('mobile-menu-btn'), mm = document.getElementById('mobile-menu');
-                mb?.addEventListener('click', () => { const o = mm.classList.toggle('hidden'); mb.setAttribute('aria-expanded', !o ? 'true' : 'false') });
+            /* === MOBILE MENU === */
+            const mb = document.getElementById('mobile-menu-btn'), mm = document.getElementById('mobile-menu');
+            mb?.addEventListener('click', () => { const o = mm.classList.toggle('hidden'); mb.setAttribute('aria-expanded', !o ? 'true' : 'false') });
 
-                /* === STICKY MOBILE BAR === */
-                const hero = document.getElementById('inicio'), sb = document.getElementById('sticky-bar');
-                if (hero && sb) { new IntersectionObserver(([e]) => sb.classList.toggle('show', !e.isIntersecting), { threshold: 0.1 }).observe(hero) }
+            /* === STICKY MOBILE BAR === */
+            const hero = document.getElementById('inicio'), sb = document.getElementById('sticky-bar');
+            if (hero && sb) { new IntersectionObserver(([e]) => sb.classList.toggle('show', !e.isIntersecting), { threshold: 0.1 }).observe(hero) }
 
-                /* === FAQ ACCORDION === */
-                document.querySelectorAll('.faq-btn').forEach(btn => { btn.addEventListener('click', () => { const ex = btn.getAttribute('aria-expanded') === 'true'; const ans = document.getElementById(btn.getAttribute('aria-controls')); document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); b.querySelector('.faq-icon').style.transform = ''; document.getElementById(b.getAttribute('aria-controls')).classList.remove('open') }); if (!ex) { btn.setAttribute('aria-expanded', 'true'); btn.querySelector('.faq-icon').style.transform = 'rotate(180deg)'; ans.classList.add('open'); trackEvent('faq_open', { question: btn.textContent.trim().substring(0, 50) }) } }) });
+            /* === FAQ ACCORDION === */
+            document.querySelectorAll('.faq-btn').forEach(btn => { btn.addEventListener('click', () => { const ex = btn.getAttribute('aria-expanded') === 'true'; const ans = document.getElementById(btn.getAttribute('aria-controls')); document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); b.querySelector('.faq-icon').style.transform = ''; document.getElementById(b.getAttribute('aria-controls')).classList.remove('open') }); if (!ex) { btn.setAttribute('aria-expanded', 'true'); btn.querySelector('.faq-icon').style.transform = 'rotate(180deg)'; ans.classList.add('open'); trackEvent('faq_open', { question: btn.textContent.trim().substring(0, 50) }) } }) });
 
-                /* === SCROLL REVEAL === */
-                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { const ro = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target) } }) }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }); document.querySelectorAll('.reveal').forEach(el => ro.observe(el)) }
+            /* === SCROLL REVEAL === */
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { const ro = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target) } }) }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }); document.querySelectorAll('.reveal').forEach(el => ro.observe(el)) }
 
-                /* === DYNAMIC PROCESS SELECT === */
-                const svc = document.getElementById('f-servicio'), pw = document.getElementById('proceso-wrapper'), ps = document.getElementById('f-proceso');
-                const opts = { web: ['Nueva web corporativa o landing', 'Rediseño de web existente', 'Landing para campañas de captación', 'Tienda online', 'Integración de chatbot en web', 'Web multiidioma', 'Otro'], n8n: ['Facturación o presupuestos automáticos', 'Notificaciones internas al equipo', 'Sincronización de datos entre apps', 'Onboarding de nuevos clientes', 'Reportes automáticos', 'Gestión de pedidos o reservas', 'Otro'], embudo: ['Cualificación automática de leads', 'Seguimiento post-consulta', 'Nurturing por email o WhatsApp', 'Recuperación de carritos', 'Pipeline en CRM', 'Otro'], mensajeria: ['Chatbot WhatsApp Business', 'Respuesta automática email', 'Recordatorios de citas', 'Encuestas post-servicio', 'Soporte 24h', 'Otro'] };
-                svc?.addEventListener('change', () => { const v = svc.value; if (opts[v]) { pw.classList.remove('hidden'); ps.innerHTML = '<option value="">Selecciona un proceso</option>' + opts[v].map(o => `<option value="${o}">${o}</option>`).join('') } else { pw.classList.add('hidden'); ps.innerHTML = '<option value="">Selecciona un proceso</option>' } });
+            /* === DYNAMIC PROCESS SELECT === */
+            const svc = document.getElementById('f-servicio'), pw = document.getElementById('proceso-wrapper'), ps = document.getElementById('f-proceso');
+            const opts = { web: ['Nueva web corporativa o landing', 'Rediseño de web existente', 'Landing para campañas de captación', 'Tienda online', 'Integración de chatbot en web', 'Web multiidioma', 'Otro'], n8n: ['Facturación o presupuestos automáticos', 'Notificaciones internas al equipo', 'Sincronización de datos entre apps', 'Onboarding de nuevos clientes', 'Reportes automáticos', 'Gestión de pedidos o reservas', 'Otro'], embudo: ['Cualificación automática de leads', 'Seguimiento post-consulta', 'Nurturing por email o WhatsApp', 'Recuperación de carritos', 'Pipeline en CRM', 'Otro'], mensajeria: ['Chatbot WhatsApp Business', 'Respuesta automática email', 'Recordatorios de citas', 'Encuestas post-servicio', 'Soporte 24h', 'Otro'] };
+            svc?.addEventListener('change', () => { const v = svc.value; if (opts[v]) { pw.classList.remove('hidden'); ps.innerHTML = '<option value="">Selecciona un proceso</option>' + opts[v].map(o => `<option value="${o}">${o}</option>`).join('') } else { pw.classList.add('hidden'); ps.innerHTML = '<option value="">Selecciona un proceso</option>' } });
 
-                /* === FORM VALIDATION === */
-                const form = document.getElementById('form-diagnostico'), fbtn = document.getElementById('form-submit-btn'), fmsg = document.getElementById('form-messages');
-                let firstFocus = false;
-                form?.querySelector('input')?.addEventListener('focus', () => { if (!firstFocus) { firstFocus = true; trackEvent('form_start') } }, { once: true });
+            /* === FORM VALIDATION + WEBHOOK === */
+            const form = document.getElementById('form-diagnostico'), fbtn = document.getElementById('form-submit-btn'), fmsg = document.getElementById('form-messages');
+            let firstFocus = false;
+            form?.querySelector('input')?.addEventListener('focus', () => { if (!firstFocus) { firstFocus = true; trackEvent('form_start') } }, { once: true });
 
-                function showErr(msg) { fmsg.innerHTML = `<div class="bg-red-500/10 border border-red-500/30 text-red-300 text-sm p-4 rounded-xl mb-4">${msg}</div>`; fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' }) }
-                function clearErr() { fmsg.innerHTML = '' }
+            function showErr(msg) { fmsg.innerHTML = `<div class="bg-red-500/10 border border-red-500/30 text-red-300 text-sm p-4 rounded-xl mb-4">${msg}</div>`; fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' }) }
+            function clearErr() { fmsg.innerHTML = '' }
 
-                form?.addEventListener('submit', e => {
-                    e.preventDefault(); clearErr(); trackEvent('form_submit_attempt');
-                    const fd = new FormData(form); const errs = [];
-                    if (!fd.get('nombre') || fd.get('nombre').trim().length < 2) errs.push('Introduce tu nombre completo');
-                    if (!fd.get('email') || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get('email'))) errs.push('Revisa el formato — necesitamos un email al que responderte');
-                    if (!fd.get('telefono') || fd.get('telefono').replace(/\D/g, '').length < 9) errs.push('Introduce un teléfono válido');
-                    if (!fd.get('contacto')) errs.push('Indica cómo prefieres que te contactemos');
-                    if (!fd.get('negocio')) errs.push('Indica el tipo de negocio');
-                    if (!fd.get('servicio')) errs.push('Selecciona el servicio que te interesa');
-                    if (!fd.get('urgencia')) errs.push('Indica cuándo lo necesitas');
-                    if (!fd.get('empleados')) errs.push('Indica el número de empleados');
-                    if (!form.querySelector('[name=privacidad]').checked) errs.push('Acepta la política de privacidad para continuar');
-                    if (errs.length) { showErr(errs.map(e => '• ' + e).join('<br>')); return }
-                    fbtn.textContent = 'Enviando tu solicitud…'; fbtn.disabled = true;
-                    setTimeout(() => {
-                        trackEvent('form_submit_success');
-                        fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/30 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Hemos recibido tu solicitud.</p><p class="text-sm text-brand-muted">Revisaremos tu caso y te enviaremos un correo con los próximos pasos de tu diagnóstico.</p><p class="text-sm text-brand-muted mt-2">Si es urgente, escribinos ahora por <a href="https://wa.me/5491160061295" target="_blank" rel="noopener" class="text-brand-accent underline">WhatsApp</a>.</p></div>`;
-                        form.querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; el.classList.add('opacity-50') });
-                        fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' })
-                    }, 1200)
+            form?.addEventListener('submit', e => {
+                e.preventDefault(); clearErr(); trackEvent('form_submit_attempt');
+                const fd = new FormData(form); const errs = [];
+                if (!fd.get('nombre') || fd.get('nombre').trim().length < 2) errs.push('Introduce tu nombre completo');
+                if (!fd.get('email') || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get('email'))) errs.push('Revisa el formato — necesitamos un email al que responderte');
+                if (!fd.get('telefono') || fd.get('telefono').replace(/\D/g, '').length < 9) errs.push('Introduce un teléfono válido');
+                if (!fd.get('contacto')) errs.push('Indica cómo prefieres que te contactemos');
+                if (!fd.get('negocio')) errs.push('Indica el tipo de negocio');
+                if (!fd.get('servicio')) errs.push('Selecciona el servicio que te interesa');
+                if (!fd.get('urgencia')) errs.push('Indica cuándo lo necesitas');
+                if (!fd.get('empleados')) errs.push('Indica el número de empleados');
+                if (!form.querySelector('[name=privacidad]').checked) errs.push('Acepta la política de privacidad para continuar');
+                if (errs.length) { showErr(errs.map(e => '• ' + e).join('<br>')); return }
+
+                fbtn.textContent = 'Enviando tu solicitud…'; fbtn.disabled = true;
+
+                const payload = {
+                    nombre: fd.get('nombre'),
+                    email: fd.get('email'),
+                    telefono: fd.get('telefono'),
+                    contacto: fd.get('contacto'),
+                    negocio: fd.get('negocio'),
+                    servicio: fd.get('servicio'),
+                    proceso: fd.get('proceso'),
+                    urgencia: fd.get('urgencia'),
+                    empleados: fd.get('empleados'),
+                    tarea: fd.get('descripcion'),
+                    herramientas: fd.get('herramientas')
+                };
+
+                fetch('https://n8n-n8n.t2te1u.easypanel.host/webhook/nexoia-lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                })
+                .then(() => {
+                    trackEvent('form_submit_success');
+                    fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/30 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Hemos recibido tu solicitud.</p><p class="text-sm text-brand-muted">Revisaremos tu caso y te enviaremos un correo con los próximos pasos de tu diagnóstico.</p><p class="text-sm text-brand-muted mt-2">Si es urgente, escribinos ahora por <a href="https://wa.me/5491160061295" target="_blank" rel="noopener" class="text-brand-accent underline">WhatsApp</a>.</p></div>`;
+                    form.querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; el.classList.add('opacity-50') });
+                    fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                })
+                .catch(() => {
+                    fbtn.textContent = 'Solicitar mi diagnóstico gratuito →';
+                    fbtn.disabled = false;
+                    showErr('Hubo un error al enviar. Intentá de nuevo o escribinos por <a href="https://wa.me/5491160061295" class="underline">WhatsApp</a>.');
                 });
-            })();
+            });
+        })();
     </script>
 </body>
 
