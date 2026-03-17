@@ -1194,12 +1194,40 @@
                     if (!form.querySelector('[name=privacidad]').checked) errs.push('Acepta la política de privacidad para continuar');
                     if (errs.length) { showErr(errs.map(e => '• ' + e).join('<br>')); return }
                     fbtn.textContent = 'Enviando tu solicitud…'; fbtn.disabled = true;
-                    setTimeout(() => {
+
+                    // Mapeo de campos para el workflow de n8n
+                    const data = {
+                        nombre_completo: fd.get('nombre'),
+                        email: fd.get('email'),
+                        telefono: fd.get('telefono'),
+                        preferencia_contacto: fd.get('contacto'),
+                        tipo_negocio: fd.get('negocio'),
+                        servicio_interes: fd.get('servicio'),
+                        urgencia: fd.get('urgencia'),
+                        num_empleados: fd.get('empleados'),
+                        descripcion_problema: fd.get('descripcion'),
+                        herramientas_usadas: fd.get('herramientas')
+                    };
+
+                    fetch('https://n8n-n8n.t2te1u.easypanel.host/webhook/nexoia-lead', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Error en el servidor');
                         trackEvent('form_submit_success');
                         fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/30 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Hemos recibido tu solicitud.</p><p class="text-sm text-brand-muted">Revisaremos tu caso y te enviaremos un correo con los próximos pasos de tu diagnóstico.</p><p class="text-sm text-brand-muted mt-2">Si es urgente, escribinos ahora por <a href="https://wa.me/5491160061295" target="_blank" rel="noopener" class="text-brand-accent underline">WhatsApp</a>.</p></div>`;
                         form.querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; el.classList.add('opacity-50') });
-                        fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' })
-                    }, 1200)
+                        fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    })
+                    .catch(error => {
+                        console.error('Error submitting form:', error);
+                        trackEvent('form_submit_error');
+                        showErr('Hubo un problema al enviar tu solicitud. Por favor, intentá de nuevo o contactanos directamente por WhatsApp.');
+                        fbtn.textContent = 'Solicitar mi diagnóstico gratuito →';
+                        fbtn.disabled = false;
+                    });
                 });
             })();
     </script>
