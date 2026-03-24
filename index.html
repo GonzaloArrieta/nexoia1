@@ -24,125 +24,75 @@
         tailwind.config = { theme: { extend: { colors: { brand: { bg: '#0B0E14', surface: '#12151E', surface2: '#1A1E2A', border: '#242836', accent: '#3B82F6', accentHover: '#2563EB', green: '#10B981', text: '#F0F4FF', muted: '#8B95A7', mutedDark: '#5A6478' } }, fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'system-ui', 'Helvetica Neue', 'Arial', 'sans-serif'] } } } }
     </script>
     <style>
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px
+        html{scroll-behavior:smooth;scroll-padding-top:80px}
+        body{background:#0B0E14;color:#F0F4FF}
+        ::selection{background:#3B82F6;color:#fff}
+        :focus-visible{outline:2px solid #3B82F6;outline-offset:3px}
+        .skip-link{position:absolute;top:-100%;left:0;padding:.5rem 1rem;background:#3B82F6;color:#fff;z-index:9999;border-radius:0 0 8px 0}
+        .skip-link:focus{top:0}
+
+        /* --- CARDS GLOW (enhanced) --- */
+        .glow-card{border:1px solid #242836;transition:all .35s cubic-bezier(.4,0,.2,1)}
+        .glow-card:hover{border-color:rgba(59,130,246,.5);box-shadow:0 0 40px rgba(59,130,246,.12),0 0 80px rgba(59,130,246,.05),0 8px 32px rgba(0,0,0,.4);transform:translateY(-3px)}
+        .glow-card:hover .service-icon{transform:scale(1.1);box-shadow:0 0 20px rgba(59,130,246,.2)}
+        .service-icon{transition:transform .3s ease,box-shadow .3s ease}
+
+        .dot-pattern{background-image:radial-gradient(rgba(59,130,246,.12) 1px,transparent 1px);background-size:24px 24px}
+
+        /* --- REVEAL ANIMATIONS --- */
+        @media(prefers-reduced-motion:no-preference){
+            .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1)}
+            .reveal.visible{opacity:1;transform:none}
+            .reveal-stagger .glow-card{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+            .reveal-stagger.visible .glow-card{opacity:1;transform:none}
+            .reveal-stagger.visible .glow-card:nth-child(1){transition-delay:.05s}
+            .reveal-stagger.visible .glow-card:nth-child(2){transition-delay:.15s}
+            .reveal-stagger.visible .glow-card:nth-child(3){transition-delay:.25s}
+            .reveal-stagger.visible .glow-card:nth-child(4){transition-delay:.35s}
+            @keyframes ctaPulse{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,.4)}50%{box-shadow:0 0 0 8px rgba(59,130,246,0)}}
+            .cta-pulse.visible{animation:ctaPulse 2s ease 1}
+        }
+        @media(prefers-reduced-motion:reduce){.reveal,.reveal-stagger .glow-card{opacity:1;transform:none}}
+
+        .sticky-mobile{transform:translateY(100%);transition:transform .3s ease}
+        .sticky-mobile.show{transform:translateY(0)}
+        @media(min-width:1024px){.sticky-mobile{display:none !important}}
+
+        /* --- FAQ (smoother) --- */
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1),padding .4s cubic-bezier(.4,0,.2,1);padding:0 1.5rem}
+        .faq-answer.open{max-height:600px;padding:0 1.5rem 1.25rem}
+        .faq-item-active{background:rgba(59,130,246,.03) !important;border-color:rgba(59,130,246,.25) !important}
+
+        /* --- CTA SHIMMER --- */
+        .btn-glow{position:relative;overflow:hidden}
+        .btn-glow::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transition:none}
+        @media(prefers-reduced-motion:no-preference){
+            .btn-glow:hover::after{left:100%;transition:left .6s ease}
         }
 
-        body {
-            background: #0B0E14;
-            color: #F0F4FF
-        }
+        /* --- NAV UNDERLINE --- */
+        .nav-link{position:relative}
+        .nav-link::after{content:'';position:absolute;bottom:-4px;left:0;width:100%;height:2px;background:#3B82F6;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+        .nav-link:hover::after{transform:scaleX(1)}
 
-        ::selection {
-            background: #3B82F6;
-            color: #fff
-        }
+        .gradient-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(59,130,246,.3),transparent)}
 
-        :focus-visible {
-            outline: 2px solid #3B82F6;
-            outline-offset: 3px
-        }
+        /* --- HERO GRADIENT --- */
+        .hero-gradient{background:radial-gradient(ellipse at 70% 30%,#1A1E2A 0%,#0B0E14 70%)}
 
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 0;
-            padding: .5rem 1rem;
-            background: #3B82F6;
-            color: #fff;
-            z-index: 9999;
-            border-radius: 0 0 8px 0
-        }
+        /* --- PARTICLE CANVAS --- */
+        #particle-canvas{position:absolute;inset:0;pointer-events:none;z-index:0}
 
-        .skip-link:focus {
-            top: 0
-        }
-
-        .glow-card {
-            border: 1px solid #242836;
-            transition: all .3s ease
-        }
-
-        .glow-card:hover {
-            border-color: rgba(59, 130, 246, .4);
-            box-shadow: 0 0 30px rgba(59, 130, 246, .08), 0 8px 32px rgba(0, 0, 0, .3);
-            transform: translateY(-2px)
-        }
-
-        .dot-pattern {
-            background-image: radial-gradient(rgba(59, 130, 246, .12) 1px, transparent 1px);
-            background-size: 24px 24px
-        }
-
-        @media(prefers-reduced-motion:no-preference) {
-            .reveal {
-                opacity: 0;
-                transform: translateY(24px);
-                transition: opacity .6s ease, transform .6s ease
-            }
-
-            .reveal.visible {
-                opacity: 1;
-                transform: none
-            }
-        }
-
-        @media(prefers-reduced-motion:reduce) {
-            .reveal {
-                opacity: 1;
-                transform: none
-            }
-        }
-
-        .sticky-mobile {
-            transform: translateY(100%);
-            transition: transform .3s ease
-        }
-
-        .sticky-mobile.show {
-            transform: translateY(0)
-        }
-
-        @media(min-width:1024px) {
-            .sticky-mobile {
-                display: none !important
-            }
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height .35s ease, padding .35s ease;
-            padding: 0 1.5rem
-        }
-
-        .faq-answer.open {
-            max-height: 600px;
-            padding: 0 1.5rem 1.25rem
-        }
-
-        .btn-glow {
-            position: relative;
-            overflow: hidden
-        }
-
-        .btn-glow::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, .15), transparent 50%);
-            opacity: 0;
-            transition: opacity .3s
-        }
-
-        .btn-glow:hover::after {
-            opacity: 1
-        }
-
-        .gradient-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, .3), transparent)
+        /* --- TERMINAL --- */
+        .terminal-window{background:#0B0E14;border:1px solid #242836;border-radius:12px;overflow:hidden;font-family:'Courier New',monospace}
+        .terminal-bar{background:#12151E;padding:8px 12px;display:flex;align-items:center;gap:6px;border-bottom:1px solid #242836}
+        .terminal-dot{width:10px;height:10px;border-radius:50%}
+        .terminal-body{padding:16px 20px;font-size:13px;line-height:1.8;min-height:160px}
+        .terminal-line{white-space:nowrap;overflow:hidden}
+        .terminal-cursor{display:inline-block;width:8px;height:16px;background:#3B82F6;vertical-align:text-bottom;margin-left:2px}
+        @media(prefers-reduced-motion:no-preference){
+            @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+            .terminal-cursor{animation:blink 1s step-end infinite}
         }
     </style>
     <script type="application/ld+json">
@@ -185,11 +135,11 @@
                 </div>
             </a>
             <nav class="hidden lg:flex items-center gap-6 text-sm text-brand-muted" aria-label="Menú principal">
-                <a href="#servicios" class="hover:text-brand-text transition-colors">Servicios</a>
-                <a href="#proceso" class="hover:text-brand-text transition-colors">Cómo funciona</a>
-                <a href="#resultados" class="hover:text-brand-text transition-colors">Resultados</a>
-                <a href="#precios" class="hover:text-brand-text transition-colors">Precios</a>
-                <a href="#faq" class="hover:text-brand-text transition-colors">FAQ</a>
+                <a href="#servicios" class="nav-link hover:text-brand-text transition-colors">Servicios</a>
+                <a href="#proceso" class="nav-link hover:text-brand-text transition-colors">Cómo funciona</a>
+                <a href="#resultados" class="nav-link hover:text-brand-text transition-colors">Resultados</a>
+                <a href="#precios" class="nav-link hover:text-brand-text transition-colors">Precios</a>
+                <a href="#faq" class="nav-link hover:text-brand-text transition-colors">FAQ</a>
                 <a href="#contacto"
                     class="ml-2 inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all btn-glow"
                     data-track="nav_cta_click">
@@ -218,12 +168,14 @@
     </header>
 
     <!-- ═══ HERO ═══ -->
-    <section id="inicio" class="relative pt-28 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+    <section id="inicio" class="relative pt-28 pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-gradient">
+        <canvas id="particle-canvas" aria-hidden="true"></canvas>
         <div class="absolute inset-0 dot-pattern opacity-40" aria-hidden="true"></div>
         <div class="absolute top-20 right-0 w-[600px] h-[600px] bg-brand-accent/5 rounded-full blur-[120px]"
             aria-hidden="true"></div>
         <div class="relative max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="max-w-3xl">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
                 <span
                     class="inline-block text-xs font-semibold tracking-widest uppercase text-brand-accent mb-6 border border-brand-accent/30 px-3 py-1 rounded-full">Agencia
                     de Inteligencia Artificial Aplicada</span>
@@ -293,6 +245,22 @@
                     Sin spam · Sin compromiso · Respondemos antes de 24h
                 </p>
             </div>
+            <!-- Terminal Block -->
+            <div class="reveal" id="terminal-block">
+                <div class="terminal-window shadow-2xl shadow-brand-accent/5">
+                    <div class="terminal-bar">
+                        <div class="terminal-dot" style="background:#ef4444"></div>
+                        <div class="terminal-dot" style="background:#f59e0b"></div>
+                        <div class="terminal-dot" style="background:#10B981"></div>
+                        <span class="text-xs text-brand-muted ml-2 font-sans">nexoia-cli</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div id="terminal-output"></div>
+                        <span class="terminal-cursor" id="terminal-cursor"></span>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
     </section>
 
@@ -320,11 +288,11 @@
                 <p class="text-brand-muted max-w-2xl mx-auto">Si hay una tarea que tu equipo repite a diario sin que
                     nadie haya preguntado si puede hacerse sola: probablemente puede. Aquí es donde entramos.</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-6 lg:gap-8">
+            <div class="grid md:grid-cols-2 gap-6 lg:gap-8 reveal-stagger reveal">
 
                 <!-- Card 1: Webs -->
-                <div class="glow-card bg-brand-surface rounded-2xl p-8 reveal" data-track="service_webs_click">
-                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5">
+                <div class="glow-card bg-brand-surface rounded-2xl p-8" data-track="service_webs_click">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5 service-icon">
                         <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             stroke-width="1.5" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -353,8 +321,8 @@
                 </div>
 
                 <!-- Card 2: n8n -->
-                <div class="glow-card bg-brand-surface rounded-2xl p-8 reveal">
-                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5">
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5 service-icon">
                         <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             stroke-width="1.5" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -384,8 +352,8 @@
                 </div>
 
                 <!-- Card 3: Embudos -->
-                <div class="glow-card bg-brand-surface rounded-2xl p-8 reveal">
-                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5">
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5 service-icon">
                         <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             stroke-width="1.5" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -414,8 +382,8 @@
                 </div>
 
                 <!-- Card 4: Mensajería -->
-                <div class="glow-card bg-brand-surface rounded-2xl p-8 reveal">
-                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5">
+                <div class="glow-card bg-brand-surface rounded-2xl p-8">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5 service-icon">
                         <svg class="w-6 h-6 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                             stroke-width="1.5" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -1147,9 +1115,10 @@
         </a>
     </div>
 
-    <!-- ═══ JS ═══ -->
     <script>
             (function () {
+                const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
                 /* === TRACKING HOOKS === */
                 function trackEvent(n, p = {}) { console.log('[Track]', n, p); document.dispatchEvent(new CustomEvent('nexoia_track', { detail: { event: n, ...p } })); if (typeof gtag !== 'undefined') gtag('event', n, p) }
                 document.querySelectorAll('[data-track]').forEach(el => { el.addEventListener('click', () => trackEvent(el.dataset.track, { label: el.textContent.trim().substring(0, 60) })) });
@@ -1169,11 +1138,71 @@
                 const hero = document.getElementById('inicio'), sb = document.getElementById('sticky-bar');
                 if (hero && sb) { new IntersectionObserver(([e]) => sb.classList.toggle('show', !e.isIntersecting), { threshold: 0.1 }).observe(hero) }
 
-                /* === FAQ ACCORDION === */
-                document.querySelectorAll('.faq-btn').forEach(btn => { btn.addEventListener('click', () => { const ex = btn.getAttribute('aria-expanded') === 'true'; const ans = document.getElementById(btn.getAttribute('aria-controls')); document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); b.querySelector('.faq-icon').style.transform = ''; document.getElementById(b.getAttribute('aria-controls')).classList.remove('open') }); if (!ex) { btn.setAttribute('aria-expanded', 'true'); btn.querySelector('.faq-icon').style.transform = 'rotate(180deg)'; ans.classList.add('open'); trackEvent('faq_open', { question: btn.textContent.trim().substring(0, 50) }) } }) });
+                /* === FAQ ACCORDION (enhanced with active state) === */
+                document.querySelectorAll('.faq-btn').forEach(btn => { btn.addEventListener('click', () => { const ex = btn.getAttribute('aria-expanded') === 'true'; const ans = document.getElementById(btn.getAttribute('aria-controls')); document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); b.querySelector('.faq-icon').style.transform = ''; document.getElementById(b.getAttribute('aria-controls')).classList.remove('open'); b.closest('[role="listitem"]')?.classList.remove('faq-item-active') }); if (!ex) { btn.setAttribute('aria-expanded', 'true'); btn.querySelector('.faq-icon').style.transform = 'rotate(180deg)'; ans.classList.add('open'); btn.closest('[role="listitem"]')?.classList.add('faq-item-active'); trackEvent('faq_open', { question: btn.textContent.trim().substring(0, 50) }) } }) });
 
-                /* === SCROLL REVEAL === */
-                if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) { const ro = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target) } }) }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }); document.querySelectorAll('.reveal').forEach(el => ro.observe(el)) }
+                /* === SCROLL REVEAL (enhanced with stagger support) === */
+                if (!prefersReduced) {
+                    const ro = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); if (e.target.classList.contains('cta-pulse')) e.target.classList.add('visible'); ro.unobserve(e.target) } }) }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+                    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+                    document.querySelectorAll('.cta-pulse').forEach(el => ro.observe(el));
+                }
+
+                /* === PARTICLE CANVAS === */
+                if (!prefersReduced) {
+                    const canvas = document.getElementById('particle-canvas');
+                    if (canvas) {
+                        const ctx = canvas.getContext('2d');
+                        let particles = [], raf;
+                        function resize() { const r = canvas.parentElement.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; }
+                        resize(); window.addEventListener('resize', resize);
+                        for (let i = 0; i < 40; i++) {
+                            particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: 1 + Math.random() * 2, vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.3, a: 0.06 + Math.random() * 0.09 });
+                        }
+                        function draw() {
+                            ctx.clearRect(0, 0, canvas.width, canvas.height);
+                            particles.forEach(p => {
+                                p.x += p.vx; p.y += p.vy;
+                                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                                ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                                ctx.fillStyle = `rgba(59,130,246,${p.a})`; ctx.fill();
+                            });
+                            raf = requestAnimationFrame(draw);
+                        }
+                        draw();
+                        document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(raf); else draw(); });
+                    }
+                }
+
+                /* === TERMINAL TYPEWRITER === */
+                const termOut = document.getElementById('terminal-output');
+                const termCursor = document.getElementById('terminal-cursor');
+                if (termOut) {
+                    const lines = [
+                        { text: '$ nexoia diagnóstico --empresa tuNegocio', color: '#10B981' },
+                        { text: '> Analizando procesos de tu empresa...', color: '#3B82F6' },
+                        { text: '> Detectando automatizaciones posibles: 3', color: '#3B82F6' },
+                        { text: '> Ahorro estimado: 12hs/semana', color: '#3B82F6' },
+                        { text: '> Implementando solución... ✓ Activo 24/7', color: '#10B981' }
+                    ];
+                    function typeLines() {
+                        if (prefersReduced) { lines.forEach(l => { const d = document.createElement('div'); d.className = 'terminal-line'; d.style.color = l.color; d.textContent = l.text; termOut.appendChild(d); }); if (termCursor) termCursor.style.display = 'none'; return; }
+                        let li = 0, ci = 0;
+                        function typeChar() {
+                            if (li >= lines.length) { if (termCursor) termCursor.style.display = 'none'; return; }
+                            if (ci === 0) { const d = document.createElement('div'); d.className = 'terminal-line'; d.style.color = lines[li].color; d.dataset.idx = li; termOut.appendChild(d); }
+                            const el = termOut.querySelector(`[data-idx="${li}"]`);
+                            if (ci < lines[li].text.length) { el.textContent = lines[li].text.substring(0, ci + 1); ci++; setTimeout(typeChar, 30 + Math.random() * 20); }
+                            else { ci = 0; li++; setTimeout(typeChar, 400); }
+                        }
+                        typeChar();
+                    }
+                    const tBlock = document.getElementById('terminal-block');
+                    if (tBlock && !prefersReduced) {
+                        new IntersectionObserver(([e]) => { if (e.isIntersecting) { typeLines(); e.target.__typed = true; } }, { threshold: 0.3 }).observe(tBlock);
+                    } else { typeLines(); }
+                }
 
                 /* === DYNAMIC PROCESS SELECT === */
                 const svc = document.getElementById('f-servicio'), pw = document.getElementById('proceso-wrapper'), ps = document.getElementById('f-proceso');
