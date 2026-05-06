@@ -366,6 +366,212 @@
             border: 1px solid rgba(16, 185, 129, .2)
         }
 
+        /* --- PRICING GRID --- */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 1023px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .pricing-card {
+            background: #12151E;
+            border: 1px solid #242836;
+            border-radius: 1.25rem;
+            padding: 2rem;
+            transition: all .35s cubic-bezier(.4, 0, .2, 1);
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(59, 130, 246, .35);
+            box-shadow: 0 0 40px rgba(59, 130, 246, .08), 0 8px 32px rgba(0, 0, 0, .3);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card-pro {
+            background: linear-gradient(180deg, #12151E 0%, rgba(59, 130, 246, .04) 100%);
+            border: 2px solid rgba(59, 130, 246, .5);
+            padding: 2.5rem 2rem;
+            box-shadow: 0 0 60px rgba(59, 130, 246, .08), 0 4px 20px rgba(0, 0, 0, .3);
+        }
+
+        @media (min-width: 1024px) {
+            .pricing-card-pro {
+                transform: scale(1.06);
+                z-index: 2;
+            }
+            .pricing-card-pro:hover {
+                transform: scale(1.06) translateY(-4px);
+            }
+        }
+
+        .pricing-card-pro:hover {
+            border-color: rgba(59, 130, 246, .8);
+            box-shadow: 0 0 80px rgba(59, 130, 246, .15), 0 8px 40px rgba(0, 0, 0, .4);
+        }
+
+        .plan-badge {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .plan-badge-starter {
+            background: rgba(59, 130, 246, .1);
+            color: #3B82F6;
+            border: 1px solid rgba(59, 130, 246, .2);
+        }
+
+        .plan-badge-pro {
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: #fff;
+            animation: badgePulse 2.5s ease-in-out infinite;
+        }
+
+        .plan-badge-enterprise {
+            background: rgba(139, 92, 246, .1);
+            color: #8B5CF6;
+            border: 1px solid rgba(139, 92, 246, .2);
+        }
+
+        .plan-recommended-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #3B82F6, #2563EB);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 6px 20px;
+            border-radius: 99px;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, .3);
+        }
+
+        /* --- FOUNDER BANNER --- */
+        .founder-banner {
+            background: linear-gradient(135deg, rgba(59, 130, 246, .06), rgba(139, 92, 246, .04));
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, rgba(59, 130, 246, .5), rgba(245, 158, 11, .5)) 1;
+            border-radius: 0;
+            padding: 1.5rem 2rem;
+            position: relative;
+        }
+
+        .founder-banner-wrapper {
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background: linear-gradient(#12151E, #12151E) padding-box,
+                        linear-gradient(135deg, rgba(59, 130, 246, .6), rgba(245, 158, 11, .5), rgba(139, 92, 246, .5)) border-box;
+        }
+
+        .founder-banner-inner {
+            background: linear-gradient(135deg, rgba(59, 130, 246, .05), rgba(139, 92, 246, .03));
+            padding: 1.5rem 2rem;
+        }
+
+        /* --- METRIC CARDS --- */
+        .metric-card {
+            background: #12151E;
+            border: 1px solid #242836;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all .3s ease;
+        }
+
+        .metric-card:hover {
+            border-color: rgba(59, 130, 246, .3);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3B82F6, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        /* --- VOICE TEASER --- */
+        .voice-teaser {
+            background: linear-gradient(135deg, rgba(139, 92, 246, .04), rgba(59, 130, 246, .03));
+            border: 1px solid rgba(139, 92, 246, .2);
+            border-radius: 1.25rem;
+            padding: 2rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .voice-teaser::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(139, 92, 246, .06), transparent 70%);
+            pointer-events: none;
+        }
+
+        .coming-soon-badge {
+            background: rgba(139, 92, 246, .12);
+            color: #A78BFA;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(139, 92, 246, .25);
+            display: inline-block;
+        }
+
+        /* --- AUDIO FEATURE --- */
+        .audio-feature-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, .05), rgba(59, 130, 246, .04));
+            border: 1px solid rgba(16, 185, 129, .2);
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+        }
+
+        @keyframes audioWave {
+            0%, 100% { height: 8px; }
+            50% { height: 20px; }
+        }
+
+        .audio-wave-bar {
+            width: 3px;
+            background: #10B981;
+            border-radius: 2px;
+            animation: audioWave 1.2s ease-in-out infinite;
+        }
+
+        .audio-wave-bar:nth-child(2) { animation-delay: .15s; }
+        .audio-wave-bar:nth-child(3) { animation-delay: .3s; }
+        .audio-wave-bar:nth-child(4) { animation-delay: .45s; }
+        .audio-wave-bar:nth-child(5) { animation-delay: .6s; }
+
         /* --- HERO GRADIENT --- */
         .hero-gradient {
             background: radial-gradient(ellipse at 70% 30%, #1A1E2A 0%, #0B0E14 70%)
@@ -495,7 +701,7 @@
                 <a href="#contacto"
                     class="ml-2 inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-all btn-glow"
                     data-track="nav_cta_click">
-                    Diagnóstico gratis — 20 min
+                    Demo gratis — 10 min
                 </a>
             </nav>
             <button id="mobile-menu-btn" class="lg:hidden p-2 text-brand-muted hover:text-brand-text"
@@ -513,7 +719,7 @@
                 <a href="#precios" class="py-2 text-brand-muted hover:text-brand-text">Precios</a>
                 <a href="#faq" class="py-2 text-brand-muted hover:text-brand-text">FAQ</a>
                 <a href="#contacto"
-                    class="mt-2 text-center bg-brand-accent text-white font-semibold py-3 rounded-lg">Diagnóstico
+                    class="mt-2 text-center bg-brand-accent text-white font-semibold py-3 rounded-lg">Demo
                     gratis</a>
             </nav>
         </div>
@@ -549,7 +755,7 @@
                                 stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                             </svg>
-                            <span><strong class="text-brand-text">Diagnóstico gratuito de 20 minutos:</strong>
+                            <span><strong class="text-brand-text">Demo gratuita de 10 minutos:</strong>
                                 detectamos
                                 los 3 procesos con más impacto en tu negocio</span>
                         </li>
@@ -576,7 +782,7 @@
                         <a href="#contacto"
                             class="inline-flex items-center justify-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold px-7 py-4 rounded-xl text-base transition-all btn-glow shadow-lg shadow-brand-accent/20"
                             data-track="hero_cta_click">
-                            Pedí tu diagnóstico gratis — 20 min
+                            Pedí tu demo gratis — 10 min →
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"
                                 aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -632,7 +838,7 @@
             </p>
             <a href="#contacto"
                 class="shrink-0 text-brand-accent hover:text-brand-accentHover font-semibold transition-colors"
-                data-track="painbar_cta_click">Contanos en 20 min →</a>
+                data-track="painbar_cta_click">Contanos en 10 min →</a>
         </div>
     </div>
 
@@ -797,8 +1003,8 @@
                     <div
                         class="w-10 h-10 rounded-full bg-brand-accent text-white font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">
                         1</div>
-                    <h3 class="font-semibold mb-2 text-sm">Diagnóstico gratuito</h3>
-                    <p class="text-xs text-brand-muted">20 minutos para entender qué procesos manuales te roban tiempo.
+                    <h3 class="font-semibold mb-2 text-sm">Demo gratuita</h3>
+                    <p class="text-xs text-brand-muted">10 minutos para entender qué procesos manuales te roban tiempo.
                         Sin ventas.</p>
                 </div>
                 <div class="text-center px-3 mb-8 md:mb-0 reveal">
@@ -840,11 +1046,44 @@
                 <strong class="text-brand-text">No cobramos hasta que aprobás la propuesta.</strong> Si hay un proceso
                 que depende de una sola persona, tenés un punto de fallo que la automatización puede eliminar.
             </div>
+
+            <!-- Audio Feature Highlight -->
+            <div class="mt-10 audio-feature-card reveal">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <div class="flex items-center gap-3 shrink-0">
+                        <!-- Microphone Icon -->
+                        <div class="w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                            </svg>
+                        </div>
+                        <!-- Audio Wave Animation -->
+                        <div class="flex items-center gap-1 h-6" aria-hidden="true">
+                            <div class="audio-wave-bar" style="height: 12px;"></div>
+                            <div class="audio-wave-bar" style="height: 18px;"></div>
+                            <div class="audio-wave-bar" style="height: 8px;"></div>
+                            <div class="audio-wave-bar" style="height: 20px;"></div>
+                            <div class="audio-wave-bar" style="height: 14px;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base mb-2 text-brand-text">Nuestro asistente entiende texto Y audios</h3>
+                        <p class="text-sm text-brand-muted leading-relaxed mb-3">Tu cliente puede mandar un audio de WhatsApp y el bot lo transcribe, lo entiende y responde en segundos. La mayoría de los argentinos prefieren mandar audios — nuestro bot habla su idioma.</p>
+                        <div class="flex items-center gap-2 text-sm">
+                            <svg class="w-5 h-5 text-brand-green shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                            <span class="text-brand-text font-medium">Entiende audios de WhatsApp (transcripción automática con IA)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="text-center mt-8 reveal">
                 <a href="#contacto"
                     class="inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow"
                     data-track="proceso_cta_click">
-                    Reservá tu diagnóstico de 20 min →
+                    Reservá tu demo gratis de 10 min →
                 </a>
             </div>
         </div>
@@ -854,34 +1093,41 @@
     <section id="resultados" class="py-20 lg:py-28">
         <div class="max-w-7xl mx-auto px-4 lg:px-8">
             <div class="text-center mb-14 reveal">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Lo que cambia cuando un proceso <span
-                        class="text-brand-accent">deja de ser manual</span></h2>
-                <p class="text-brand-muted max-w-2xl mx-auto">No publicamos resultados que no podemos demostrar.
-                    Mostramos qué tipo de cambios reportan nuestros clientes con el proceso concreto que se intervino.
-                </p>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Resultados que <span
+                        class="text-brand-accent">hablan solos</span></h2>
+                <p class="text-brand-muted max-w-2xl mx-auto">Métricas reales de nuestros asistentes con IA en operación para inmobiliarias.</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
-                <div class="glow-card bg-brand-surface rounded-2xl p-6 reveal">
-                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider">Metodología</span>
-                    <h3 class="font-bold mt-3 mb-2">Diagnóstico basado en impacto</h3>
-                    <p class="text-sm text-brand-muted">Identificamos los 3 procesos manuales que más tiempo consumen en
-                        tu operación y priorizamos por retorno real, no por complejidad técnica.</p>
+
+            <!-- Metrics Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5 mb-12 reveal">
+                <div class="metric-card">
+                    <div class="text-2xl mb-2">⚡</div>
+                    <div class="metric-value">< 3s</div>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Tiempo promedio de respuesta del asistente</p>
                 </div>
-                <div class="glow-card bg-brand-surface rounded-2xl p-6 reveal">
-                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider">Herramientas
-                        reales</span>
-                    <h3 class="font-bold mt-3 mb-2">n8n, WhatsApp API, OpenAI</h3>
-                    <p class="text-sm text-brand-muted">Usamos plataformas probadas y abiertas. Nada propietario que te
-                        ate a nosotros. Si tu software tiene API, podemos conectarlo.</p>
+                <div class="metric-card">
+                    <div class="text-2xl mb-2">📊</div>
+                    <div class="metric-value">65%</div>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Consultas resueltas sin intervención humana</p>
                 </div>
-                <div class="glow-card bg-brand-surface rounded-2xl p-6 reveal">
-                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider">Transparencia
-                        total</span>
-                    <h3 class="font-bold mt-3 mb-2">Propuesta antes de cobrar</h3>
-                    <p class="text-sm text-brand-muted">Recibís un documento detallado en 48h con plan, plazos y costo.
-                        No empezamos nada hasta que lo aprobás.</p>
+                <div class="metric-card">
+                    <div class="text-2xl mb-2">🎯</div>
+                    <div class="metric-value">40%</div>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">De los contactos son compradores serios identificados por la IA</p>
+                </div>
+                <div class="metric-card">
+                    <div class="text-2xl mb-2">🕐</div>
+                    <div class="metric-value">24/7</div>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Disponible todos los días, feriados y fines de semana</p>
+                </div>
+                <div class="metric-card col-span-2 lg:col-span-1">
+                    <div class="text-2xl mb-2">🎙️</div>
+                    <div class="metric-value text-xl font-extrabold" style="background: linear-gradient(135deg, #10B981, #3B82F6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Texto + Audio</div>
+                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Entiende ambos formatos de WhatsApp</p>
                 </div>
             </div>
+
+            <!-- Tools Bar -->
             <div class="flex flex-wrap justify-center gap-8 items-center opacity-40 mb-8 reveal"
                 aria-label="Herramientas con las que trabajamos">
                 <span class="text-sm font-semibold tracking-wide">n8n</span><span class="text-brand-border">|</span>
@@ -899,223 +1145,194 @@
             <div class="text-center reveal">
                 <a href="#contacto"
                     class="text-brand-accent hover:text-brand-accentHover font-semibold transition-colors"
-                    data-track="resultados_cta_click">¿Querés un caso concreto de tu sector? Preguntanos →</a>
+                    data-track="resultados_cta_click">¿Querés ver cómo funciona con tu negocio? Preguntanos →</a>
             </div>
         </div>
     </section>
     <div class="gradient-divider" aria-hidden="true"></div>
 
-    <!-- ═══ PRECIOS — OFERTA FUNDADOR ═══ -->
+    <!-- ═══ PRECIOS ═══ -->
     <section id="precios" class="py-20 lg:py-28 bg-brand-surface/50 relative overflow-hidden">
         <!-- Background glow -->
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent/5 rounded-full blur-[140px]"
             aria-hidden="true"></div>
         <div class="relative max-w-7xl mx-auto px-4 lg:px-8">
+
             <!-- Section Header -->
-            <div class="text-center mb-12 reveal">
-                <span class="founder-badge mb-6">⚡ ÚLTIMA OPORTUNIDAD — <span id="cupos-badge-count">3</span>/5 cupos
-                    disponibles</span>
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 mt-6">Oferta Cliente Fundador — <span
-                        class="text-brand-accent">Solo 5 cupos disponibles</span></h2>
-                <p class="text-brand-muted max-w-2xl mx-auto text-base lg:text-lg">Precio especial para los primeros
-                    clientes que nos ayuden a construir nuestro portfolio. Acceso completo a tecnología enterprise a
-                    fracción del costo.</p>
+            <div class="text-center mb-8 reveal">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Planes para cada <span
+                        class="text-brand-accent">etapa de tu negocio</span></h2>
+                <p class="text-brand-muted max-w-2xl mx-auto">Elegí el plan que mejor se adapte a tu inmobiliaria. Todos incluyen asistente con IA que entiende texto y audios.</p>
             </div>
 
-            <!-- Founder Pricing Card -->
-            <div class="max-w-2xl mx-auto reveal">
-                <div class="founder-card rounded-3xl p-8 lg:p-10 transition-all duration-500">
-                    <!-- Top Badge -->
-                    <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
-                        <span class="bg-brand-accent text-white text-xs font-bold px-4 py-1.5 rounded-full">🎯 Más
-                            habitual — Solo quedan <span id="cupos-card-count">3</span> cupos</span>
-                        <span class="text-xs text-brand-muted">Precio de lanzamiento</span>
-                    </div>
-
-                    <!-- Plan Title -->
-                    <h3 class="text-2xl lg:text-3xl font-bold mb-1">Cliente Fundador</h3>
-                    <p class="text-sm text-brand-muted mb-6">Precio de lanzamiento — Valor regular USD 900</p>
-
-                    <!-- Pricing Block -->
-                    <div class="flex items-end gap-4 mb-3 flex-wrap">
-                        <div class="text-4xl lg:text-5xl font-extrabold text-brand-accent"
-                            style="text-shadow: 0 0 30px rgba(59,130,246,.25)">USD 250</div>
-                        <div class="price-old pb-1">USD 900</div>
-                    </div>
-                    <div class="flex items-center gap-4 mb-6 flex-wrap">
-                        <span class="text-lg font-bold text-brand-accent">+ USD 60<span
-                                class="text-sm font-normal text-brand-muted">/mes</span></span>
-                        <span class="price-savings">Ahorrás USD 650</span>
-                    </div>
-                    <p class="text-[10px] text-brand-mutedDark mb-6">Precio en USD · Equivalente en pesos al tipo de
-                        cambio del día</p>
-
-                    <!-- Cupos Progress Bar -->
-                    <div class="mb-8">
-                        <div class="flex items-center justify-between text-xs text-brand-muted mb-2">
-                            <span>Cupos utilizados</span>
-                            <span class="font-bold text-brand-text"><span id="cupos-used">2</span> de 5 ocupados</span>
+            <!-- ═══ FOUNDER BANNER ═══ -->
+            <div class="founder-banner-wrapper mb-12 reveal">
+                <div class="founder-banner-inner">
+                    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                        <div class="flex-1">
+                            <div class="flex items-center gap-3 mb-2 flex-wrap">
+                                <span class="founder-badge">🚀 OFERTA FUNDADOR</span>
+                                <span class="text-xs text-red-400 font-bold uppercase tracking-wider animate-pulse">Solo quedan 3 cupos</span>
+                            </div>
+                            <p class="text-sm text-brand-text font-semibold mb-1">Plan Professional a precio especial: <span class="text-brand-accent">USD 273 setup + USD 89/mes</span></p>
+                            <p class="text-xs text-brand-muted">Valor regular USD 690 + USD 149/mes · Condición: Testimonio en video + caso de estudio</p>
                         </div>
-                        <div class="cupos-bar">
-                            <div class="cupos-bar-fill" id="cupos-bar-fill" style="width:0%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Divider -->
-                    <div class="h-px bg-gradient-to-r from-transparent via-brand-border to-transparent mb-8"></div>
-
-                    <!-- Features List -->
-                    <p class="text-xs font-semibold text-brand-accent uppercase tracking-widest mb-4">INCLUYE:</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start gap-3 text-sm">
-                            <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="3" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span><strong class="text-brand-text">Portal de cliente profesional</strong>
-                                personalizado</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="3" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span><strong class="text-brand-text">Dashboard con métricas</strong> y estado en tiempo
-                                real</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="3" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span><strong class="text-brand-text">2 automatizaciones core</strong> implementadas</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="3" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span><strong class="text-brand-text">Asistente WhatsApp inteligente</strong> <span
-                                    class="text-brand-accent text-xs">(próximamente)</span></span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="3" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span><strong class="text-brand-text">Integración con tus herramientas</strong>
-                                actuales</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="3" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span><strong class="text-brand-text">Instalado y funcionando</strong> en 48–72 horas</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="3" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span><strong class="text-brand-text">30 días de soporte técnico</strong> prioritario</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <svg class="w-5 h-5 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="3" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span><strong class="text-brand-text">Ajustes y optimizaciones</strong> incluidos</span>
-                        </li>
-                    </ul>
-
-                    <!-- Ideal para -->
-                    <div class="bg-brand-accent/5 border border-brand-accent/15 rounded-xl p-4 mb-6">
-                        <p class="text-xs font-semibold text-brand-accent uppercase tracking-wider mb-1">IDEAL PARA:</p>
-                        <p class="text-sm text-brand-muted">Negocios que reciben +20 consultas/semana y quieren
-                            automatizar respuestas, captura de leads y seguimiento sin perder el toque humano.</p>
-                    </div>
-
-                    <!-- Condición -->
-                    <p class="text-xs text-brand-mutedDark mb-8 flex items-start gap-2">
-                        <svg class="w-4 h-4 shrink-0 mt-0.5 text-brand-muted" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-                        </svg>
-                        <span><strong class="text-brand-muted">Condición:</strong> Testimonio en video + permiso para
-                            usar como caso de estudio (datos anónimos si preferís).</span>
-                    </p>
-
-                    <!-- CTAs -->
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <a href="#contacto"
-                            class="flex-1 text-center bg-brand-accent hover:bg-brand-accentHover text-white font-bold py-4 px-6 rounded-xl transition-all btn-glow cta-founder-pulse text-base shadow-lg shadow-brand-accent/25"
-                            data-track="pricing_fundador_reservar" id="cta-fundador-reservar">
-                            Reservar mi cupo — Quedan <span id="cupos-cta-count">3</span> disponibles
-                        </a>
-                        <a href="#contacto"
-                            class="text-center border-2 border-brand-accent/40 hover:border-brand-accent text-brand-accent hover:bg-brand-accent/10 font-semibold py-4 px-6 rounded-xl transition-all text-base"
-                            data-track="pricing_fundador_demo">
-                            Ver demo del portal en acción
+                        <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20reservar%20mi%20cupo%20de%20Cliente%20Fundador"
+                            target="_blank" rel="noopener"
+                            class="shrink-0 inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-bold px-6 py-3 rounded-xl transition-all btn-glow cta-founder-pulse text-sm shadow-lg shadow-brand-accent/25"
+                            data-track="pricing_fundador_reservar">
+                            Reservar mi cupo →
                         </a>
                     </div>
                 </div>
             </div>
 
+            <!-- ═══ 3 PRICING COLUMNS ═══ -->
+            <div class="pricing-grid reveal">
+
+                <!-- STARTER -->
+                <div class="pricing-card">
+                    <span class="plan-badge plan-badge-starter mb-4">Ideal para empezar</span>
+                    <h3 class="text-xl font-bold mt-3 mb-1">Starter</h3>
+                    <p class="text-xs text-brand-muted mb-5">Para inmobiliarias de 1-5 personas</p>
+                    <div class="mb-1">
+                        <span class="text-3xl font-extrabold text-brand-accent">USD 390</span>
+                        <span class="text-xs text-brand-muted ml-1">setup</span>
+                    </div>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-lg font-bold text-brand-accent">+ USD 89</span>
+                        <span class="text-sm text-brand-muted">/mes</span>
+                    </div>
+                    <div class="h-px bg-brand-border mb-6"></div>
+                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest mb-3">INCLUYE:</p>
+                    <ul class="space-y-2.5 mb-6 text-sm text-brand-muted">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Asistente WhatsApp con IA 24/7</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Comprende texto Y audios de clientes</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Calificación automática de leads (3 niveles)</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Respuesta instantánea a cada consulta</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Panel de métricas básico</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Soporte por email</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Implementado en 48-72 horas</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>15 días de garantía</span></li>
+                    </ul>
+                    <a href="#contacto" class="block text-center bg-brand-surface2 hover:bg-brand-accent/10 border border-brand-accent/30 hover:border-brand-accent text-brand-accent font-semibold py-3 rounded-xl transition-all text-sm" data-track="pricing_starter_click">Elegir Starter</a>
+                </div>
+
+                <!-- PROFESSIONAL (Highlighted) -->
+                <div class="pricing-card pricing-card-pro">
+                    <span class="plan-recommended-badge">Recomendado</span>
+                    <span class="plan-badge plan-badge-pro mb-4 mt-2">🔥 Más popular</span>
+                    <h3 class="text-xl font-bold mt-3 mb-1">Professional</h3>
+                    <p class="text-xs text-brand-muted mb-5">Para inmobiliarias de 5-15 personas</p>
+                    <div class="mb-1">
+                        <span class="text-3xl font-extrabold text-brand-accent" style="text-shadow: 0 0 25px rgba(59,130,246,.2)">USD 690</span>
+                        <span class="text-xs text-brand-muted ml-1">setup</span>
+                    </div>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-lg font-bold text-brand-accent">+ USD 149</span>
+                        <span class="text-sm text-brand-muted">/mes</span>
+                    </div>
+                    <div class="h-px bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent mb-6"></div>
+                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest mb-3">INCLUYE:</p>
+                    <ul class="space-y-2.5 mb-6 text-sm text-brand-muted">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-brand-text">Todo lo de Starter +</strong></span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Derivación inteligente a agentes específicos</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Memoria conversacional (el bot recuerda al cliente)</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Comprende texto, audios e imágenes</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Dashboard completo con métricas en tiempo real</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Integración con Google Sheets / CRM</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Reportes semanales automáticos</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Soporte prioritario por WhatsApp</span></li>
+                    </ul>
+                    <a href="#contacto" class="block text-center bg-brand-accent hover:bg-brand-accentHover text-white font-bold py-4 rounded-xl transition-all btn-glow text-base shadow-lg shadow-brand-accent/25" data-track="pricing_professional_click">Elegir Professional</a>
+                </div>
+
+                <!-- ENTERPRISE -->
+                <div class="pricing-card">
+                    <span class="plan-badge plan-badge-enterprise mb-4">Para equipos grandes</span>
+                    <h3 class="text-xl font-bold mt-3 mb-1">Enterprise</h3>
+                    <p class="text-xs text-brand-muted mb-5">Inmobiliarias grandes, redes y franquicias</p>
+                    <div class="mb-1">
+                        <span class="text-3xl font-extrabold text-brand-accent">USD 1,190</span>
+                        <span class="text-xs text-brand-muted ml-1">setup</span>
+                    </div>
+                    <div class="flex items-baseline gap-1 mb-6">
+                        <span class="text-lg font-bold text-brand-accent">+ USD 249</span>
+                        <span class="text-sm text-brand-muted">/mes</span>
+                    </div>
+                    <div class="h-px bg-brand-border mb-6"></div>
+                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest mb-3">INCLUYE:</p>
+                    <ul class="space-y-2.5 mb-6 text-sm text-brand-muted">
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span><strong class="text-brand-text">Todo lo de Professional +</strong></span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Múltiples números de WhatsApp</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Bot personalizado con tono de marca</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Voice Bot con IA para llamadas <span class="coming-soon-badge ml-1">Próximamente</span></span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>API para integración con sistemas propios</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Onboarding dedicado con consultor</span></li>
+                        <li class="flex items-start gap-2"><svg class="w-4 h-4 text-brand-green mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>SLA de respuesta 4hs</span></li>
+                    </ul>
+                    <a href="#contacto" class="block text-center bg-brand-surface2 hover:bg-brand-accent/10 border border-brand-accent/30 hover:border-brand-accent text-brand-accent font-semibold py-3 rounded-xl transition-all text-sm" data-track="pricing_enterprise_click">Elegir Enterprise</a>
+                </div>
+            </div>
+
+            <!-- Pricing Footer Notes -->
+            <p class="text-center text-xs text-brand-mutedDark mt-8 mb-4 reveal">Todos los precios en USD. Se acepta pago en pesos argentinos al tipo de cambio del día.</p>
+            <p class="text-center text-sm text-brand-muted mb-12 reveal">¿No estás seguro cuál elegir? <a href="https://wa.me/5491122551204?text=Hola%2C%20necesito%20ayuda%20para%20elegir%20un%20plan" target="_blank" rel="noopener" class="text-brand-accent hover:text-brand-accentHover font-semibold">Escribinos y te ayudamos →</a></p>
+
             <!-- ═══ GARANTÍA SIN RIESGO ═══ -->
-            <div class="mt-16 reveal">
+            <div class="mt-8 reveal">
                 <div class="text-center mb-8">
-                    <h3 class="text-xl sm:text-2xl font-bold">🛡️ Garantía sin riesgo</h3>
+                    <h3 class="text-xl sm:text-2xl font-bold">Garantía sin riesgo</h3>
                 </div>
                 <div class="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
                     <div class="guarantee-card rounded-xl p-6 text-center">
-                        <div
-                            class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-                            </svg>
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
                         </div>
                         <p class="text-sm font-semibold text-brand-text mb-1">100% de devolución</p>
                         <p class="text-xs text-brand-muted">Si en 15 días no ves valor, devolvemos el 100% del setup</p>
                     </div>
                     <div class="guarantee-card rounded-xl p-6 text-center">
-                        <div
-                            class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-                            </svg>
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-brand-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
                         </div>
                         <p class="text-sm font-semibold text-brand-text mb-1">72hs o gratis</p>
-                        <p class="text-xs text-brand-muted">Primera automatización funcionando en 72 horas o no cobramos
-                        </p>
+                        <p class="text-xs text-brand-muted">Primera automatización funcionando en 72 horas o no cobramos</p>
                     </div>
                     <div class="guarantee-card rounded-xl p-6 text-center">
-                        <div
-                            class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-6 h-6 text-brand-green" viewBox="0 0 24 24" fill="currentColor">
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                            </svg>
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 text-brand-green" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
                         </div>
                         <p class="text-sm font-semibold text-brand-text mb-1">Soporte directo</p>
-                        <p class="text-xs text-brand-muted">Soporte técnico directo vía WhatsApp — sin tickets ni
-                            esperas</p>
+                        <p class="text-xs text-brand-muted">Soporte técnico directo vía WhatsApp — sin tickets ni esperas</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Section Footer -->
             <div class="text-center mt-10 reveal">
-                <a href="#contacto"
-                    class="text-brand-accent hover:text-brand-accentHover font-semibold text-sm transition-colors"
-                    data-track="precios_footer_cta">
-                    ¿No estás seguro qué necesitás? El diagnóstico de 20 min sigue siendo gratis →
-                </a>
+                <a href="#contacto" class="text-brand-accent hover:text-brand-accentHover font-semibold text-sm transition-colors" data-track="precios_footer_cta">¿No estás seguro qué necesitás? La demo de 10 min sigue siendo gratis →</a>
+            </div>
+        </div>
+    </section>
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ═══ VOICE BOT TEASER ═══ -->
+    <section id="voice-bot" class="py-16 lg:py-20">
+        <div class="max-w-3xl mx-auto px-4 lg:px-8 reveal">
+            <div class="voice-teaser">
+                <div class="flex flex-col md:flex-row items-start gap-6 relative z-10">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center shrink-0">
+                        <svg class="w-7 h-7 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-3 flex-wrap">
+                            <h3 class="text-lg font-bold">Voice Bot con IA</h3>
+                            <span class="coming-soon-badge">Coming Soon</span>
+                        </div>
+                        <p class="text-sm text-brand-muted leading-relaxed mb-4">Tu asistente también va a atender llamadas telefónicas con la voz de tu marca. Mismo nivel de inteligencia, pero por teléfono.</p>
+                        <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20que%20me%20avisen%20cuando%20esté%20disponible%20el%20Voice%20Bot" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 text-sm font-semibold transition-colors" data-track="voicebot_interest_click">Avisame cuando esté disponible →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1394,7 +1611,7 @@
                             <path stroke-linecap="round" d="M19 9l-7 7-7-7" />
                         </svg></button>
                     <div id="faq-12" class="faq-answer text-sm text-brand-muted">
-                        <p>Ningún compromiso. 20 minutos, analizamos tu caso, te decimos qué automatizar y cuánto
+                        <p>Ningún compromiso. 10 minutos, analizamos tu caso, te decimos qué automatizar y cuánto
                             costaría.
                             Si querés seguir, propuesta en 48h. No cobramos hasta que la aprobás.</p>
                     </div>
@@ -1411,9 +1628,8 @@
             <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
                 <div class="lg:col-span-2 reveal">
                     <h2 class="text-2xl sm:text-3xl font-bold mb-4">Contanos tu caso. Lo analizamos en <span
-                            class="text-brand-accent">20 minutos, gratis.</span></h2>
-                    <p class="text-brand-muted mb-8">Respondé en 2 minutos. Con esa info preparamos el diagnóstico para
-                        que sea útil desde el primer segundo — sin que tengas que explicar todo desde cero.</p>
+                            class="text-brand-accent">10 minutos, gratis.</span></h2>
+                    <p class="text-brand-muted mb-8">Completá el formulario en 30 segundos. Te contactamos hoy para agendar tu demo.</p>
                     <div class="space-y-4 text-sm">
                         <a href="tel:+5491122551204"
                             class="flex items-center gap-3 text-brand-muted hover:text-brand-text transition-colors"
@@ -1464,115 +1680,52 @@
                 <div class="lg:col-span-3 reveal">
                     <form id="form-diagnostico"
                         class="bg-brand-surface border border-brand-border rounded-2xl p-6 lg:p-8 space-y-5"
-                        aria-label="Formulario de diagnóstico gratuito" novalidate>
+                        aria-label="Formulario de demo gratuita" novalidate>
                         <div id="form-messages" aria-live="polite"></div>
 
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div><label for="f-nombre" class="block text-sm font-medium mb-1.5">Nombre completo <span
-                                        class="text-red-400">*</span></label><input type="text" id="f-nombre"
-                                    name="nombre" required placeholder="Tu nombre y apellido"
-                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                            </div>
-                            <div><label for="f-email" class="block text-sm font-medium mb-1.5">Email <span
-                                        class="text-red-400">*</span></label><input type="email" id="f-email"
-                                    name="email" required placeholder="tu@empresa.com"
-                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                            </div>
-                        </div>
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div><label for="f-telefono" class="block text-sm font-medium mb-1.5">Teléfono <span
-                                        class="text-red-400">*</span></label><input type="tel" id="f-telefono"
-                                    name="telefono" required placeholder="+54 9 11 2255-1204"
-                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                            </div>
-                            <div><label for="f-contacto" class="block text-sm font-medium mb-1.5">Preferencia de
-                                    contacto <span class="text-red-400">*</span></label><select id="f-contacto"
-                                    name="contacto" required
-                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                                    <option value="">Elegí una opción</option>
-                                    <option value="llamada">📞 Llamada</option>
-                                    <option value="whatsapp">💬 WhatsApp</option>
-                                    <option value="email">📧 Email</option>
-                                </select></div>
-                        </div>
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div><label for="f-negocio" class="block text-sm font-medium mb-1.5">Tipo de negocio <span
-                                        class="text-red-400">*</span></label><select id="f-negocio" name="negocio"
-                                    required
-                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                                    <option value="">¿A qué se dedica tu negocio?</option>
-                                    <option value="ecommerce">E-commerce</option>
-                                    <option value="local">Negocio local</option>
-                                    <option value="servicios">Pyme de servicios</option>
-                                    <option value="ventas">Empresa con equipo de ventas</option>
-                                    <option value="otro">Otro</option>
-                                </select></div>
-                            <div><label for="f-servicio" class="block text-sm font-medium mb-1.5">Servicio de interés
-                                    <span class="text-red-400">*</span></label><select id="f-servicio" name="servicio"
-                                    required
-                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                                    <option value="">¿Qué querés automatizar?</option>
-                                    <option value="web">Web con IA</option>
-                                    <option value="n8n">Automatización con n8n</option>
-                                    <option value="embudo">Embudo de ventas con IA</option>
-                                    <option value="mensajeria">Mensajería inteligente</option>
-                                    <option value="nosesabe">No lo tengo claro</option>
-                                </select></div>
-                        </div>
-                        <div id="proceso-wrapper" class="hidden"><label for="f-proceso"
-                                class="block text-sm font-medium mb-1.5">Proceso a automatizar</label><select
-                                id="f-proceso" name="proceso"
-                                class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                                <option value="">Selecciona un proceso</option>
-                            </select></div>
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div><label for="f-urgencia" class="block text-sm font-medium mb-1.5">¿Cuándo lo necesitás?
-                                    <span class="text-red-400">*</span></label><select id="f-urgencia" name="urgencia"
-                                    required
-                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                                    <option value="">Selecciona urgencia</option>
-                                    <option value="semana">Lo necesito esta semana</option>
-                                    <option value="mes">En el próximo mes</option>
-                                    <option value="comparando">Estoy comparando opciones</option>
-                                    <option value="info">Solo quiero información</option>
-                                </select></div>
-                            <div><label for="f-empleados" class="block text-sm font-medium mb-1.5">Nº empleados <span
-                                        class="text-red-400">*</span></label><select id="f-empleados" name="empleados"
-                                    required
-                                    class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
-                                    <option value="">Selecciona</option>
-                                    <option value="1-5">1–5</option>
-                                    <option value="6-20">6–20</option>
-                                    <option value="21-50">21–50</option>
-                                    <option value="50+">Más de 50</option>
-                                </select></div>
-                        </div>
-                        <div><label for="f-descripcion" class="block text-sm font-medium mb-1.5">¿Qué tarea te quita más
-                                timepo hoy?</label><textarea id="f-descripcion" name="descripcion" rows="3"
-                                maxlength="500"
-                                placeholder="Ej: Respondemos a mano WhatsApp, anota pedidos en Excel y los pasa a Mercado Libre o Tiendanube. Tenemos que bajar retenciones de AFIP cada día."
-                                class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"></textarea>
-                            <p class="text-xs text-brand-mutedDark mt-1">Cuanto más detallado, más útil es el
-                                diagnóstico.</p>
-                        </div>
-                        <div><label for="f-herramientas" class="block text-sm font-medium mb-1.5">Herramientas que usás
-                                <span class="text-xs text-brand-muted">(opcional)</span></label><input type="text"
-                                id="f-herramientas" name="herramientas" maxlength="200"
-                                placeholder="Ej: WhatsApp Business, Mercado Libre, Tiendanube, Calendly, Gmail…"
+                        <div>
+                            <label for="f-nombre" class="block text-sm font-medium mb-1.5">Tu nombre <span
+                                    class="text-red-400">*</span></label>
+                            <input type="text" id="f-nombre" name="nombre" required
+                                placeholder="Ej: María López"
                                 class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
                         </div>
-                        <div class="flex items-start gap-3"><input type="checkbox" id="f-privacidad" name="privacidad"
-                                required
-                                class="mt-1 w-4 h-4 rounded border-brand-border bg-brand-bg text-brand-accent focus:ring-brand-accent"><label
-                                for="f-privacidad" class="text-xs text-brand-muted">He leído y acepto la <a href="#"
-                                    class="underline hover:text-brand-text">Política de Privacidad</a> y consiento que
-                                NexoIA me contacte para gestionar mi solicitud. <span
-                                    class="text-red-400">*</span></label></div>
+
+                        <div>
+                            <label for="f-whatsapp" class="block text-sm font-medium mb-1.5">WhatsApp <span
+                                    class="text-red-400">*</span></label>
+                            <input type="tel" id="f-whatsapp" name="whatsapp" required
+                                placeholder="+54 9 11 1234-5678"
+                                class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                        </div>
+
+                        <div>
+                            <label for="f-negocio" class="block text-sm font-medium mb-1.5">Tipo de negocio <span
+                                    class="text-red-400">*</span></label>
+                            <select id="f-negocio" name="negocio" required
+                                class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors">
+                                <option value="">Seleccioná una opción</option>
+                                <option value="inmobiliaria">Inmobiliaria</option>
+                                <option value="estudio-contable">Estudio contable / legal</option>
+                                <option value="clinica">Clínica / consultorio</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="f-problema" class="block text-sm font-medium mb-1.5">¿Qué problema querés resolver? <span
+                                    class="text-xs text-brand-muted">(opcional)</span></label>
+                            <textarea id="f-problema" name="problema" rows="3" maxlength="500"
+                                placeholder="Ej: Recibimos 80 mensajes por día en WhatsApp y no damos abasto para responder a todos. Perdemos consultas de compradores serios."
+                                class="w-full bg-brand-bg border border-brand-border rounded-lg px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-colors"></textarea>
+                        </div>
+
                         <button type="submit" id="form-submit-btn"
                             class="w-full bg-brand-accent hover:bg-brand-accentHover text-white font-semibold py-4 rounded-xl transition-all btn-glow text-base"
-                            data-track="click_CTA_diagnostico">Solicitar mi diagnóstico gratuito →</button>
+                            data-track="click_CTA_diagnostico">Quiero mi demo gratis →</button>
                         <p class="text-xs text-brand-mutedDark text-center">✓ Sin spam · ✓ Sin compromiso · ✓
-                            Respondemos antes de 24h</p>
+                            Respondemos hoy</p>
                     </form>
                 </div>
             </div>
@@ -1641,7 +1794,7 @@
             </div>
             <div
                 class="border-t border-brand-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-mutedDark">
-                <p>© 2026 NexoIA · Hecho con IA en Argentina 🇦🇷</p>
+                <p>© 2026 NexoIA — Automatización Inteligente</p>
                 <div class="flex gap-4"><a href="#" class="hover:text-brand-text transition-colors">Aviso Legal</a><a
                         href="#" class="hover:text-brand-text transition-colors">Privacidad</a><a href="#"
                         class="hover:text-brand-text transition-colors">Cookies</a></div>
@@ -1676,7 +1829,7 @@
         <a href="#contacto"
             class="flex-1 flex items-center justify-center bg-brand-accent hover:bg-brand-accentHover text-white font-semibold py-3 rounded-xl text-sm transition-all"
             data-track="sticky_cta_click">
-            Diagnóstico gratis
+            Demo gratis
         </a>
     </div>
 
@@ -1769,28 +1922,12 @@
                     } else { typeLines(); }
                 }
 
-                /* === DYNAMIC PROCESS SELECT === */
-                const svc = document.getElementById('f-servicio'), pw = document.getElementById('proceso-wrapper'), ps = document.getElementById('f-proceso');
-                const opts = { web: ['Nueva web corporativa o landing', 'Rediseño de web existente', 'Landing para campañas de captación', 'Tienda online', 'Integración de chatbot en web', 'Web multiidioma', 'Otro'], n8n: ['Facturación o presupuestos automáticos', 'Notificaciones internas al equipo', 'Sincronización de datos entre apps', 'Onboarding de nuevos clientes', 'Reportes automáticos', 'Gestión de pedidos o reservas', 'Otro'], embudo: ['Cualificación automática de leads', 'Seguimiento post-consulta', 'Nurturing por email o WhatsApp', 'Recuperación de carritos', 'Pipeline en CRM', 'Otro'], mensajeria: ['Chatbot WhatsApp Business', 'Respuesta automática email', 'Recordatorios de citas', 'Encuestas post-servicio', 'Soporte 24h', 'Otro'] };
-                svc?.addEventListener('change', () => { const v = svc.value; if (opts[v]) { pw.classList.remove('hidden'); ps.innerHTML = '<option value="">Selecciona un proceso</option>' + opts[v].map(o => `<option value="${o}">${o}</option>`).join('') } else { pw.classList.add('hidden'); ps.innerHTML = '<option value="">Selecciona un proceso</option>' } });
+                /* === DYNAMIC PROCESS SELECT (removed — simplified form) === */
 
-                /* === CUPOS BAR ANIMATION === */
-                const cuposBar = document.getElementById('cupos-bar-fill');
-                if (cuposBar) {
-                    const cuposSection = document.getElementById('precios');
-                    if (cuposSection) {
-                        new IntersectionObserver(([e]) => {
-                            if (e.isIntersecting) {
-                                setTimeout(() => { cuposBar.style.width = '40%'; }, 300);
-                            }
-                        }, { threshold: 0.2 }).observe(cuposSection);
-                    }
-                }
-
-                /* === FOUNDER CTA TRACKING === */
-                document.querySelectorAll('[data-track^="pricing_fundador"]').forEach(el => {
+                /* === PRICING CTA TRACKING === */
+                document.querySelectorAll('[data-track^="pricing_"]').forEach(el => {
                     el.addEventListener('click', () => {
-                        trackEvent(el.dataset.track, { label: el.textContent.trim().substring(0, 60), cupos_remaining: 3 });
+                        trackEvent(el.dataset.track, { label: el.textContent.trim().substring(0, 60) });
                     });
                 });
 
@@ -1805,30 +1942,18 @@
                 form?.addEventListener('submit', e => {
                     e.preventDefault(); clearErr(); trackEvent('form_submit_attempt');
                     const fd = new FormData(form); const errs = [];
-                    if (!fd.get('nombre') || fd.get('nombre').trim().length < 2) errs.push('Ingresá tu nombre completo');
-                    if (!fd.get('email') || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fd.get('email'))) errs.push('Revisá el formato — necesitamos un email al que responderte');
-                    if (!fd.get('telefono') || fd.get('telefono').replace(/\D/g, '').length < 9) errs.push('Ingresá un teléfono válido');
-                    if (!fd.get('contacto')) errs.push('Indicá cómo preferís que te contactemos');
-                    if (!fd.get('negocio')) errs.push('Indicá el tipo de negocio');
-                    if (!fd.get('servicio')) errs.push('Seleccioná el servicio que te interesa');
-                    if (!fd.get('urgencia')) errs.push('Indicá cuándo lo necesitás');
-                    if (!fd.get('empleados')) errs.push('Indicá el número de empleados');
-                    if (!form.querySelector('[name=privacidad]').checked) errs.push('Aceptá la política de privacidad para continuar');
+                    if (!fd.get('nombre') || fd.get('nombre').trim().length < 2) errs.push('Ingresá tu nombre');
+                    if (!fd.get('whatsapp') || fd.get('whatsapp').replace(/\D/g, '').length < 9) errs.push('Ingresá un número de WhatsApp válido');
+                    if (!fd.get('negocio')) errs.push('Seleccioná el tipo de negocio');
                     if (errs.length) { showErr(errs.map(e => '• ' + e).join('<br>')); return }
                     fbtn.textContent = 'Enviando tu solicitud…'; fbtn.disabled = true;
 
                     // Mapeo de campos para el workflow de n8n
                     const data = {
                         nombre_completo: fd.get('nombre'),
-                        email: fd.get('email'),
-                        telefono: fd.get('telefono'),
-                        preferencia_contacto: fd.get('contacto'),
+                        whatsapp: fd.get('whatsapp'),
                         tipo_negocio: fd.get('negocio'),
-                        servicio_interes: fd.get('servicio'),
-                        urgencia: fd.get('urgencia'),
-                        num_empleados: fd.get('empleados'),
-                        descripcion_problema: fd.get('descripcion'),
-                        herramientas_usadas: fd.get('herramientas')
+                        problema: fd.get('problema') || ''
                     };
 
                     fetch('https://n8n-n8n.t2te1u.easypanel.host/webhook/nexoia-lead', {
@@ -1839,7 +1964,7 @@
                         .then(response => {
                             if (!response.ok) throw new Error('Error en el servidor');
                             trackEvent('form_submit_success');
-                            fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/30 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Hemos recibido tu solicitud.</p><p class="text-sm text-brand-muted">Revisaremos tu caso y te enviaremos un correo con los próximos pasos de tu diagnóstico.</p><p class="text-sm text-brand-muted mt-2">Si es urgente, escribinos ahora por <a href="https://wa.me/5491122551204" target="_blank" rel="noopener" class="text-brand-accent underline">WhatsApp</a>.</p></div>`;
+                            fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/30 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Listo, recibimos tu solicitud.</p><p class="text-sm text-brand-muted">Te contactamos hoy por WhatsApp para agendar tu demo de 10 minutos.</p><p class="text-sm text-brand-muted mt-2">Si es urgente, escribinos ahora por <a href="https://wa.me/5491122551204" target="_blank" rel="noopener" class="text-brand-accent underline">WhatsApp</a>.</p></div>`;
                             form.querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; el.classList.add('opacity-50') });
                             fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         })
@@ -1847,7 +1972,7 @@
                             console.error('Error submitting form:', error);
                             trackEvent('form_submit_error');
                             showErr('Hubo un problema al enviar tu solicitud. Por favor, intentá de nuevo o contactanos directamente por WhatsApp.');
-                            fbtn.textContent = 'Solicitar mi diagnóstico gratuito →';
+                            fbtn.textContent = 'Quiero mi demo gratis →';
                             fbtn.disabled = false;
                         });
                 });
