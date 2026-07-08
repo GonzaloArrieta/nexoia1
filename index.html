@@ -4,1645 +4,1034 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Favicon: monograma V Velia -->
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 70 70'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%237C3AED'/><stop offset='100%25' stop-color='%233B82F6'/></linearGradient></defs><circle cx='35' cy='35' r='32' fill='%230f172a'/><text x='35' y='44' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='800' font-size='32' fill='url(%23g)'>V</text></svg>">
-    <title>Velia — IA y Automatización para Inmobiliarias</title>
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='t' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%2327272a'/%3E%3Cstop offset='1' stop-color='%2309090b'/%3E%3C/linearGradient%3E%3ClinearGradient id='v' x1='16' y1='14' x2='48' y2='48' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23fafafa'/%3E%3Cstop offset='1' stop-color='%239a9aa3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='15' fill='url(%23t)' stroke='%233f3f46' stroke-width='2'/%3E%3Cpath d='M17 15L32 45L47 15' stroke='url(%23v)' stroke-width='6' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Ccircle cx='32' cy='45' r='7.5' fill='%2310b981' fill-opacity='.25'/%3E%3Ccircle cx='32' cy='45' r='4.2' fill='%2310b981'/%3E%3C/svg%3E">
+
+    <title>Velia — Automatización con IA para Inmobiliarias</title>
     <meta name="description"
         content="Velia automatiza la calificación, seguimiento y asignación de leads inmobiliarios con IA. Tu equipo vende, nosotros hacemos el resto.">
     <link rel="canonical" href="https://getvelia.com/">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Velia — IA y Automatización para Inmobiliarias">
+    <meta property="og:title" content="Velia — Automatización con IA para Inmobiliarias">
     <meta property="og:description"
         content="Automatizamos WhatsApp, calificación de leads y procesos repetitivos de tu inmobiliaria con IA.">
     <meta property="og:url" content="https://getvelia.com/">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Fuentes: Outfit (geométrica) + Instrument Serif (editorial) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        brand: {
-                            bg: '#06080f', surface: '#0c1120', surface2: '#141c30',
-                            border: '#1e2a45', accent: '#7C3AED', accentHover: '#6D28D9',
-                            blue: '#3B82F6', green: '#10B981', text: '#f1f5f9',
-                            muted: '#94a3b8', mutedDark: '#64748b'
-                        }
-                    },
-                    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+                    fontFamily: {
+                        sans: ['Outfit', 'system-ui', 'sans-serif'],
+                        serif: ['"Instrument Serif"', 'Georgia', 'serif']
+                    }
                 }
             }
         }
     </script>
+
     <style>
         /* ============================================
-           VELIA — PREMIUM DESIGN SYSTEM
+           VELIA — PREMIUM (zinc / platino / esmeralda)
            ============================================ */
 
-        /* --- BASE --- */
         html { scroll-behavior: smooth; scroll-padding-top: 80px }
-        body { background: #06080f; color: #f1f5f9; font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11' }
-        ::selection { background: #7C3AED; color: #fff }
-        :focus-visible { outline: 2px solid #7C3AED; outline-offset: 3px }
+        body { background: #09090b; color: #f4f4f5 }
+        ::selection { background: rgba(16, 185, 129, .35); color: #fff }
+        :focus-visible { outline: 2px solid rgba(228, 228, 231, .5); outline-offset: 3px }
 
-        /* --- ANIMATED GRADIENT PROPERTY --- */
-        @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
-        @property --gradient-pos { syntax: '<percentage>'; initial-value: 0%; inherits: false; }
+        ::-webkit-scrollbar { width: 6px }
+        ::-webkit-scrollbar-track { background: transparent }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .12); border-radius: 10px }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, .25) }
 
-        /* --- NOISE TEXTURE OVERLAY --- */
-        .noise::before {
+        /* --- Grano de textura --- */
+        .grain::after {
             content: '';
             position: fixed;
             inset: 0;
-            z-index: 9999;
+            z-index: 60;
             pointer-events: none;
-            opacity: .035;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: .028;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        /* --- AURORA BACKGROUND --- */
-        .aurora {
-            position: absolute;
+        /* --- Fondo: luz superior + grilla --- */
+        .bg-fx {
+            position: fixed;
             inset: 0;
+            pointer-events: none;
             overflow: hidden;
-            pointer-events: none;
+            z-index: 0;
         }
-        .aurora-blob {
+        .bg-fx .toplight {
             position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: .12;
-            animation: auroraFloat 12s ease-in-out infinite alternate;
+            top: -25%; left: 50%;
+            transform: translateX(-50%);
+            width: 80%; height: 50%;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, .03);
+            filter: blur(120px);
         }
-        .aurora-blob:nth-child(1) {
-            width: 600px; height: 400px;
-            background: linear-gradient(135deg, #7C3AED, #3B82F6);
-            top: -10%; right: 10%;
-        }
-        .aurora-blob:nth-child(2) {
-            width: 500px; height: 350px;
-            background: linear-gradient(135deg, #3B82F6, #06b6d4);
-            top: 20%; left: -5%;
-            animation-delay: -4s;
-            animation-duration: 16s;
-        }
-        .aurora-blob:nth-child(3) {
-            width: 400px; height: 300px;
-            background: linear-gradient(135deg, #8B5CF6, #EC4899);
-            bottom: 0; right: 20%;
-            animation-delay: -8s;
-            animation-duration: 14s;
-            opacity: .06;
-        }
-        @keyframes auroraFloat {
-            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-            33% { transform: translate(30px, -20px) scale(1.05) rotate(2deg); }
-            66% { transform: translate(-20px, 15px) scale(.95) rotate(-1deg); }
-            100% { transform: translate(15px, -10px) scale(1.02) rotate(1deg); }
-        }
-
-        /* --- GLASSMORPHISM --- */
-        .glass {
-            background: rgba(255,255,255,.03);
-            backdrop-filter: blur(20px) saturate(1.3);
-            -webkit-backdrop-filter: blur(20px) saturate(1.3);
-            border: 1px solid rgba(255,255,255,.06);
-        }
-        .glass-card {
-            background: rgba(255,255,255,.03);
-            backdrop-filter: blur(20px) saturate(1.3);
-            -webkit-backdrop-filter: blur(20px) saturate(1.3);
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 1.25rem;
-        }
-        .glass-card-tinted {
-            background: linear-gradient(135deg, rgba(124,58,237,.04), rgba(59,130,246,.02));
-            backdrop-filter: blur(20px) saturate(1.3);
-            -webkit-backdrop-filter: blur(20px) saturate(1.3);
-            border: 1px solid rgba(124,58,237,.1);
-            border-radius: 1.25rem;
-        }
-
-        /* --- ANIMATED GRADIENT BORDER --- */
-        .gradient-border {
-            position: relative;
-            border-radius: 1.25rem;
-            overflow: hidden;
-        }
-        .gradient-border::before {
-            content: '';
+        .bg-fx .gridlines {
             position: absolute;
             inset: 0;
-            padding: 1.5px;
-            border-radius: inherit;
-            background: conic-gradient(from var(--angle), #7C3AED, #3B82F6, #06b6d4, #7C3AED);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: rotateBorder 4s linear infinite;
+            opacity: .02;
+            background-image:
+                linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px);
+            background-size: 64px 64px;
+            -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black, transparent);
+            mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black, transparent);
         }
-        @keyframes rotateBorder { to { --angle: 360deg; } }
 
-        /* --- GLOW CARDS --- */
-        .glow-card {
-            border: 1px solid rgba(255,255,255,.06);
-            transition: all .4s cubic-bezier(.22,1,.36,1);
-            position: relative;
-        }
-        .glow-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            opacity: 0;
-            transition: opacity .4s ease;
-            background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(124,58,237,.06), transparent 60%);
-            pointer-events: none;
-        }
-        .glow-card:hover {
-            border-color: rgba(124,58,237,.3);
-            box-shadow: 0 0 40px rgba(124,58,237,.08), 0 20px 60px rgba(0,0,0,.4);
-            transform: translateY(-4px);
-        }
-        .glow-card:hover::after { opacity: 1; }
-        .glow-card:hover .service-icon {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(124,58,237,.2);
-        }
-        .service-icon { transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease; }
-
-        /* --- REVEAL ANIMATIONS --- */
-        @media(prefers-reduced-motion:no-preference) {
+        /* --- Reveal al hacer scroll --- */
+        @media (prefers-reduced-motion: no-preference) {
             .reveal {
                 opacity: 0;
-                transform: translateY(32px);
-                filter: blur(6px);
-                transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1), filter .8s cubic-bezier(.22,1,.36,1);
-            }
-            .reveal.visible { opacity: 1; transform: none; filter: none; }
-            .reveal-stagger .glow-card {
-                opacity: 0;
                 transform: translateY(28px);
-                filter: blur(4px);
-                transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1), filter .7s cubic-bezier(.22,1,.36,1);
+                transition: opacity .7s cubic-bezier(.22, 1, .36, 1), transform .7s cubic-bezier(.22, 1, .36, 1);
             }
-            .reveal-stagger.visible .glow-card { opacity: 1; transform: none; filter: none; }
-            .reveal-stagger.visible .glow-card:nth-child(1) { transition-delay: .05s }
-            .reveal-stagger.visible .glow-card:nth-child(2) { transition-delay: .12s }
-            .reveal-stagger.visible .glow-card:nth-child(3) { transition-delay: .19s }
-            .reveal-stagger.visible .glow-card:nth-child(4) { transition-delay: .26s }
-
-            @keyframes ctaPulse {
-                0%,100% { box-shadow: 0 0 0 0 rgba(124,58,237,.4) }
-                50% { box-shadow: 0 0 0 10px rgba(124,58,237,0) }
-            }
-            .cta-pulse.visible { animation: ctaPulse 2.5s ease 1 }
+            .reveal.visible { opacity: 1; transform: none }
+            .reveal-d1 { transition-delay: .1s }
+            .reveal-d2 { transition-delay: .2s }
+            .reveal-d3 { transition-delay: .3s }
         }
-        @media(prefers-reduced-motion:reduce) {
-            .reveal, .reveal-stagger .glow-card { opacity: 1; transform: none; filter: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none }
         }
 
-        /* --- STICKY MOBILE BAR --- */
-        .sticky-mobile { transform: translateY(100%); transition: transform .3s ease }
-        .sticky-mobile.show { transform: translateY(0) }
-        @media(min-width:1024px) { .sticky-mobile { display: none !important } }
-
-        /* --- FAQ --- */
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s cubic-bezier(.22,1,.36,1), padding .4s cubic-bezier(.22,1,.36,1); padding: 0 1.5rem }
-        .faq-answer.open { max-height: 600px; padding: 0 1.5rem 1.25rem }
-        .faq-item-active { background: rgba(124,58,237,.03) !important; border-color: rgba(124,58,237,.2) !important }
-
-        /* --- BTN GLOW + SHIMMER --- */
-        .btn-glow {
-            position: relative;
-            overflow: hidden;
-            transition: all .3s cubic-bezier(.22,1,.36,1);
+        /* --- Punto pulsante (badge hero) --- */
+        @keyframes pingDot {
+            75%, 100% { transform: scale(2.4); opacity: 0 }
         }
-        .btn-glow::after {
+        .ping-dot::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
-            transition: none;
-        }
-        .btn-glow:hover { box-shadow: 0 0 30px rgba(124,58,237,.3), 0 0 60px rgba(124,58,237,.1); transform: translateY(-1px); }
-        @media(prefers-reduced-motion:no-preference) {
-            .btn-glow:hover::after { left: 100%; transition: left .6s ease; }
+            inset: 0;
+            border-radius: 9999px;
+            background: #34d399;
+            opacity: .6;
+            animation: pingDot 1.6s cubic-bezier(0, 0, .2, 1) infinite;
         }
 
-        /* --- NAV UNDERLINE --- */
-        .nav-link { position: relative }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0;
-            width: 100%; height: 2px;
-            background: linear-gradient(90deg, #7C3AED, #3B82F6);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .3s cubic-bezier(.22,1,.36,1);
-        }
-        .nav-link:hover::after { transform: scaleX(1); }
-
-        /* --- GRADIENT DIVIDER --- */
-        .gradient-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(124,58,237,.2), rgba(59,130,246,.15), transparent); }
-
-        /* --- GRADIENT TEXT --- */
-        .gradient-text {
-            background: linear-gradient(135deg, #A78BFA, #7C3AED, #3B82F6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .gradient-text-shimmer {
-            background: linear-gradient(90deg, #A78BFA, #7C3AED, #3B82F6, #A78BFA);
-            background-size: 200% 100%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmerText 4s ease-in-out infinite;
-        }
-        @keyframes shimmerText { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-
-        .gradient-text-green {
-            background: linear-gradient(135deg, #10B981, #3B82F6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* --- PRICING --- */
-        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; align-items: start; }
-        @media(max-width:1023px) { .pricing-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
-
-        .pricing-card {
-            background: rgba(255,255,255,.02);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 1.25rem;
-            padding: 2rem;
-            transition: all .4s cubic-bezier(.22,1,.36,1);
-            position: relative;
-        }
-        .pricing-card:hover {
-            border-color: rgba(124,58,237,.25);
-            box-shadow: 0 0 40px rgba(124,58,237,.06), 0 20px 60px rgba(0,0,0,.3);
-            transform: translateY(-4px);
-        }
-
-        .pricing-card-pro {
-            background: linear-gradient(180deg, rgba(124,58,237,.06) 0%, rgba(59,130,246,.03) 100%);
-            border: none;
-            padding: 2.5rem 2rem;
-        }
-        @media(min-width:1024px) {
-            .pricing-card-pro { transform: scale(1.05); z-index: 2; }
-            .pricing-card-pro:hover { transform: scale(1.05) translateY(-4px); }
-        }
-
-        .plan-badge { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 12px; border-radius: 6px; display: inline-block; }
-        .plan-badge-starter { background: rgba(59,130,246,.1); color: #60A5FA; border: 1px solid rgba(59,130,246,.2); }
-        .plan-badge-pro { background: linear-gradient(135deg, #7C3AED, #3B82F6); color: #fff; }
-        .plan-badge-enterprise { background: rgba(139,92,246,.1); color: #A78BFA; border: 1px solid rgba(139,92,246,.2); }
-
-        .plan-recommended-badge {
-            position: absolute;
-            top: -14px; left: 50%; transform: translateX(-50%);
-            background: linear-gradient(135deg, #7C3AED, #3B82F6);
-            color: #fff; font-size: 11px; font-weight: 800;
-            letter-spacing: .08em; text-transform: uppercase;
-            padding: 6px 20px; border-radius: 99px; white-space: nowrap;
-            box-shadow: 0 4px 20px rgba(124,58,237,.35);
-        }
-
-        /* --- COMPARISON --- */
-        .comparison-bad { background: rgba(239,68,68,.04); border: 1px solid rgba(239,68,68,.1); }
-        .comparison-good { background: rgba(124,58,237,.04); border: 1px solid rgba(124,58,237,.15); }
-        .guarantee-card { background: linear-gradient(135deg, rgba(16,185,129,.04), rgba(16,185,129,.01)); border: 1px solid rgba(16,185,129,.15); }
-
-        /* --- METRIC CARDS --- */
-        .metric-card {
-            background: rgba(255,255,255,.02);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all .4s cubic-bezier(.22,1,.36,1);
-        }
-        .metric-card:hover { border-color: rgba(124,58,237,.25); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,.2); }
-        .metric-value {
-            font-size: 2rem; font-weight: 800;
-            background: linear-gradient(135deg, #A78BFA, #7C3AED, #3B82F6);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text; line-height: 1.2;
-        }
-
-        /* --- AUDIO --- */
-        .audio-feature-card {
-            background: linear-gradient(135deg, rgba(16,185,129,.04), rgba(124,58,237,.03));
-            border: 1px solid rgba(16,185,129,.15);
-            border-radius: 1rem; padding: 1.5rem 2rem;
-        }
-        @keyframes audioWave { 0%,100% { height: 8px; } 50% { height: 20px; } }
-        .audio-wave-bar { width: 3px; background: #10B981; border-radius: 2px; animation: audioWave 1.2s ease-in-out infinite; }
-        .audio-wave-bar:nth-child(2) { animation-delay: .15s }
-        .audio-wave-bar:nth-child(3) { animation-delay: .3s }
-        .audio-wave-bar:nth-child(4) { animation-delay: .45s }
-        .audio-wave-bar:nth-child(5) { animation-delay: .6s }
-
-        /* --- HERO --- */
-        .hero-gradient { background: radial-gradient(ellipse at 70% 30%, #0c1120 0%, #06080f 70%) }
-        #particle-canvas { position: absolute; inset: 0; pointer-events: none; z-index: 0 }
-
-        /* --- WHATSAPP CHAT --- */
-        .wa-chat {
-            background: #0B141A;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 25px 80px rgba(0,0,0,.6), 0 0 40px rgba(124,58,237,.05);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            max-width: 380px;
-            margin: 0 auto;
-            border: 1px solid rgba(255,255,255,.05);
-        }
-        .wa-header {
-            background: #1F2C34;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .wa-avatar {
-            width: 38px; height: 38px; border-radius: 50%;
-            background: linear-gradient(135deg, #7C3AED, #3B82F6);
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 15px; color: #fff;
-            box-shadow: 0 0 15px rgba(124,58,237,.3);
-        }
-        .wa-body {
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='p' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='.4' fill='%23ffffff' opacity='.025'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='400' height='400' fill='%23080D13'/%3E%3Crect width='400' height='400' fill='url(%23p)'/%3E%3C/svg%3E");
-            padding: 16px;
-            min-height: 300px;
-            display: flex; flex-direction: column; gap: 8px;
-        }
+        /* --- Chat WhatsApp --- */
         .wa-msg {
-            max-width: 85%; padding: 8px 12px; border-radius: 8px;
-            font-size: 13px; line-height: 1.5; position: relative;
-            opacity: 0; transform: translateY(12px) scale(.97);
+            opacity: 0;
+            transform: translateY(12px) scale(.97);
         }
         .wa-msg.visible {
-            opacity: 1; transform: none;
-            transition: opacity .5s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1);
-        }
-        .wa-msg-in { background: #1F2C34; color: #E9EDEF; align-self: flex-start; border-top-left-radius: 0; }
-        .wa-msg-out { background: #005C4B; color: #E9EDEF; align-self: flex-end; border-top-right-radius: 0; }
-        .wa-msg-time { font-size: 10px; color: rgba(255,255,255,.4); text-align: right; margin-top: 4px; }
-        .wa-msg-audio { display: flex; align-items: center; gap: 8px; }
-        .wa-msg-audio .play-btn {
-            width: 28px; height: 28px; border-radius: 50%;
-            background: rgba(255,255,255,.12);
-            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-        }
-        .wa-waveform { display: flex; align-items: center; gap: 2px; height: 20px; flex: 1; }
-        .wa-waveform span { width: 2px; background: rgba(255,255,255,.45); border-radius: 1px; display: block; }
-
-        /* --- FLOATING CARD --- */
-        .float-card { animation: floatCard 4s ease-in-out infinite; }
-        @keyframes floatCard { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-10px) rotate(-1deg); } }
-
-        /* --- BENTO GRID --- */
-        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-        @media(max-width:767px) { .bento-grid { grid-template-columns: 1fr; } }
-        .bento-card {
-            background: rgba(255,255,255,.025);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 1.25rem;
-            padding: 1.75rem;
-            transition: all .4s cubic-bezier(.22,1,.36,1);
-            overflow: hidden; position: relative;
-        }
-        .bento-card:hover { border-color: rgba(124,58,237,.3); box-shadow: 0 0 40px rgba(124,58,237,.06); transform: translateY(-3px); }
-        .bento-card-wide { grid-column: span 2; }
-        @media(max-width:767px) { .bento-card-wide { grid-column: span 1; } }
-
-        /* --- MINI CHART --- */
-        .mini-chart { display: flex; align-items: flex-end; gap: 3px; height: 60px; padding-top: 8px; }
-        .mini-chart-bar {
-            flex: 1; border-radius: 3px 3px 0 0;
-            background: linear-gradient(180deg, #7C3AED, rgba(124,58,237,.2));
-            transition: height .6s cubic-bezier(.22,1,.36,1);
+            opacity: 1;
+            transform: none;
+            transition: opacity .45s cubic-bezier(.22, 1, .36, 1), transform .45s cubic-bezier(.22, 1, .36, 1);
         }
 
-        /* --- NODE DIAGRAM --- */
-        .node {
-            width: 38px; height: 38px; border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; position: relative;
+        /* --- Waveform análisis de voz --- */
+        @keyframes waveform {
+            0%, 100% { transform: scaleY(.3) }
+            50% { transform: scaleY(1) }
         }
-        .node-line {
-            width: 24px; height: 2px;
-            background: linear-gradient(90deg, rgba(255,255,255,.08), rgba(255,255,255,.15), rgba(255,255,255,.08));
-        }
+        .wave-bar { animation: waveform 1.2s ease-in-out infinite; transform-origin: bottom }
 
-        /* --- VOICE TEASER --- */
-        .voice-teaser {
-            background: linear-gradient(135deg, rgba(139,92,246,.04), rgba(59,130,246,.03));
-            border: 1px solid rgba(139,92,246,.15);
-            border-radius: 1.25rem; padding: 2rem 2.5rem;
-            position: relative; overflow: hidden;
+        /* --- Punto que fluye en el workflow --- */
+        @keyframes flowDot {
+            0% { left: 0%; opacity: 0 }
+            10% { opacity: 1 }
+            90% { opacity: 1 }
+            100% { left: 100%; opacity: 0 }
         }
-        .voice-teaser::before {
-            content: ''; position: absolute;
-            top: -50%; right: -20%;
-            width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(139,92,246,.05), transparent 70%);
-            pointer-events: none;
-        }
-        .coming-soon-badge {
-            background: rgba(139,92,246,.1); color: #A78BFA;
-            font-size: 10px; font-weight: 700;
-            letter-spacing: .1em; text-transform: uppercase;
-            padding: 4px 12px; border-radius: 6px;
-            border: 1px solid rgba(139,92,246,.2); display: inline-block;
-        }
+        .flow-dot { animation: flowDot 2s ease-in-out infinite }
 
-        /* --- LOGO ANIMATION --- */
-        .logo-mark { transition: all .4s cubic-bezier(.22,1,.36,1); }
-        .logo-mark:hover { filter: drop-shadow(0 0 12px rgba(124,58,237,.4)); }
-        @keyframes logoPulse {
-            0%,100% { opacity: .6; }
-            50% { opacity: 1; }
+        /* --- Tarjetas bento --- */
+        .bento {
+            background: rgba(24, 24, 27, .6);
+            border: 1px solid rgba(39, 39, 42, .5);
+            border-radius: 1rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color .5s ease;
         }
-        .logo-ring { animation: logoPulse 3s ease-in-out infinite; }
-
-        /* --- SKIP LINK --- */
-        .skip-link { position: absolute; top: -100%; left: 0; padding: .5rem 1rem; background: #7C3AED; color: #fff; z-index: 9999; border-radius: 0 0 8px 0 }
-        .skip-link:focus { top: 0 }
-
-        /* --- DOT PATTERN --- */
-        .dot-pattern {
-            background-image: radial-gradient(rgba(124,58,237,.08) 1px, transparent 1px);
-            background-size: 28px 28px;
+        .bento:hover { border-color: rgba(63, 63, 70, .7) }
+        .bento::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .25), transparent);
+            opacity: 0;
+            transition: opacity .5s ease;
         }
+        .bento:hover::before { opacity: 1 }
 
-        /* --- COUNTER ANIMATION --- */
-        .counter-animate {
-            display: inline-block;
-            transition: all .4s ease;
+        /* --- Paso "Cómo funciona" --- */
+        .step {
+            border-top: 1px solid rgba(255, 255, 255, .08);
+            transition: border-color .5s ease;
         }
+        .step:hover { border-top-color: rgba(16, 185, 129, .4) }
+        .step:hover .step-icon { background: rgba(16, 185, 129, .1); border-color: rgba(16, 185, 129, .2) }
+        .step:hover .step-icon i, .step:hover .step-icon svg { color: #34d399 }
+        .step:hover .step-num { color: #52525b }
+        .step-num, .step-icon, .step-icon i, .step-icon svg { transition: all .5s ease }
     </style>
+
     <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Velia","url":"https://getvelia.com","description":"Agencia de automatización e inteligencia artificial especializada en inmobiliarias.","email":"hola@getvelia.com","address":{"@type":"PostalAddress","addressCountry":"AR"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"19:00"},"priceRange":"$$","areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Uruguay"},{"@type":"Country","name":"Chile"},{"@type":"Country","name":"Mexico"},{"@type":"Country","name":"Spain"}],"serviceType":["Automatización de procesos con IA para inmobiliarias","Chatbot WhatsApp empresarial","Calificación automática de leads","Dashboard de métricas en tiempo real"]}
-</script>
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Velia",
+        "url": "https://getvelia.com",
+        "description": "Automatización con IA para inmobiliarias: asistente de WhatsApp, calificación de leads y dashboard en tiempo real.",
+        "email": "hola@getvelia.com",
+        "address": { "@type": "PostalAddress", "addressCountry": "AR" },
+        "areaServed": [
+            { "@type": "Country", "name": "Argentina" },
+            { "@type": "Country", "name": "Uruguay" },
+            { "@type": "Country", "name": "Chile" },
+            { "@type": "Country", "name": "Mexico" },
+            { "@type": "Country", "name": "Spain" }
+        ],
+        "serviceType": [
+            "Automatización de procesos con IA para inmobiliarias",
+            "Chatbot WhatsApp empresarial",
+            "Calificación automática de leads",
+            "Dashboard de métricas en tiempo real"
+        ]
+    }
+    </script>
 </head>
 
-<body class="font-sans antialiased noise">
-    <a href="#contacto" class="skip-link">Ir al formulario de contacto</a>
+<body class="font-sans antialiased grain overflow-x-hidden">
 
-    <!-- ═══ NAV ═══ -->
-    <header id="site-header"
-        class="fixed top-0 w-full z-50 glass border-b border-white/[.04]">
-        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-8 h-20 lg:h-[5.5rem]">
-            <a href="#inicio" class="flex items-center gap-3 group logo-mark" aria-label="Velia — Inicio">
-                <div class="relative shrink-0">
-                    <!-- Premium Logo SVG -->
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="lg:w-[52px] lg:h-[52px]">
-                        <defs>
-                            <linearGradient id="logoGrad" x1="0" y1="0" x2="48" y2="48">
-                                <stop offset="0%" stop-color="#A78BFA"/>
-                                <stop offset="50%" stop-color="#7C3AED"/>
-                                <stop offset="100%" stop-color="#3B82F6"/>
-                            </linearGradient>
-                            <linearGradient id="logoBg" x1="0" y1="0" x2="48" y2="48">
-                                <stop offset="0%" stop-color="#0c1120"/>
-                                <stop offset="100%" stop-color="#141c30"/>
-                            </linearGradient>
-                            <filter id="logoGlow" x="-50%" y="-50%" width="200%" height="200%">
-                                <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
-                                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                            </filter>
-                        </defs>
-                        <!-- Outer ring -->
-                        <rect x="1" y="1" width="46" height="46" rx="14" fill="url(#logoBg)" stroke="url(#logoGrad)" stroke-width="1.5" class="logo-ring"/>
-                        <!-- Inner V shape with premium gradient -->
-                        <path d="M15 14L24 34L33 14" stroke="url(#logoGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#logoGlow)"/>
-                        <!-- Accent dot -->
-                        <circle cx="24" cy="34" r="2" fill="#7C3AED">
-                            <animate attributeName="opacity" values=".5;1;.5" dur="2s" repeatCount="indefinite"/>
-                        </circle>
-                        <!-- Subtle corner accents -->
-                        <line x1="8" y1="4" x2="12" y2="4" stroke="url(#logoGrad)" stroke-width="1" opacity=".4"/>
-                        <line x1="4" y1="8" x2="4" y2="12" stroke="url(#logoGrad)" stroke-width="1" opacity=".4"/>
-                        <line x1="36" y1="44" x2="40" y2="44" stroke="url(#logoGrad)" stroke-width="1" opacity=".4"/>
-                        <line x1="44" y1="36" x2="44" y2="40" stroke="url(#logoGrad)" stroke-width="1" opacity=".4"/>
-                    </svg>
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-2xl lg:text-[1.7rem] font-extrabold text-white tracking-tight">Velia</span>
-                    <span class="text-[9px] lg:text-[10px] font-semibold text-brand-muted tracking-[0.2em] uppercase -mt-0.5">
-                        IA PARA INMOBILIARIAS
+    <!-- ═══ FONDO ═══ -->
+    <div class="bg-fx" aria-hidden="true">
+        <div class="toplight"></div>
+        <div class="gridlines"></div>
+    </div>
+
+    <!-- ═══ HEADER ═══ -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3" aria-label="Velia — Inicio">
+                <span class="relative inline-flex w-9 h-9 rounded-[10px] p-px shadow-lg shadow-black/50"
+                    style="background:linear-gradient(180deg,#3f3f46,#27272a,#09090b)">
+                    <span class="flex-1 rounded-[9px] bg-zinc-950 flex items-center justify-center">
+                        <svg viewBox="0 0 40 40" class="w-[64%] h-[64%]" fill="none">
+                            <defs>
+                                <linearGradient id="vh" x1="8" y1="8" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#fafafa"/><stop offset="1" stop-color="#9a9aa3"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M8 8L20 31L32 8" stroke="url(#vh)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="20" cy="31" r="4.5" fill="#10b981" fill-opacity=".22"/>
+                            <circle cx="20" cy="31" r="2.6" fill="#10b981"/>
+                        </svg>
                     </span>
-                </div>
+                </span>
+                <span class="text-xl font-bold tracking-tight text-white">Velia</span>
             </a>
-            <nav class="hidden lg:flex items-center gap-7 text-sm text-brand-muted" aria-label="Menú principal">
-                <a href="#servicios" class="nav-link hover:text-brand-text transition-colors">Servicios</a>
-                <a href="#proceso" class="nav-link hover:text-brand-text transition-colors">Cómo funciona</a>
-                <a href="#dashboard" class="nav-link hover:text-brand-text transition-colors">Dashboard</a>
-                <a href="#precios" class="nav-link hover:text-brand-text transition-colors">Precios</a>
-                <a href="#faq" class="nav-link hover:text-brand-text transition-colors">FAQ</a>
-                <a href="#contacto"
-                    class="ml-2 inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold text-sm px-5 py-2.5 rounded-xl transition-all btn-glow"
-                    data-track="nav_cta_click">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
-                    Demo gratis
+
+            <nav class="hidden md:flex items-center gap-8" aria-label="Menú principal">
+                <a href="#como-funciona" class="text-sm text-zinc-300 hover:text-white transition-colors">Cómo funciona</a>
+                <a href="#producto" class="text-sm text-zinc-300 hover:text-white transition-colors">Producto</a>
+                <a href="#precios" class="text-sm text-zinc-300 hover:text-white transition-colors">Precios</a>
+                <a href="#contacto" class="text-sm text-zinc-300 hover:text-white transition-colors">Contacto</a>
+                <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Velia"
+                    target="_blank" rel="noopener"
+                    class="text-sm font-semibold text-zinc-950 bg-zinc-100 hover:bg-white px-5 py-2.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-black/20">
+                    Agendar demo
                 </a>
             </nav>
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-brand-muted hover:text-brand-text"
-                aria-label="Abrir menú" aria-expanded="false">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-zinc-300 hover:text-white" aria-label="Abrir menú" aria-expanded="false">
+                <i data-lucide="menu" class="w-5 h-5"></i>
             </button>
         </div>
-        <div id="mobile-menu" class="lg:hidden hidden glass border-t border-white/[.04]">
-            <nav class="flex flex-col p-4 gap-3 text-sm" aria-label="Menú móvil">
-                <a href="#servicios" class="py-2 text-brand-muted hover:text-brand-text">Servicios</a>
-                <a href="#proceso" class="py-2 text-brand-muted hover:text-brand-text">Cómo funciona</a>
-                <a href="#dashboard" class="py-2 text-brand-muted hover:text-brand-text">Dashboard</a>
-                <a href="#precios" class="py-2 text-brand-muted hover:text-brand-text">Precios</a>
-                <a href="#faq" class="py-2 text-brand-muted hover:text-brand-text">FAQ</a>
-                <a href="#contacto"
-                    class="mt-2 text-center bg-brand-accent text-white font-semibold py-3 rounded-xl">Demo gratis</a>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-zinc-950/95 backdrop-blur-xl border-b border-white/[0.04]">
+            <nav class="px-4 sm:px-6 py-6 flex flex-col gap-4" aria-label="Menú móvil">
+                <a href="#como-funciona" class="text-base text-zinc-300 hover:text-white transition-colors">Cómo funciona</a>
+                <a href="#producto" class="text-base text-zinc-300 hover:text-white transition-colors">Producto</a>
+                <a href="#precios" class="text-base text-zinc-300 hover:text-white transition-colors">Precios</a>
+                <a href="#contacto" class="text-base text-zinc-300 hover:text-white transition-colors">Contacto</a>
+                <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Velia"
+                    target="_blank" rel="noopener"
+                    class="text-sm font-semibold text-center text-zinc-950 bg-zinc-100 px-5 py-3 rounded-xl mt-2">Agendar demo</a>
             </nav>
         </div>
     </header>
 
     <!-- ═══ HERO ═══ -->
-    <section id="inicio" class="relative pt-28 pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-gradient">
-        <!-- Aurora Background -->
-        <div class="aurora">
-            <div class="aurora-blob"></div>
-            <div class="aurora-blob"></div>
-            <div class="aurora-blob"></div>
-        </div>
-        <canvas id="particle-canvas" aria-hidden="true"></canvas>
-        <div class="absolute inset-0 dot-pattern opacity-30" aria-hidden="true"></div>
-        <div class="relative max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div>
-                    <span
-                        class="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-brand-accent mb-6 border border-brand-accent/20 bg-brand-accent/5 px-4 py-1.5 rounded-full backdrop-blur-sm">
-                        <span class="w-1.5 h-1.5 rounded-full bg-brand-accent animate-pulse"></span>
-                        IA y Automatización para Inmobiliarias
+    <section class="relative z-10 min-h-screen flex items-center pt-28 pb-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+                <!-- Copy -->
+                <div class="max-w-2xl">
+                    <span class="reveal visible inline-flex items-center gap-2.5 text-[11px] font-semibold text-emerald-400 uppercase tracking-[0.22em] bg-emerald-500/[0.06] border border-emerald-500/[0.15] px-4 py-2 rounded-full mb-8">
+                        <span class="relative flex w-1.5 h-1.5 ping-dot">
+                            <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        </span>
+                        Automatización con IA para inmobiliarias
                     </span>
-                    <h1
-                        class="text-3xl sm:text-4xl lg:text-5xl xl:text-[3.5rem] font-extrabold leading-[1.12] tracking-tight mb-6">
-                        Tu equipo dedica horas cada semana a tareas que ya podrían <span
-                            class="gradient-text-shimmer">hacerse
-                            solas.</span>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-white">
+                        Tu equipo dedica horas cada semana a tareas que ya podrían
+                        <em class="font-serif italic font-normal tracking-normal"
+                            style="background:linear-gradient(90deg,#fafafa,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">hacerse solas.</em>
                     </h1>
-                    <p class="text-lg lg:text-xl text-brand-muted leading-relaxed mb-8 max-w-2xl">
-                        Asistente de WhatsApp con IA, calificación automática de leads, derivación inteligente a agentes y dashboard en tiempo real. Implementado en días, sin cambiar tus herramientas.
+
+                    <p class="mt-6 text-lg text-zinc-300 leading-relaxed max-w-lg">
+                        Velia automatiza la calificación, seguimiento y asignación de leads inmobiliarios con IA.
+                        <span class="text-white">Tu equipo vende. Nosotros hacemos el resto.</span>
                     </p>
-                    <ul class="space-y-3.5 mb-10 text-sm lg:text-base text-brand-muted">
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-brand-green/10 flex items-center justify-center mt-0.5 shrink-0">
-                                <i data-lucide="check" class="w-3 h-3 text-brand-green"></i>
-                            </div>
-                            <span><strong class="text-brand-text">Respondé al instante 24/7:</strong> tu asistente atiende cada consulta de WhatsApp en segundos — texto y audios</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-brand-green/10 flex items-center justify-center mt-0.5 shrink-0">
-                                <i data-lucide="check" class="w-3 h-3 text-brand-green"></i>
-                            </div>
-                            <span><strong class="text-brand-text">Calificación automática:</strong> la IA identifica compradores serios y los deriva al agente correcto</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-brand-green/10 flex items-center justify-center mt-0.5 shrink-0">
-                                <i data-lucide="check" class="w-3 h-3 text-brand-green"></i>
-                            </div>
-                            <span><strong class="text-brand-text">Dashboard completo:</strong> métricas, conversaciones y leads en un solo lugar — sin planillas</span>
-                        </li>
-                    </ul>
-                    <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                        <a href="#contacto"
-                            class="inline-flex items-center justify-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold px-7 py-4 rounded-xl text-base transition-all btn-glow shadow-lg shadow-brand-accent/20 cta-pulse"
-                            data-track="hero_cta_click">
-                            Pedí tu demo gratis — 10 min
-                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://wa.me/5491122551204?text=Hola%2C%20vengo%20de%20la%20web%20de%20Velia%20y%20quiero%20saber%20m%C3%A1s"
+
+                    <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20agendar%20una%20demo%20de%20Velia"
                             target="_blank" rel="noopener"
-                            class="inline-flex items-center justify-center gap-2 border border-white/10 hover:border-brand-accent/50 text-brand-muted hover:text-brand-text hover:bg-white/[.03] font-semibold px-7 py-4 rounded-xl text-base transition-all backdrop-blur-sm"
-                            data-track="cta_whatsapp_click">
-                            <svg class="w-5 h-5 text-brand-green" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                            </svg>
-                            Escribinos por WhatsApp
+                            class="group inline-flex items-center justify-center gap-2.5 text-sm font-semibold text-zinc-950 bg-zinc-100 hover:bg-white px-7 py-3.5 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-black/25">
+                            Agendar demo
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#producto"
+                            class="inline-flex items-center justify-center gap-2 text-sm font-semibold text-zinc-300 hover:text-white border border-white/[0.08] hover:border-white/[0.15] bg-white/[0.03] hover:bg-white/[0.06] px-7 py-3.5 rounded-xl transition-all duration-300">
+                            Ver cómo funciona
+                            <i data-lucide="chevron-right" class="w-4 h-4"></i>
                         </a>
                     </div>
-                    <p class="text-xs text-brand-mutedDark flex items-center gap-2">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
-                        Sin spam · Sin compromiso · Respondemos antes de 24h
-                    </p>
-                </div>
-                <!-- WhatsApp Chat Mockup -->
-                <div class="reveal relative">
-                    <div class="wa-chat" id="wa-chat-block">
-                        <div class="wa-header">
-                            <div class="wa-avatar">V</div>
-                            <div class="flex-1">
-                                <div class="text-sm font-semibold text-white">Velia Asistente</div>
-                                <div class="text-[11px] text-green-400 flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
-                                    en línea
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-3 text-white/40">
-                                <i data-lucide="video" class="w-4 h-4"></i>
-                                <i data-lucide="phone" class="w-4 h-4"></i>
-                                <i data-lucide="more-vertical" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-                        <div class="wa-body" id="wa-messages"></div>
+
+                    <div class="mt-12 flex items-center divide-x divide-white/[0.07] text-xs text-zinc-400">
+                        <span class="flex items-center gap-2 pr-5">
+                            <i data-lucide="shield" class="w-3.5 h-3.5 text-zinc-500"></i> Datos encriptados
+                        </span>
+                        <span class="flex items-center gap-2 px-5">
+                            <i data-lucide="clock" class="w-3.5 h-3.5 text-zinc-500"></i> Setup en 48hs
+                        </span>
+                        <span class="flex items-center gap-2 pl-5">
+                            <i data-lucide="building-2" class="w-3.5 h-3.5 text-zinc-500"></i> 10+ inmobiliarias
+                        </span>
                     </div>
-                    <!-- Floating Glass Card -->
-                    <div class="absolute -bottom-6 -left-4 lg:-left-10 float-card z-10">
-                        <div class="gradient-border">
-                            <div class="glass-card px-5 py-4 shadow-2xl shadow-brand-accent/10" style="border:none">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-full bg-brand-green/15 flex items-center justify-center">
-                                        <i data-lucide="badge-check" class="w-5 h-5 text-brand-green"></i>
-                                    </div>
-                                    <div>
-                                        <div class="text-sm font-bold text-brand-text">Lead Calificado 100%</div>
-                                        <div class="text-xs text-brand-green font-medium flex items-center gap-1">
-                                            <i data-lucide="send" class="w-3 h-3"></i>
-                                            Enviado a CRM
-                                        </div>
-                                    </div>
+                </div>
+
+                <!-- WhatsApp mockup -->
+                <div class="relative lg:pl-8 reveal visible">
+                    <div class="relative w-full max-w-[360px] mx-auto">
+                        <div class="rounded-[28px] bg-[#0b141a] border border-white/[0.08] shadow-2xl shadow-black/40 overflow-hidden">
+                            <div class="bg-[#1f2c34] px-4 py-3 flex items-center gap-3 border-b border-white/[0.04]">
+                                <div class="w-9 h-9 rounded-full bg-emerald-500/15 flex items-center justify-center">
+                                    <i data-lucide="bot" class="w-4 h-4 text-emerald-300"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-sm font-semibold text-white/90">Lucía · Inmobiliaria Sosa</p>
+                                    <p class="text-[10px] text-emerald-400">en línea</p>
+                                </div>
+                                <i data-lucide="phone" class="w-4 h-4 text-zinc-500"></i>
+                            </div>
+
+                            <div id="wa-messages" class="p-3 space-y-2 min-h-[320px] bg-[#0b141a]"></div>
+
+                            <div class="bg-[#1f2c34] px-3 py-2.5 flex items-center gap-2 border-t border-white/[0.04]">
+                                <div class="flex-1 bg-[#2a3942] rounded-full px-4 py-2">
+                                    <span class="text-xs text-zinc-400">Mensaje...</span>
+                                </div>
+                                <div class="w-9 h-9 rounded-full bg-emerald-600 flex items-center justify-center">
+                                    <i data-lucide="mic" class="w-4 h-4 text-white"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Tarjeta Lead Calificado -->
+                    <div id="lead-card" class="absolute -bottom-6 -right-4 sm:-right-8 z-10 opacity-0 transition-all duration-700" style="transform:translate(30px,20px)">
+                        <div class="bg-white/[0.06] backdrop-blur-2xl border border-white/[0.1] rounded-2xl p-4 shadow-2xl shadow-black/30 min-w-[220px]">
+                            <div class="flex items-center gap-2.5 mb-3">
+                                <div class="w-8 h-8 rounded-full bg-emerald-500/15 flex items-center justify-center">
+                                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-bold text-white">Lead Calificado</p>
+                                    <p class="text-[10px] text-emerald-400 font-semibold">Score: 100%</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center"><i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400"></i></span>
+                                    <span class="text-xs text-zinc-300">Enviado a CRM</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center"><i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400"></i></span>
+                                    <span class="text-xs text-zinc-300">Cita agendada: Jue 15:00</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <span class="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center"><i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400"></i></span>
+                                    <span class="text-xs text-zinc-300">Agente notificado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ PAIN BAR ═══ -->
-    <div class="border-y border-white/[.04] bg-gradient-to-r from-brand-accent/[.04] via-transparent to-brand-blue/[.03]">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
-            <p class="text-brand-muted text-center sm:text-left">
-                <strong class="text-brand-text">Cada consulta sin responder es una venta perdida.</strong> ¿Cuántos leads calientes se enfrían porque nadie respondió a tiempo?
-            </p>
-            <a href="#contacto"
-                class="shrink-0 text-brand-accent hover:text-brand-accentHover font-semibold transition-colors flex items-center gap-1"
-                data-track="painbar_cta_click">Contanos en 10 min <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-        </div>
-    </div>
-
-    <!-- ═══ SERVICIOS ═══ -->
-    <section id="servicios" class="py-20 lg:py-28">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Todo lo que tu inmobiliaria necesita <span class="gradient-text">en un solo sistema</span></h2>
-                <p class="text-brand-muted max-w-2xl mx-auto">Automatizamos los procesos que más tiempo roban a tu equipo. Vos vendés, nosotros hacemos el resto.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 lg:gap-7 reveal-stagger reveal">
-
-                <!-- Card 1: WhatsApp Bot -->
-                <div class="glow-card glass-card rounded-2xl p-8">
-                    <div class="w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center mb-5 service-icon">
-                        <i data-lucide="message-circle" class="w-6 h-6 text-brand-green"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Asistente WhatsApp con IA</h3>
-                    <p class="text-brand-accent text-sm font-medium mb-3">Respondé cada consulta al instante, 24/7.</p>
-                    <p class="text-brand-muted text-sm mb-5">Tu asistente entiende texto y audios de WhatsApp. Responde preguntas sobre propiedades, precios, disponibilidad y ubicación en segundos.</p>
-                    <ul class="space-y-2.5 text-sm text-brand-muted mb-6">
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Entiende texto y audios</strong> — la mayoría de tus clientes mandan audios</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Responde sobre tu catálogo</strong> de propiedades con información actualizada</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Memoria conversacional</strong> — recuerda al cliente entre sesiones</span></li>
-                    </ul>
-                    <a href="#contacto" class="text-brand-accent hover:text-brand-accentHover text-sm font-semibold transition-colors inline-flex items-center gap-1">Ver cómo funciona <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                </div>
-
-                <!-- Card 2: Lead Qualification -->
-                <div class="glow-card glass-card rounded-2xl p-8">
-                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5 service-icon">
-                        <i data-lucide="bar-chart-3" class="w-6 h-6 text-brand-accent"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Calificación automática de leads</h3>
-                    <p class="text-brand-accent text-sm font-medium mb-3">Sabé al instante quién es comprador serio y quién solo mira.</p>
-                    <p class="text-brand-muted text-sm mb-5">La IA analiza cada conversación y clasifica al lead en 3 niveles de intención. Tu equipo se enfoca solo en los que van a comprar.</p>
-                    <ul class="space-y-2.5 text-sm text-brand-muted mb-6">
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">3 niveles de calificación</strong> — frío, tibio, caliente</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Criterios personalizados</strong> a tu operación y tipo de propiedad</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Notificaciones instantáneas</strong> cuando aparece un lead caliente</span></li>
-                    </ul>
-                    <a href="#contacto" class="text-brand-accent hover:text-brand-accentHover text-sm font-semibold transition-colors inline-flex items-center gap-1">Empezar a calificar leads <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                </div>
-
-                <!-- Card 3: Smart Routing -->
-                <div class="glow-card glass-card rounded-2xl p-8">
-                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5 service-icon">
-                        <i data-lucide="git-branch" class="w-6 h-6 text-brand-blue"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Derivación inteligente a agentes</h3>
-                    <p class="text-brand-blue text-sm font-medium mb-3">Cada lead llega al agente correcto, sin intervención manual.</p>
-                    <p class="text-brand-muted text-sm mb-5">La IA entiende qué busca el cliente y lo deriva al agente especializado en esa zona, tipo de propiedad o rango de precio.</p>
-                    <ul class="space-y-2.5 text-sm text-brand-muted mb-6">
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-blue mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Por zona geográfica</strong> — cada agente atiende su área</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-blue mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Por tipo de operación</strong> — venta, alquiler, temporario</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-blue mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Balanceo de carga</strong> — distribución equitativa entre el equipo</span></li>
-                    </ul>
-                    <a href="#contacto" class="text-brand-blue hover:text-blue-300 text-sm font-semibold transition-colors inline-flex items-center gap-1">Configurar derivación <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-                </div>
-
-                <!-- Card 4: Dashboard -->
-                <div class="glow-card glass-card rounded-2xl p-8">
-                    <div class="w-12 h-12 rounded-xl bg-brand-accent/10 flex items-center justify-center mb-5 service-icon">
-                        <i data-lucide="layout-dashboard" class="w-6 h-6 text-brand-accent"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Dashboard en tiempo real</h3>
-                    <p class="text-brand-accent text-sm font-medium mb-3">Toda tu operación en un solo lugar.</p>
-                    <p class="text-brand-muted text-sm mb-5">Panel profesional con métricas de leads, conversaciones, tiempos de respuesta y rendimiento por agente. Sin planillas manuales.</p>
-                    <ul class="space-y-2.5 text-sm text-brand-muted mb-6">
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Métricas en tiempo real</strong> — leads, conversiones, tiempos</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Historial de conversaciones</strong> — todo el contexto de cada lead</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="chevron-right" class="w-4 h-4 text-brand-accent mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Reportes automáticos</strong> — semanales y mensuales por email</span></li>
-                    </ul>
-                    <a href="#dashboard" class="text-brand-accent hover:text-brand-accentHover text-sm font-semibold transition-colors inline-flex items-center gap-1">Ver el dashboard <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    <!-- ═══ SOCIAL PROOF ═══ -->
+    <section class="relative z-10 py-14 border-y border-white/[0.04]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal flex flex-col items-center gap-7">
+                <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-zinc-500 text-center">
+                    Inmobiliarias que ya operan con Velia
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
+                    <span class="font-serif italic text-lg sm:text-xl text-zinc-400 hover:text-white transition-colors duration-300 cursor-default select-none">Sosa Propiedades</span>
+                    <span class="font-serif italic text-lg sm:text-xl text-zinc-400 hover:text-white transition-colors duration-300 cursor-default select-none">Grupo Andino</span>
+                    <span class="font-serif italic text-lg sm:text-xl text-zinc-400 hover:text-white transition-colors duration-300 cursor-default select-none">Urbana BA</span>
+                    <span class="font-serif italic text-lg sm:text-xl text-zinc-400 hover:text-white transition-colors duration-300 cursor-default select-none">Del Sur Inmuebles</span>
+                    <span class="font-serif italic text-lg sm:text-xl text-zinc-400 hover:text-white transition-colors duration-300 cursor-default select-none">Vértice</span>
+                    <span class="font-serif italic text-lg sm:text-xl text-zinc-400 hover:text-white transition-colors duration-300 cursor-default select-none">Litoral Casas</span>
                 </div>
             </div>
         </div>
     </section>
-    <div class="gradient-divider" aria-hidden="true"></div>
 
-    <!-- ═══ PROCESO ═══ -->
-    <section id="proceso" class="py-20 lg:py-28">
-        <div class="max-w-5xl mx-auto px-4 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Cómo <span class="gradient-text">empezamos</span></h2>
-                <p class="text-brand-muted max-w-2xl mx-auto">De la primera llamada a tu asistente funcionando 24/7. Sin complicaciones técnicas de tu lado.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 lg:gap-4 relative reveal">
-                <div class="text-center px-3 mb-8 md:mb-0 reveal">
-                    <div class="w-11 h-11 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">1</div>
-                    <h3 class="font-semibold mb-2 text-sm">Demo gratuita</h3>
-                    <p class="text-xs text-brand-muted">10 minutos para entender tu operación y detectar qué automatizar primero.</p>
-                </div>
-                <div class="text-center px-3 mb-8 md:mb-0 reveal">
-                    <div class="w-11 h-11 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">2</div>
-                    <h3 class="font-semibold mb-2 text-sm">Propuesta en 48h</h3>
-                    <p class="text-xs text-brand-muted">Plan exacto: qué hacemos, cómo, en cuánto tiempo y a qué costo.</p>
-                </div>
-                <div class="text-center px-3 mb-8 md:mb-0 reveal">
-                    <div class="w-11 h-11 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">3</div>
-                    <h3 class="font-semibold mb-2 text-sm">Implementación</h3>
-                    <p class="text-xs text-brand-muted">Configuramos todo. Vos no tocás nada técnico. 5–10 días.</p>
-                </div>
-                <div class="text-center px-3 mb-8 md:mb-0 reveal">
-                    <div class="w-11 h-11 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">4</div>
-                    <h3 class="font-semibold mb-2 text-sm">Pruebas en vivo</h3>
-                    <p class="text-xs text-brand-muted">Testeamos con tu equipo. Si algo no funciona como esperás, se ajusta.</p>
-                </div>
-                <div class="text-center px-3 reveal">
-                    <div class="w-11 h-11 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green font-bold flex items-center justify-center mx-auto mb-4 text-sm relative z-10">
-                        <i data-lucide="check" class="w-4 h-4"></i>
-                    </div>
-                    <h3 class="font-semibold mb-2 text-sm">Soporte 30 días</h3>
-                    <p class="text-xs text-brand-muted">Cualquier incidencia resuelta sin costo. Un sistema que falla sale más caro que el proyecto.</p>
-                </div>
-            </div>
-            <div class="mt-10 p-5 rounded-2xl glass-card-tinted text-center text-sm text-brand-muted reveal">
-                <strong class="text-brand-text">No cobramos hasta que aprobás la propuesta.</strong> Si hay consultas que se pierden porque nadie responde a tiempo, la automatización las recupera.
+    <!-- ═══ CÓMO FUNCIONA ═══ -->
+    <section id="como-funciona" class="relative z-10 py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal text-center mb-16 flex flex-col items-center">
+                <span class="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-zinc-400 mb-6">
+                    <span class="w-6 h-px bg-emerald-500/60"></span>
+                    Cómo funciona
+                    <span class="w-6 h-px bg-emerald-500/60"></span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                    De la consulta a la visita,
+                    <em class="font-serif italic font-normal"
+                        style="background:linear-gradient(90deg,#fafafa,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">sin fricción.</em>
+                </h2>
             </div>
 
-            <!-- Audio Feature -->
-            <div class="mt-10 audio-feature-card reveal">
-                <div class="flex flex-col md:flex-row items-start gap-6">
-                    <div class="flex items-center gap-3 shrink-0">
-                        <div class="w-12 h-12 rounded-xl bg-brand-green/10 flex items-center justify-center">
-                            <i data-lucide="mic" class="w-6 h-6 text-brand-green"></i>
-                        </div>
-                        <div class="flex items-center gap-1 h-6" aria-hidden="true">
-                            <div class="audio-wave-bar" style="height:12px"></div>
-                            <div class="audio-wave-bar" style="height:18px"></div>
-                            <div class="audio-wave-bar" style="height:8px"></div>
-                            <div class="audio-wave-bar" style="height:20px"></div>
-                            <div class="audio-wave-bar" style="height:14px"></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="step reveal group relative pt-8">
+                    <div class="flex items-start justify-between mb-10">
+                        <span class="step-num font-serif italic text-6xl leading-none text-zinc-700 select-none">01</span>
+                        <div class="step-icon p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+                            <i data-lucide="message-square" class="w-5 h-5 text-zinc-400"></i>
                         </div>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-base mb-2 text-brand-text">Nuestro asistente entiende texto Y audios</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed mb-3">Tu cliente puede mandar un audio de WhatsApp y el bot lo transcribe, lo entiende y responde en segundos. La mayoría de los clientes de inmobiliarias prefieren mandar audios — nuestro bot habla su idioma.</p>
-                        <div class="flex items-center gap-2 text-sm">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-green shrink-0"></i>
-                            <span class="text-brand-text font-medium">Entiende audios de WhatsApp (transcripción automática con IA)</span>
-                        </div>
-                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">Conectás tu WhatsApp</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Integramos tu número en 48 horas. Sin migrar de CRM ni cambiar la forma de trabajar de tu equipo.</p>
                 </div>
-            </div>
 
-            <div class="text-center mt-8 reveal">
-                <a href="#contacto"
-                    class="inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow"
-                    data-track="proceso_cta_click">
-                    Reservá tu demo gratis de 10 min <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
+                <div class="step reveal reveal-d1 group relative pt-8">
+                    <div class="flex items-start justify-between mb-10">
+                        <span class="step-num font-serif italic text-6xl leading-none text-zinc-700 select-none">02</span>
+                        <div class="step-icon p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+                            <i data-lucide="bot" class="w-5 h-5 text-zinc-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">La IA atiende y califica</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Lucía responde 24/7, entiende audios, detecta el presupuesto real y agenda visitas sin intervención humana.</p>
+                </div>
+
+                <div class="step reveal reveal-d2 group relative pt-8">
+                    <div class="flex items-start justify-between mb-10">
+                        <span class="step-num font-serif italic text-6xl leading-none text-zinc-700 select-none">03</span>
+                        <div class="step-icon p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+                            <i data-lucide="target" class="w-5 h-5 text-zinc-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-3">Tu equipo cierra</h3>
+                    <p class="text-sm text-zinc-400 leading-relaxed">Cada lead llega calificado y asignado al agente indicado, con todo el contexto de la conversación.</p>
+                </div>
             </div>
         </div>
     </section>
-    <div class="gradient-divider" aria-hidden="true"></div>
 
-    <!-- ═══ RESULTADOS ═══ -->
-    <section id="resultados" class="py-20 lg:py-28">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Resultados que <span class="gradient-text">hablan solos</span></h2>
-                <p class="text-brand-muted max-w-2xl mx-auto">Métricas reales de nuestros asistentes con IA en operación para inmobiliarias.</p>
+    <!-- ═══ PRODUCTO / DASHBOARD ═══ -->
+    <section id="producto" class="relative z-10 py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal text-center mb-16 flex flex-col items-center">
+                <span class="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-zinc-400 mb-6">
+                    <span class="w-6 h-px bg-emerald-500/60"></span>
+                    Producto
+                    <span class="w-6 h-px bg-emerald-500/60"></span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                    El poder de nuestro
+                    <em class="font-serif italic font-normal"
+                        style="background:linear-gradient(90deg,#fafafa,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Dashboard.</em>
+                </h2>
+                <p class="mt-5 text-lg text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+                    Cada lead, cada conversación, cada métrica — todo en un solo lugar.
+                    Automatización completa con visibilidad total.
+                </p>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5 mb-12 reveal">
-                <div class="metric-card">
-                    <div class="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center mx-auto mb-3">
-                        <i data-lucide="zap" class="w-5 h-5 text-brand-accent"></i>
-                    </div>
-                    <div class="metric-value counter-animate" data-count="3">&lt; 3s</div>
-                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Tiempo promedio de respuesta</p>
-                </div>
-                <div class="metric-card">
-                    <div class="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center mx-auto mb-3">
-                        <i data-lucide="trending-up" class="w-5 h-5 text-brand-accent"></i>
-                    </div>
-                    <div class="metric-value">65%</div>
-                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Consultas resueltas sin humanos</p>
-                </div>
-                <div class="metric-card">
-                    <div class="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center mx-auto mb-3">
-                        <i data-lucide="target" class="w-5 h-5 text-brand-accent"></i>
-                    </div>
-                    <div class="metric-value">40%</div>
-                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Compradores serios identificados</p>
-                </div>
-                <div class="metric-card">
-                    <div class="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center mx-auto mb-3">
-                        <i data-lucide="clock" class="w-5 h-5 text-brand-accent"></i>
-                    </div>
-                    <div class="metric-value">24/7</div>
-                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Disponible todos los días</p>
-                </div>
-                <div class="metric-card col-span-2 lg:col-span-1">
-                    <div class="w-10 h-10 rounded-xl bg-brand-green/10 flex items-center justify-center mx-auto mb-3">
-                        <i data-lucide="audio-lines" class="w-5 h-5 text-brand-green"></i>
-                    </div>
-                    <div class="metric-value text-xl font-extrabold gradient-text-green">Texto + Audio</div>
-                    <p class="text-xs text-brand-muted mt-2 leading-relaxed">Entiende ambos formatos</p>
-                </div>
-            </div>
-            <div class="flex flex-wrap justify-center gap-6 lg:gap-8 items-center opacity-30 mb-8 reveal text-sm font-medium tracking-wide">
-                <span>n8n</span><span class="text-brand-border">·</span>
-                <span>OpenAI</span><span class="text-brand-border">·</span>
-                <span>WhatsApp API</span><span class="text-brand-border">·</span>
-                <span>Supabase</span><span class="text-brand-border">·</span>
-                <span>Google Workspace</span><span class="text-brand-border">·</span>
-                <span>Tokko Broker</span>
-            </div>
-            <div class="text-center reveal">
-                <a href="#contacto" class="text-brand-accent hover:text-brand-accentHover font-semibold transition-colors inline-flex items-center gap-1">¿Querés ver cómo funciona con tu inmobiliaria? Preguntanos <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-            </div>
-        </div>
-    </section>
-    <div class="gradient-divider" aria-hidden="true"></div>
 
-    <!-- ═══ BENTO GRID — DASHBOARD SHOWCASE ═══ -->
-    <section id="dashboard" class="py-20 lg:py-28 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent/[.04] rounded-full blur-[140px]" aria-hidden="true"></div>
-        <div class="relative max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">El poder de nuestro <span class="gradient-text-shimmer">Dashboard</span></h2>
-                <p class="text-brand-muted max-w-2xl mx-auto">Toda la información de tu inmobiliaria en un panel profesional. Métricas, conversaciones y leads en tiempo real.</p>
-            </div>
-            <div class="bento-grid reveal">
-                <!-- Card 1: Metrics (2-col) -->
-                <div class="bento-card bento-card-wide">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-brand-accent/10 flex items-center justify-center">
-                            <i data-lucide="bar-chart-3" class="w-4 h-4 text-brand-accent"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Métricas (2 col) -->
+                <div class="bento reveal col-span-1 md:col-span-2 p-6">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="p-2 rounded-lg bg-white/[0.06]">
+                            <i data-lucide="bar-chart-3" class="w-4 h-4 text-zinc-300"></i>
                         </div>
-                        <h3 class="font-bold text-sm">Métricas en tiempo real</h3>
+                        <h3 class="text-sm font-semibold text-white">Leads vs Calificados</h3>
                     </div>
-                    <div class="grid grid-cols-3 gap-4 mb-4">
-                        <div class="text-center">
-                            <div class="text-2xl font-extrabold gradient-text">247</div>
-                            <div class="text-xs text-brand-muted mt-1">Leads este mes</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-extrabold text-brand-green">68%</div>
-                            <div class="text-xs text-brand-muted mt-1">Tasa de respuesta</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-2xl font-extrabold gradient-text">1.8s</div>
-                            <div class="text-xs text-brand-muted mt-1">Tiempo respuesta</div>
-                        </div>
+                    <p class="text-xs text-zinc-400 mb-4 pl-11">Últimos 6 meses</p>
+
+                    <!-- Chart SVG: platino = leads, esmeralda = calificados -->
+                    <div class="h-[180px]">
+                        <svg viewBox="0 0 600 180" class="w-full h-full" preserveAspectRatio="none" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="gLeads" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#e4e4e7" stop-opacity=".18"/>
+                                    <stop offset="100%" stop-color="#e4e4e7" stop-opacity="0"/>
+                                </linearGradient>
+                                <linearGradient id="gCalif" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#10b981" stop-opacity=".22"/>
+                                    <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,135 C60,128 90,122 120,118 C170,111 190,105 240,101 C290,96 310,90 360,85 C410,78 430,70 480,61 C520,50 560,35 600,23 L600,180 L0,180 Z" fill="url(#gLeads)"/>
+                            <path d="M0,135 C60,128 90,122 120,118 C170,111 190,105 240,101 C290,96 310,90 360,85 C410,78 430,70 480,61 C520,50 560,35 600,23"
+                                fill="none" stroke="#e4e4e7" stroke-width="2" vector-effect="non-scaling-stroke"/>
+                            <path d="M0,155 C60,149 90,144 120,140 C170,133 190,129 240,125 C290,119 310,113 360,108 C410,99 430,92 480,83 C520,70 560,58 600,46 L600,180 L0,180 Z" fill="url(#gCalif)"/>
+                            <path d="M0,155 C60,149 90,144 120,140 C170,133 190,129 240,125 C290,119 310,113 360,108 C410,99 430,92 480,83 C520,70 560,58 600,46"
+                                fill="none" stroke="#10b981" stroke-width="2" vector-effect="non-scaling-stroke"/>
+                        </svg>
                     </div>
-                    <div class="mini-chart" id="mini-chart">
-                        <div class="mini-chart-bar" style="height:30%"></div>
-                        <div class="mini-chart-bar" style="height:45%"></div>
-                        <div class="mini-chart-bar" style="height:35%"></div>
-                        <div class="mini-chart-bar" style="height:60%"></div>
-                        <div class="mini-chart-bar" style="height:50%"></div>
-                        <div class="mini-chart-bar" style="height:75%"></div>
-                        <div class="mini-chart-bar" style="height:65%"></div>
-                        <div class="mini-chart-bar" style="height:80%"></div>
-                        <div class="mini-chart-bar" style="height:70%"></div>
-                        <div class="mini-chart-bar" style="height:90%"></div>
-                        <div class="mini-chart-bar" style="height:85%"></div>
-                        <div class="mini-chart-bar" style="height:95%"></div>
-                    </div>
-                    <div class="flex justify-between mt-2 text-[10px] text-brand-mutedDark">
+                    <div class="flex justify-between mt-1 px-1 text-[11px] text-zinc-500">
                         <span>Ene</span><span>Feb</span><span>Mar</span><span>Abr</span><span>May</span><span>Jun</span>
                     </div>
-                </div>
 
-                <!-- Card 2: Motor n8n -->
-                <div class="bento-card">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
-                            <i data-lucide="settings" class="w-4 h-4 text-orange-400"></i>
-                        </div>
-                        <h3 class="font-bold text-sm">Motor n8n</h3>
-                    </div>
-                    <p class="text-xs text-brand-muted mb-4">Flujos automatizados conectando tus herramientas</p>
-                    <div class="flex items-center justify-center gap-2 flex-wrap">
-                        <div class="node bg-green-500/15 text-green-400">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        </div>
-                        <div class="node-line"></div>
-                        <div class="node bg-brand-accent/15 text-brand-accent">
-                            <i data-lucide="brain" class="w-4 h-4"></i>
-                        </div>
-                        <div class="node-line"></div>
-                        <div class="node bg-blue-500/15 text-blue-400">
-                            <i data-lucide="database" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-                    <div class="flex justify-center gap-3 mt-3 text-[10px] text-brand-mutedDark">
-                        <span>WhatsApp</span><span>IA</span><span>CRM</span>
+                    <div class="flex items-center gap-6 mt-3 pl-1">
+                        <span class="flex items-center gap-2 text-xs text-zinc-400">
+                            <span class="w-2.5 h-2.5 rounded-full bg-zinc-300"></span> Leads recibidos
+                        </span>
+                        <span class="flex items-center gap-2 text-xs text-zinc-400">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Calificados por IA
+                        </span>
                     </div>
                 </div>
 
-                <!-- Card 3: Audio Analysis -->
-                <div class="bento-card">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-brand-green/10 flex items-center justify-center">
-                            <i data-lucide="mic" class="w-4 h-4 text-brand-green"></i>
+                <!-- Motor de automatización -->
+                <div class="bento reveal reveal-d1 col-span-1 p-6 flex flex-col">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 rounded-lg bg-emerald-500/10">
+                            <i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i>
                         </div>
-                        <h3 class="font-bold text-sm">Análisis de Audio</h3>
+                        <h3 class="text-sm font-semibold text-white">Motor de automatización</h3>
                     </div>
-                    <p class="text-xs text-brand-muted mb-4">Transcripción y comprensión de audios de WhatsApp</p>
-                    <div class="flex items-center gap-1 justify-center h-12 mb-3">
-                        <div class="audio-wave-bar" style="height:10px"></div>
-                        <div class="audio-wave-bar" style="height:16px"></div>
-                        <div class="audio-wave-bar" style="height:8px"></div>
-                        <div class="audio-wave-bar" style="height:22px"></div>
-                        <div class="audio-wave-bar" style="height:14px"></div>
-                        <div class="audio-wave-bar" style="height:18px"></div>
-                        <div class="audio-wave-bar" style="height:10px"></div>
-                        <div class="audio-wave-bar" style="height:20px"></div>
-                        <div class="audio-wave-bar" style="height:12px"></div>
-                        <div class="audio-wave-bar" style="height:16px"></div>
+
+                    <div class="flex-1 flex items-center justify-center">
+                        <div class="flex items-center w-full max-w-[280px]">
+                            <div class="flex flex-col items-center gap-2 shrink-0">
+                                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                                    <i data-lucide="message-square" class="w-6 h-6 text-emerald-400"></i>
+                                </div>
+                                <span class="text-[10px] text-zinc-400 font-medium">WhatsApp</span>
+                            </div>
+                            <div class="flex-1 h-[2px] relative mx-1.5">
+                                <div class="absolute inset-0 rounded-full" style="background:linear-gradient(90deg,rgba(16,185,129,.3),rgba(16,185,129,.2))"></div>
+                                <div class="flow-dot absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-emerald-400"></div>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 shrink-0">
+                                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center relative">
+                                    <i data-lucide="bot" class="w-6 h-6 text-emerald-400"></i>
+                                    <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+                                </div>
+                                <span class="text-[10px] text-zinc-400 font-medium">IA Velia</span>
+                            </div>
+                            <div class="flex-1 h-[2px] relative mx-1.5">
+                                <div class="absolute inset-0 rounded-full" style="background:linear-gradient(90deg,rgba(16,185,129,.2),rgba(255,255,255,.15))"></div>
+                                <div class="flow-dot absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-zinc-300" style="animation-delay:.5s"></div>
+                            </div>
+                            <div class="flex flex-col items-center gap-2 shrink-0">
+                                <div class="w-14 h-14 rounded-2xl bg-white/[0.05] border border-white/[0.1] flex items-center justify-center">
+                                    <i data-lucide="target" class="w-6 h-6 text-zinc-300"></i>
+                                </div>
+                                <span class="text-[10px] text-zinc-400 font-medium">CRM</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-2 text-xs">
-                        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
-                        <span class="text-brand-green font-medium">Procesando audio...</span>
-                    </div>
-                    <div class="mt-2 text-[10px] text-brand-muted bg-white/[.03] rounded-lg p-2.5 italic border border-white/[.04]">
-                        "Busco un 3 ambientes en Palermo, presupuesto hasta 200k..."
+
+                    <div class="mt-4 flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-500/[0.06] border border-emerald-500/[0.1]">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span class="text-xs text-emerald-300 font-medium">Procesando lead en tiempo real...</span>
                     </div>
                 </div>
 
-                <!-- Card 4: Agent Routing (2-col) -->
-                <div class="bento-card bento-card-wide">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
-                            <i data-lucide="users" class="w-4 h-4 text-brand-blue"></i>
+                <!-- Análisis de voz -->
+                <div class="bento reveal reveal-d2 col-span-1 p-6 flex flex-col">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2 rounded-lg bg-white/[0.06]">
+                            <i data-lucide="volume-2" class="w-4 h-4 text-zinc-300"></i>
                         </div>
-                        <h3 class="font-bold text-sm">Asignación inteligente</h3>
+                        <h3 class="text-sm font-semibold text-white">Análisis de voz</h3>
                     </div>
-                    <div class="grid grid-cols-3 gap-3">
-                        <div class="bg-white/[.03] border border-white/[.04] rounded-xl p-3 text-center">
-                            <div class="w-9 h-9 rounded-full bg-brand-accent/15 flex items-center justify-center mx-auto mb-2 text-xs font-bold text-brand-accent">ML</div>
-                            <div class="text-xs font-medium text-brand-text">María L.</div>
-                            <div class="text-[10px] text-brand-muted">Palermo · Recoleta</div>
-                            <div class="text-[10px] text-brand-green font-medium mt-1">12 leads</div>
+
+                    <div class="flex-1 flex flex-col justify-center">
+                        <div class="flex items-center gap-2 mb-4">
+                            <button class="w-9 h-9 rounded-full bg-white/[0.07] border border-white/[0.12] flex items-center justify-center hover:bg-white/[0.12] transition-colors" aria-label="Reproducir audio de ejemplo">
+                                <i data-lucide="play" class="w-4 h-4 text-zinc-200 ml-0.5"></i>
+                            </button>
+                            <div id="waveform" class="flex-1 flex items-end justify-center gap-[3px] h-12"></div>
+                            <span class="text-[10px] text-zinc-400 tabular-nums shrink-0">0:42</span>
                         </div>
-                        <div class="bg-white/[.03] border border-white/[.04] rounded-xl p-3 text-center">
-                            <div class="w-9 h-9 rounded-full bg-blue-500/15 flex items-center justify-center mx-auto mb-2 text-xs font-bold text-blue-400">JR</div>
-                            <div class="text-xs font-medium text-brand-text">Juan R.</div>
-                            <div class="text-[10px] text-brand-muted">Belgrano · Núñez</div>
-                            <div class="text-[10px] text-brand-green font-medium mt-1">9 leads</div>
+
+                        <div class="bg-white/[0.03] border border-white/[0.04] rounded-xl p-3 mb-3">
+                            <p class="text-xs text-zinc-400 leading-relaxed italic">
+                                "...me interesa mucho el departamento, quiero agendar una visita lo antes posible..."
+                            </p>
                         </div>
-                        <div class="bg-white/[.03] border border-white/[.04] rounded-xl p-3 text-center">
-                            <div class="w-9 h-9 rounded-full bg-green-500/15 flex items-center justify-center mx-auto mb-2 text-xs font-bold text-green-400">SC</div>
-                            <div class="text-xs font-medium text-brand-text">Sofía C.</div>
-                            <div class="text-[10px] text-brand-muted">Caballito · Flores</div>
-                            <div class="text-[10px] text-brand-green font-medium mt-1">11 leads</div>
-                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/15 text-xs font-semibold text-emerald-400">
+                            <i data-lucide="target" class="w-3 h-3"></i>
+                            Intención de compra: Alta
+                        </span>
                     </div>
                 </div>
 
-                <!-- Card 5: Conversations -->
-                <div class="bento-card">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-brand-accent/10 flex items-center justify-center">
-                            <i data-lucide="messages-square" class="w-4 h-4 text-brand-accent"></i>
+                <!-- Enrutamiento (2 col) -->
+                <div class="bento reveal reveal-d3 col-span-1 md:col-span-2 p-6">
+                    <div class="flex items-center gap-3 mb-1">
+                        <div class="p-2 rounded-lg bg-white/[0.06]">
+                            <i data-lucide="users" class="w-4 h-4 text-zinc-300"></i>
                         </div>
-                        <h3 class="font-bold text-sm">Conversaciones</h3>
+                        <h3 class="text-sm font-semibold text-white">Enrutamiento inteligente</h3>
                     </div>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2 bg-white/[.03] border border-white/[.04] rounded-lg p-2.5">
-                            <div class="w-6 h-6 rounded-full bg-red-500/15 flex items-center justify-center shrink-0">
-                                <i data-lucide="flame" class="w-3 h-3 text-red-400"></i>
+                    <p class="text-xs text-zinc-400 mb-5 pl-11">Asignación automática al agente indicado</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="relative flex items-center gap-3 p-3.5 rounded-xl border bg-emerald-500/[0.05] border-emerald-500/20">
+                            <div class="relative w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold bg-emerald-500/15 text-emerald-300">
+                                MS
+                                <span class="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-[#121215] animate-pulse"></span>
                             </div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-xs font-medium text-brand-text truncate">Carlos M.</div>
-                                <div class="text-[10px] text-brand-muted truncate">Busco depto 2 amb en...</div>
+                                <p class="text-sm font-medium text-white/90 truncate">Martín Sosa</p>
+                                <p class="text-[10px] text-zinc-400">Ventas Senior</p>
                             </div>
-                            <span class="text-[9px] text-red-400 font-bold bg-red-500/10 px-2 py-0.5 rounded-full">HOT</span>
+                            <span class="text-[10px] font-semibold shrink-0 text-emerald-400">Asignando...</span>
                         </div>
-                        <div class="flex items-center gap-2 bg-white/[.03] border border-white/[.04] rounded-lg p-2.5">
-                            <div class="w-6 h-6 rounded-full bg-yellow-500/15 flex items-center justify-center shrink-0">
-                                <i data-lucide="thermometer" class="w-3 h-3 text-yellow-400"></i>
-                            </div>
+                        <div class="relative flex items-center gap-3 p-3.5 rounded-xl border bg-white/[0.02] border-white/[0.06]">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold bg-white/[0.05] text-zinc-400">LM</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-xs font-medium text-brand-text truncate">Ana P.</div>
-                                <div class="text-[10px] text-brand-muted truncate">¿Tienen algo en Belgr...</div>
+                                <p class="text-sm font-medium text-white/90 truncate">Lucía Méndez</p>
+                                <p class="text-[10px] text-zinc-400">Ventas</p>
                             </div>
-                            <span class="text-[9px] text-yellow-400 font-bold bg-yellow-500/10 px-2 py-0.5 rounded-full">WARM</span>
+                            <span class="text-[10px] font-semibold shrink-0 text-zinc-300">Disponible</span>
                         </div>
-                        <div class="flex items-center gap-2 bg-white/[.03] border border-white/[.04] rounded-lg p-2.5">
-                            <div class="w-6 h-6 rounded-full bg-blue-500/15 flex items-center justify-center shrink-0">
-                                <i data-lucide="sparkles" class="w-3 h-3 text-blue-400"></i>
-                            </div>
+                        <div class="relative flex items-center gap-3 p-3.5 rounded-xl border bg-white/[0.02] border-white/[0.06]">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold bg-white/[0.05] text-zinc-400">CR</div>
                             <div class="flex-1 min-w-0">
-                                <div class="text-xs font-medium text-brand-text truncate">Lucía R.</div>
-                                <div class="text-[10px] text-brand-muted truncate">¿Cuánto sale el alquil...</div>
+                                <p class="text-sm font-medium text-white/90 truncate">Carlos Ruiz</p>
+                                <p class="text-[10px] text-zinc-400">Ventas</p>
                             </div>
-                            <span class="text-[9px] text-blue-400 font-bold bg-blue-500/10 px-2 py-0.5 rounded-full">NEW</span>
+                            <span class="text-[10px] font-semibold shrink-0 text-zinc-500">Ocupado</span>
                         </div>
                     </div>
+
+                    <div class="mt-4 flex items-center gap-3 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/[0.07]">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="send" class="w-3.5 h-3.5 text-emerald-400"></i>
+                            <span class="text-xs text-zinc-300">
+                                Lead <span class="text-white font-semibold">María López</span> asignado a
+                                <span class="text-emerald-400 font-semibold">Martín Sosa</span>
+                            </span>
+                        </div>
+                        <span class="ml-auto text-[10px] text-zinc-500 tabular-nums">hace 3 seg</span>
+                    </div>
                 </div>
-            </div>
-            <div class="text-center mt-10 reveal">
-                <a href="#contacto"
-                    class="inline-flex items-center gap-2 bg-brand-accent hover:bg-brand-accentHover text-white font-semibold px-6 py-3 rounded-xl transition-all btn-glow"
-                    data-track="dashboard_cta_click">
-                    Quiero ver el dashboard en acción <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
             </div>
         </div>
     </section>
-    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ═══ TESTIMONIAL ═══ -->
+    <section class="relative z-10 py-24 sm:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <figure class="reveal relative max-w-3xl mx-auto text-center">
+                <span aria-hidden="true" class="block font-serif italic text-8xl leading-[0] text-emerald-500/30 select-none mb-10">&ldquo;</span>
+                <blockquote class="font-serif italic text-2xl sm:text-3xl lg:text-[2.1rem] leading-snug text-zinc-200" style="text-wrap:balance">
+                    Antes se nos escapaban consultas a la madrugada. Hoy Lucía las atiende, las califica,
+                    y a la mañana ya tenemos las visitas agendadas.
+                </blockquote>
+                <figcaption class="mt-10 flex items-center justify-center gap-4">
+                    <span class="w-11 h-11 rounded-full bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-sm font-bold text-zinc-300">MS</span>
+                    <span class="text-left">
+                        <span class="block text-sm font-semibold text-white">Martín Sosa</span>
+                        <span class="block text-xs text-zinc-400 mt-0.5">Director · Sosa Propiedades</span>
+                    </span>
+                </figcaption>
+            </figure>
+        </div>
+    </section>
 
     <!-- ═══ PRECIOS ═══ -->
-    <section id="precios" class="py-20 lg:py-28 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-accent/[.04] rounded-full blur-[140px]" aria-hidden="true"></div>
-        <div class="relative max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Planes para cada <span class="gradient-text">etapa de tu inmobiliaria</span></h2>
-                <p class="text-brand-muted max-w-2xl mx-auto">Elegí el plan que mejor se adapte a tu operación. Todos incluyen asistente con IA que entiende texto y audios.</p>
+    <section id="precios" class="relative z-10 py-24 sm:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal text-center mb-16 flex flex-col items-center">
+                <span class="inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-zinc-400 mb-6">
+                    <span class="w-6 h-px bg-emerald-500/60"></span>
+                    Precios
+                    <span class="w-6 h-px bg-emerald-500/60"></span>
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                    Planes que se adaptan a
+                    <em class="font-serif italic font-normal"
+                        style="background:linear-gradient(90deg,#fafafa,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">tu operación.</em>
+                </h2>
+                <p class="mt-5 text-lg text-zinc-300 max-w-xl mx-auto">Sin contratos anuales. Escalá cuando quieras.</p>
             </div>
 
-            <div class="pricing-grid reveal">
-                <!-- STARTER -->
-                <div class="pricing-card">
-                    <span class="plan-badge plan-badge-starter mb-4">Ideal para empezar</span>
-                    <h3 class="text-xl font-bold mt-3 mb-1">Starter</h3>
-                    <p class="text-xs text-brand-muted mb-5">Para inmobiliarias de 1-5 personas</p>
-                    <div class="mb-1">
-                        <span class="text-3xl font-extrabold gradient-text">USD 390</span>
-                        <span class="text-xs text-brand-muted ml-1">setup</span>
-                    </div>
-                    <div class="flex items-baseline gap-1 mb-6">
-                        <span class="text-lg font-bold gradient-text">+ USD 89</span>
-                        <span class="text-sm text-brand-muted">/mes</span>
-                    </div>
-                    <div class="h-px bg-white/[.06] mb-6"></div>
-                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest mb-3">INCLUYE:</p>
-                    <ul class="space-y-2.5 mb-6 text-sm text-brand-muted">
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Asistente WhatsApp con IA 24/7</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Comprende texto Y audios de clientes</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Calificación automática de leads (3 niveles)</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Respuesta instantánea a cada consulta</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Panel de métricas básico</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Soporte por email</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Implementado en 48-72 horas</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>15 días de garantía</span></li>
-                    </ul>
-                    <a href="#contacto" class="block text-center bg-white/[.04] hover:bg-brand-accent/10 border border-brand-accent/20 hover:border-brand-accent/50 text-brand-accent font-semibold py-3 rounded-xl transition-all text-sm" data-track="pricing_starter_click">Elegir Starter</a>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-start">
 
-                <!-- PROFESSIONAL -->
-                <div class="pricing-card pricing-card-pro gradient-border">
-                    <span class="plan-recommended-badge">Recomendado</span>
-                    <span class="plan-badge plan-badge-pro mb-4 mt-2">Más popular</span>
-                    <h3 class="text-xl font-bold mt-3 mb-1">Professional</h3>
-                    <p class="text-xs text-brand-muted mb-5">Para inmobiliarias de 5-15 personas</p>
-                    <div class="mb-1">
-                        <span class="text-3xl font-extrabold gradient-text-shimmer">USD 690</span>
-                        <span class="text-xs text-brand-muted ml-1">setup</span>
-                    </div>
-                    <div class="flex items-baseline gap-1 mb-6">
-                        <span class="text-lg font-bold gradient-text">+ USD 149</span>
-                        <span class="text-sm text-brand-muted">/mes</span>
-                    </div>
-                    <div class="h-px bg-gradient-to-r from-transparent via-brand-accent/30 to-transparent mb-6"></div>
-                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest mb-3">INCLUYE:</p>
-                    <ul class="space-y-2.5 mb-6 text-sm text-brand-muted">
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Todo lo de Starter +</strong></span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Derivación inteligente a agentes específicos</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Memoria conversacional (el bot recuerda al cliente)</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Comprende texto, audios e imágenes</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Dashboard completo con métricas en tiempo real</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Integración con Google Sheets / CRM</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Reportes semanales automáticos</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Soporte prioritario por WhatsApp</span></li>
-                    </ul>
-                    <a href="#contacto" class="block text-center bg-brand-accent hover:bg-brand-accentHover text-white font-bold py-4 rounded-xl transition-all btn-glow text-base shadow-lg shadow-brand-accent/25" data-track="pricing_professional_click">Elegir Professional</a>
-                </div>
-
-                <!-- ENTERPRISE -->
-                <div class="pricing-card">
-                    <span class="plan-badge plan-badge-enterprise mb-4">Para equipos grandes</span>
-                    <h3 class="text-xl font-bold mt-3 mb-1">Enterprise</h3>
-                    <p class="text-xs text-brand-muted mb-5">Inmobiliarias grandes, redes y franquicias</p>
-                    <div class="mb-1">
-                        <span class="text-3xl font-extrabold gradient-text">USD 1,190</span>
-                        <span class="text-xs text-brand-muted ml-1">setup</span>
-                    </div>
-                    <div class="flex items-baseline gap-1 mb-6">
-                        <span class="text-lg font-bold gradient-text">+ USD 249</span>
-                        <span class="text-sm text-brand-muted">/mes</span>
-                    </div>
-                    <div class="h-px bg-white/[.06] mb-6"></div>
-                    <p class="text-[10px] font-semibold text-brand-accent uppercase tracking-widest mb-3">INCLUYE:</p>
-                    <ul class="space-y-2.5 mb-6 text-sm text-brand-muted">
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Todo lo de Professional +</strong></span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Múltiples números de WhatsApp</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Bot personalizado con tono de marca</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Voice Bot con IA para llamadas <span class="coming-soon-badge ml-1">Próximamente</span></span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>API para integración con sistemas propios</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>Onboarding dedicado con consultor</span></li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span>SLA de respuesta 4hs</span></li>
-                    </ul>
-                    <a href="#contacto" class="block text-center bg-white/[.04] hover:bg-brand-accent/10 border border-brand-accent/20 hover:border-brand-accent/50 text-brand-accent font-semibold py-3 rounded-xl transition-all text-sm" data-track="pricing_enterprise_click">Elegir Enterprise</a>
-                </div>
-            </div>
-
-            <p class="text-center text-xs text-brand-mutedDark mt-8 mb-4 reveal">Todos los precios en USD. Se acepta pago en pesos argentinos al tipo de cambio del día.</p>
-            <p class="text-center text-sm text-brand-muted mb-12 reveal">¿No estás seguro cuál elegir? <a href="https://wa.me/5491122551204?text=Hola%2C%20necesito%20ayuda%20para%20elegir%20un%20plan%20de%20Velia" target="_blank" rel="noopener" class="text-brand-accent hover:text-brand-accentHover font-semibold inline-flex items-center gap-1">Escribinos y te ayudamos <i data-lucide="arrow-right" class="w-3 h-3"></i></a></p>
-
-            <!-- Garantía -->
-            <div class="mt-8 reveal">
-                <div class="text-center mb-8">
-                    <h3 class="text-xl sm:text-2xl font-bold">Garantía sin riesgo</h3>
-                </div>
-                <div class="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
-                    <div class="guarantee-card rounded-xl p-6 text-center">
-                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
-                            <i data-lucide="shield-check" class="w-6 h-6 text-brand-green"></i>
+                <!-- Starter -->
+                <div class="reveal relative flex flex-col rounded-2xl p-[1px] bg-white/[0.06]">
+                    <div class="flex-1 flex flex-col rounded-[15px] p-8 bg-[#09090b]">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold text-white">Starter</h3>
+                            <p class="text-xs text-zinc-400 mt-1">Para inmobiliarias que arrancan con IA</p>
                         </div>
-                        <p class="text-sm font-semibold text-brand-text mb-1">100% de devolución</p>
-                        <p class="text-xs text-brand-muted">Si en 15 días no ves valor, devolvemos el 100% del setup</p>
-                    </div>
-                    <div class="guarantee-card rounded-xl p-6 text-center">
-                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
-                            <i data-lucide="zap" class="w-6 h-6 text-brand-green"></i>
+                        <div class="mb-8">
+                            <span class="font-serif italic text-[28px] leading-tight text-zinc-100">Consultar precio</span>
                         </div>
-                        <p class="text-sm font-semibold text-brand-text mb-1">72hs o gratis</p>
-                        <p class="text-xs text-brand-muted">Primera automatización funcionando en 72 horas o no cobramos</p>
-                    </div>
-                    <div class="guarantee-card rounded-xl p-6 text-center">
-                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center mx-auto mb-4">
-                            <i data-lucide="headphones" class="w-6 h-6 text-brand-green"></i>
-                        </div>
-                        <p class="text-sm font-semibold text-brand-text mb-1">Soporte directo</p>
-                        <p class="text-xs text-brand-muted">Soporte técnico directo vía WhatsApp — sin tickets ni esperas</p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-10 reveal">
-                <a href="#contacto" class="text-brand-accent hover:text-brand-accentHover font-semibold text-sm transition-colors inline-flex items-center gap-1">¿No estás seguro qué necesitás? La demo de 10 min sigue siendo gratis <i data-lucide="arrow-right" class="w-3 h-3"></i></a>
-            </div>
-        </div>
-    </section>
-    <div class="gradient-divider" aria-hidden="true"></div>
-
-    <!-- ═══ POR QUÉ VELIA ═══ -->
-    <section id="comparacion" class="py-20 lg:py-28">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="text-center mb-12 reveal">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Por qué <span class="gradient-text">no es solo un chatbot</span></h2>
-                <p class="text-brand-muted max-w-2xl mx-auto">No vendemos bots sueltos. Entregamos un sistema completo con visibilidad total para tu inmobiliaria.</p>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto reveal">
-                <div class="comparison-bad rounded-2xl p-8">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center">
-                            <i data-lucide="x-circle" class="w-5 h-5 text-red-400"></i>
-                        </div>
-                        <h3 class="font-bold text-lg">Chatbots genéricos</h3>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 text-sm text-brand-muted"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0"></i><span>Respuestas <strong class="text-brand-text">robotizadas y genéricas</strong> que no conocen tu catálogo</span></li>
-                        <li class="flex items-start gap-3 text-sm text-brand-muted"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0"></i><span>No entienden <strong class="text-brand-text">audios de WhatsApp</strong> — pierden el 60% de los mensajes</span></li>
-                        <li class="flex items-start gap-3 text-sm text-brand-muted"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Sin calificación de leads</strong> — todos los contactos te llegan iguales</span></li>
-                        <li class="flex items-start gap-3 text-sm text-brand-muted"><i data-lucide="x" class="w-4 h-4 text-red-400 mt-0.5 shrink-0"></i><span>No hay dashboard, no hay métricas, no hay <strong class="text-brand-text">visión del negocio</strong></span></li>
-                    </ul>
-                </div>
-                <div class="comparison-good rounded-2xl p-8 ring-1 ring-brand-accent/20">
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 rounded-full bg-brand-accent/10 flex items-center justify-center">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-accent"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-lg">Velia</h3>
-                            <span class="text-[10px] text-brand-accent font-semibold uppercase tracking-wider">SISTEMA COMPLETO</span>
-                        </div>
-                    </div>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3 text-sm text-brand-muted"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span><strong class="text-brand-text">IA entrenada con tu catálogo</strong> — responde con info real de tus propiedades</span></li>
-                        <li class="flex items-start gap-3 text-sm text-brand-muted"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Entiende texto, audios e imágenes</strong> — nada se pierde</span></li>
-                        <li class="flex items-start gap-3 text-sm text-brand-muted"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Calificación + derivación inteligente</strong> — cada lead al agente correcto</span></li>
-                        <li class="flex items-start gap-3 text-sm text-brand-muted"><i data-lucide="check" class="w-4 h-4 text-brand-green mt-0.5 shrink-0"></i><span><strong class="text-brand-text">Dashboard profesional</strong> con métricas 24/7 — siempre sabés qué pasa</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="gradient-divider" aria-hidden="true"></div>
-
-    <!-- ═══ FAQ ═══ -->
-    <section id="faq" class="py-20 lg:py-28">
-        <div class="max-w-3xl mx-auto px-4 lg:px-8">
-            <div class="text-center mb-14 reveal">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Lo que nos preguntan <span class="gradient-text">antes de empezar</span></h2>
-            </div>
-            <div class="space-y-3" role="list">
-                <div class="glass-card reveal" role="listitem">
-                    <button class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base" aria-expanded="false" aria-controls="faq-1"><span>¿Cómo sabe el bot sobre mis propiedades?</span><i data-lucide="chevron-down" class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"></i></button>
-                    <div id="faq-1" class="faq-answer text-sm text-brand-muted"><p>Conectamos tu catálogo de propiedades (desde tu CRM, Tokko, planilla o lo que uses) con el asistente. Cada vez que actualizás una propiedad, el bot lo sabe. No necesitás cargar nada manualmente.</p></div>
-                </div>
-                <div class="glass-card reveal" role="listitem">
-                    <button class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base" aria-expanded="false" aria-controls="faq-2"><span>¿Y si el cliente manda un audio largo?</span><i data-lucide="chevron-down" class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"></i></button>
-                    <div id="faq-2" class="faq-answer text-sm text-brand-muted"><p>Lo transcribe, entiende la intención y responde en segundos. Funciona con audios de cualquier duración. La mayoría de los clientes de inmobiliarias prefieren mandar audios — nuestro bot está preparado para eso.</p></div>
-                </div>
-                <div class="glass-card reveal" role="listitem">
-                    <button class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base" aria-expanded="false" aria-controls="faq-3"><span>¿Cuánto tiempo tarda en estar funcionando?</span><i data-lucide="chevron-down" class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"></i></button>
-                    <div id="faq-3" class="faq-answer text-sm text-brand-muted"><p>Plan Starter: 48-72 horas. Professional: 5-7 días. Enterprise: 10-15 días. Esa fecha viene en la propuesta, que recibís en 48h. Cada día sin asistente es otro día de leads perdidos.</p></div>
-                </div>
-                <div class="glass-card reveal" role="listitem">
-                    <button class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base" aria-expanded="false" aria-controls="faq-4"><span>¿El bot puede agendar visitas?</span><i data-lucide="chevron-down" class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"></i></button>
-                    <div id="faq-4" class="faq-answer text-sm text-brand-muted"><p>Sí. El asistente puede coordinar visitas directamente con el cliente, proponiendo horarios disponibles y notificando al agente correspondiente. Se integra con Google Calendar.</p></div>
-                </div>
-                <div class="glass-card reveal" role="listitem">
-                    <button class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base" aria-expanded="false" aria-controls="faq-5"><span>¿Necesito conocimientos técnicos?</span><i data-lucide="chevron-down" class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"></i></button>
-                    <div id="faq-5" class="faq-answer text-sm text-brand-muted"><p>No. Nos encargamos de toda la configuración. Vos solo supervisás el dashboard y gestionás tus leads como siempre — pero ahora llegan calificados y organizados.</p></div>
-                </div>
-                <div class="glass-card reveal" role="listitem">
-                    <button class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base" aria-expanded="false" aria-controls="faq-6"><span>¿Funciona con mi CRM actual?</span><i data-lucide="chevron-down" class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"></i></button>
-                    <div id="faq-6" class="faq-answer text-sm text-brand-muted"><p>Sí. Nos integramos con Tokko Broker, Google Sheets, y los CRM más usados en inmobiliarias. Si tu herramienta tiene API, podemos conectarla. Si usás una planilla, también funciona.</p></div>
-                </div>
-                <div class="glass-card reveal" role="listitem">
-                    <button class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base" aria-expanded="false" aria-controls="faq-7"><span>¿Mis datos están seguros?</span><i data-lucide="chevron-down" class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"></i></button>
-                    <div id="faq-7" class="faq-answer text-sm text-brand-muted"><p>Sí. Usamos APIs oficiales, encriptación en tránsito y en reposo, y cada cliente tiene su base de datos aislada. Firmamos NDA si lo necesitás.</p></div>
-                </div>
-                <div class="glass-card reveal" role="listitem">
-                    <button class="faq-btn w-full flex items-center justify-between p-5 text-left font-semibold text-sm lg:text-base" aria-expanded="false" aria-controls="faq-8"><span>¿El diagnóstico es realmente gratuito?</span><i data-lucide="chevron-down" class="w-5 h-5 text-brand-muted shrink-0 faq-icon transition-transform"></i></button>
-                    <div id="faq-8" class="faq-answer text-sm text-brand-muted"><p>Ningún compromiso. 10 minutos, analizamos tu operación, te decimos qué automatizar primero y cuánto costaría. Si querés seguir, propuesta en 48h. No cobramos hasta que la aprobás.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="gradient-divider" aria-hidden="true"></div>
-
-    <!-- ═══ CONTACTO ═══ -->
-    <section id="contacto" class="py-20 lg:py-28">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
-                <div class="lg:col-span-2 reveal">
-                    <h2 class="text-2xl sm:text-3xl font-bold mb-4">Contanos sobre tu inmobiliaria. La analizamos en <span class="gradient-text-shimmer">10 minutos, gratis.</span></h2>
-                    <p class="text-brand-muted mb-8">Completá el formulario en 30 segundos. Te contactamos hoy para agendar tu demo.</p>
-                    <div class="space-y-4 text-sm">
-                        <a href="https://wa.me/5491122551204?text=Hola%2C%20vengo%20de%20la%20web%20de%20Velia%20y%20quiero%20saber%20m%C3%A1s"
+                        <ul class="flex-1 space-y-3.5 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Hasta 200 conversaciones/mes</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>1 número de WhatsApp</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Calificación automática de leads</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Dashboard básico</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Soporte por email</li>
+                        </ul>
+                        <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20plan%20Starter%20de%20Velia"
                             target="_blank" rel="noopener"
-                            class="flex items-center gap-3 text-brand-muted hover:text-brand-text transition-colors" data-track="cta_whatsapp_click">
-                            <svg class="w-5 h-5 text-brand-green" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                            Escribinos por WhatsApp — respondemos hoy
+                            class="flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 text-zinc-300 bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.12] hover:text-white">
+                            Consultar
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
-                        <p class="flex items-center gap-3 text-brand-muted">
-                            <i data-lucide="mail" class="w-5 h-5 text-brand-accent"></i>
-                            hola@getvelia.com
-                        </p>
-                        <p class="flex items-center gap-3 text-brand-muted">
-                            <i data-lucide="clock" class="w-5 h-5 text-brand-accent"></i>
-                            Lunes a Viernes, 9:00–19:00h (ARG)
-                        </p>
                     </div>
                 </div>
-                <div class="lg:col-span-3 reveal">
-                    <form id="form-diagnostico" class="glass-card-tinted p-6 lg:p-8 space-y-5" aria-label="Formulario de demo gratuita" novalidate>
-                        <div id="form-messages" aria-live="polite"></div>
-                        <div>
-                            <label for="f-nombre" class="block text-sm font-medium mb-1.5">Tu nombre <span class="text-red-400">*</span></label>
-                            <input type="text" id="f-nombre" name="nombre" required placeholder="Ej: María López"
-                                class="w-full bg-white/[.03] border border-white/[.08] rounded-xl px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 transition-all outline-none">
+
+                <!-- Professional (destacado) -->
+                <div class="reveal reveal-d1 relative flex flex-col rounded-2xl p-[1px] md:scale-105 shadow-xl shadow-black/40"
+                    style="background:linear-gradient(180deg,rgba(212,212,216,.5),rgba(113,113,122,.15),transparent)">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
+                        <span class="inline-flex items-center gap-1.5 text-xs font-bold text-zinc-950 bg-zinc-100 px-4 py-1.5 rounded-full shadow-lg shadow-black/30">
+                            <i data-lucide="sparkles" class="w-3 h-3"></i>
+                            Recomendado
+                        </span>
+                    </div>
+                    <div class="flex-1 flex flex-col rounded-[15px] p-8 bg-[#121215]">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold text-white">Professional</h3>
+                            <p class="text-xs text-zinc-400 mt-1">Para equipos que quieren escalar</p>
                         </div>
-                        <div>
-                            <label for="f-whatsapp" class="block text-sm font-medium mb-1.5">WhatsApp <span class="text-red-400">*</span></label>
-                            <input type="tel" id="f-whatsapp" name="whatsapp" required placeholder="+54 9 11 1234-5678"
-                                class="w-full bg-white/[.03] border border-white/[.08] rounded-xl px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 transition-all outline-none">
+                        <div class="mb-8">
+                            <span class="font-serif italic text-[28px] leading-tight text-zinc-100">Consultar precio</span>
                         </div>
-                        <div>
-                            <label for="f-inmobiliaria" class="block text-sm font-medium mb-1.5">Nombre de la inmobiliaria <span class="text-red-400">*</span></label>
-                            <input type="text" id="f-inmobiliaria" name="inmobiliaria" required placeholder="Ej: Inmobiliaria Ejemplo"
-                                class="w-full bg-white/[.03] border border-white/[.08] rounded-xl px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 transition-all outline-none">
+                        <p class="font-serif italic text-[13px] text-zinc-400 mb-4 -mt-3">Todo lo de Starter, más:</p>
+                        <ul class="flex-1 space-y-3.5 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Hasta 1.000 conversaciones/mes</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>3 números de WhatsApp</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Calificación + seguimiento con IA</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Dashboard completo + analytics</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Integración con tu CRM</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Soporte prioritario</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Enrutamiento inteligente de leads</li>
+                        </ul>
+                        <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20plan%20Professional%20de%20Velia"
+                            target="_blank" rel="noopener"
+                            class="flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 text-zinc-950 bg-zinc-100 hover:bg-white hover:shadow-lg hover:shadow-black/25">
+                            Consultar por Professional
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="reveal reveal-d2 relative flex flex-col rounded-2xl p-[1px] bg-white/[0.06]">
+                    <div class="flex-1 flex flex-col rounded-[15px] p-8 bg-[#09090b]">
+                        <div class="mb-6">
+                            <h3 class="text-lg font-bold text-white">Enterprise</h3>
+                            <p class="text-xs text-zinc-400 mt-1">Para operaciones a gran escala</p>
                         </div>
-                        <div>
-                            <label for="f-agentes" class="block text-sm font-medium mb-1.5">¿Cuántos agentes tienen? <span class="text-red-400">*</span></label>
-                            <select id="f-agentes" name="agentes" required
-                                class="w-full bg-white/[.03] border border-white/[.08] rounded-xl px-4 py-3 text-sm text-brand-text focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 transition-all outline-none">
-                                <option value="">Seleccioná una opción</option>
-                                <option value="1-3">1-3 agentes</option>
-                                <option value="4-10">4-10 agentes</option>
-                                <option value="11-25">11-25 agentes</option>
-                                <option value="25+">Más de 25 agentes</option>
-                            </select>
+                        <div class="mb-8">
+                            <span class="font-serif italic text-[28px] leading-tight text-zinc-100">Precio a medida</span>
                         </div>
-                        <div>
-                            <label for="f-problema" class="block text-sm font-medium mb-1.5">¿Qué problema querés resolver? <span class="text-xs text-brand-muted">(opcional)</span></label>
-                            <textarea id="f-problema" name="problema" rows="3" maxlength="500"
-                                placeholder="Ej: Recibimos 80 mensajes por día en WhatsApp y no damos abasto..."
-                                class="w-full bg-white/[.03] border border-white/[.08] rounded-xl px-4 py-3 text-sm text-brand-text placeholder:text-brand-mutedDark focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/50 transition-all outline-none"></textarea>
-                        </div>
-                        <button type="submit" id="form-submit-btn"
-                            class="w-full bg-brand-accent hover:bg-brand-accentHover text-white font-semibold py-4 rounded-xl transition-all btn-glow text-base flex items-center justify-center gap-2"
-                            data-track="click_CTA_diagnostico">Quiero mi demo gratis <i data-lucide="arrow-right" class="w-5 h-5"></i></button>
-                        <p class="text-xs text-brand-mutedDark text-center flex items-center justify-center gap-3">
-                            <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3"></i> Sin spam</span>
-                            <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3"></i> Sin compromiso</span>
-                            <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3"></i> Respondemos hoy</span>
-                        </p>
-                    </form>
+                        <p class="font-serif italic text-[13px] text-zinc-400 mb-4 -mt-3">Todo lo de Professional, más:</p>
+                        <ul class="flex-1 space-y-3.5 mb-8">
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Conversaciones ilimitadas</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Números ilimitados</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>IA personalizada a tu marca</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>API dedicada</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Soporte 24/7 dedicado</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>Onboarding personalizado</li>
+                            <li class="flex items-start gap-3 text-sm text-zinc-300"><span class="mt-0.5 w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i></span>SLA garantizado</li>
+                        </ul>
+                        <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20plan%20Enterprise%20de%20Velia"
+                            target="_blank" rel="noopener"
+                            class="flex items-center justify-center gap-2 text-sm font-semibold px-6 py-3.5 rounded-xl transition-all duration-300 text-zinc-300 bg-white/[0.04] border border-white/[0.08] hover:bg-white/[0.08] hover:border-white/[0.12] hover:text-white">
+                            Contactar ventas
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <p class="reveal text-center text-sm text-zinc-400 mt-10">
+                ¿No estás seguro cuál elegir?
+                <a href="https://wa.me/5491122551204?text=Hola%2C%20necesito%20ayuda%20para%20elegir%20un%20plan%20de%20Velia"
+                    target="_blank" rel="noopener"
+                    class="text-zinc-200 hover:text-white font-semibold underline underline-offset-4 decoration-zinc-600 transition-colors">Escribinos y te ayudamos</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ CTA FINAL ═══ -->
+    <section class="relative z-10 py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal relative overflow-hidden rounded-3xl">
+                <div class="absolute inset-0" style="background:linear-gradient(135deg,rgba(255,255,255,.04),transparent)"></div>
+                <div class="absolute -top-[40%] left-1/2 -translate-x-1/2 w-[60%] h-[100%] rounded-full bg-white/[0.05] blur-[80px]"></div>
+
+                <svg viewBox="0 0 40 40" aria-hidden="true" class="absolute -right-8 -bottom-16 w-80 h-80 pointer-events-none" style="opacity:.035" fill="none">
+                    <path d="M8 9L20 32L32 9" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="20" cy="32" r="3" fill="#10b981"/>
+                </svg>
+
+                <div class="relative border border-white/[0.06] rounded-3xl px-8 py-16 sm:px-16 sm:py-20 text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight max-w-2xl mx-auto">
+                        ¿Listo para que tu inmobiliaria trabaje con
+                        <em class="font-serif italic font-normal"
+                            style="background:linear-gradient(90deg,#fafafa,#a1a1aa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">piloto automático</em>?
+                    </h2>
+                    <p class="mt-5 text-lg text-zinc-300 max-w-xl mx-auto">
+                        Agendá una demo de 20 minutos y te mostramos cómo Velia puede transformar tu operación comercial.
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://wa.me/5491122551204?text=Hola%2C%20quiero%20agendar%20una%20demo%20gratuita%20de%20Velia"
+                            target="_blank" rel="noopener"
+                            class="group inline-flex items-center justify-center gap-2.5 text-sm font-semibold text-zinc-950 bg-zinc-100 hover:bg-white px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-black/25">
+                            Agendar demo gratuita
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="mailto:hola@getvelia.com"
+                            class="inline-flex items-center justify-center gap-2 text-sm font-medium text-zinc-300 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            hola@getvelia.com
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ═══ FOOTER ═══ -->
-    <footer class="border-t border-white/[.04] py-12 lg:py-16">
-        <div class="max-w-7xl mx-auto px-4 lg:px-8">
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-                <div>
-                    <a href="#inicio" class="flex items-center gap-3 group logo-mark" aria-label="Velia — Inicio">
-                        <svg width="40" height="40" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="1" y="1" width="46" height="46" rx="14" fill="url(#logoBg)" stroke="url(#logoGrad)" stroke-width="1.5"/>
-                            <path d="M15 14L24 34L33 14" stroke="url(#logoGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                            <circle cx="24" cy="34" r="2" fill="#7C3AED"/>
-                        </svg>
-                        <div class="flex flex-col">
-                            <span class="text-xl font-extrabold text-white tracking-tight">Velia</span>
-                            <span class="text-[8px] font-semibold text-brand-muted tracking-[0.15em] uppercase -mt-0.5">IA PARA INMOBILIARIAS</span>
-                        </div>
-                    </a>
-                    <p class="text-sm text-brand-muted mt-3">Automatización e inteligencia artificial especializada en inmobiliarias.</p>
+    <footer id="contacto" class="relative z-10 border-t border-white/[0.04]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+                <div class="max-w-xs">
+                    <div class="flex items-center gap-2.5 mb-4">
+                        <span class="relative inline-flex w-8 h-8 rounded-[10px] p-px shadow-lg shadow-black/50"
+                            style="background:linear-gradient(180deg,#3f3f46,#27272a,#09090b)">
+                            <span class="flex-1 rounded-[9px] bg-zinc-950 flex items-center justify-center">
+                                <svg viewBox="0 0 40 40" class="w-[64%] h-[64%]" fill="none">
+                                    <defs>
+                                        <linearGradient id="vf" x1="8" y1="8" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                                            <stop stop-color="#fafafa"/><stop offset="1" stop-color="#9a9aa3"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path d="M8 8L20 31L32 8" stroke="url(#vf)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="20" cy="31" r="4.5" fill="#10b981" fill-opacity=".22"/>
+                                    <circle cx="20" cy="31" r="2.6" fill="#10b981"/>
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="text-lg font-bold text-white tracking-tight">Velia</span>
+                    </div>
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Automatización con IA para inmobiliarias. Calificación, seguimiento y asignación de leads — en piloto automático.
+                    </p>
+                    <p class="mt-4 font-serif italic text-sm text-zinc-500">Menos gestión, más ventas.</p>
                 </div>
-                <div>
-                    <h4 class="font-semibold text-sm mb-3">Servicios</h4>
-                    <ul class="space-y-2 text-sm text-brand-muted">
-                        <li><a href="#servicios" class="hover:text-brand-text transition-colors">Asistente WhatsApp</a></li>
-                        <li><a href="#servicios" class="hover:text-brand-text transition-colors">Calificación de leads</a></li>
-                        <li><a href="#servicios" class="hover:text-brand-text transition-colors">Derivación inteligente</a></li>
-                        <li><a href="#servicios" class="hover:text-brand-text transition-colors">Dashboard</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-sm mb-3">Empresa</h4>
-                    <ul class="space-y-2 text-sm text-brand-muted">
-                        <li><a href="#proceso" class="hover:text-brand-text transition-colors">Cómo trabajamos</a></li>
-                        <li><a href="#resultados" class="hover:text-brand-text transition-colors">Resultados</a></li>
-                        <li><a href="#precios" class="hover:text-brand-text transition-colors">Precios</a></li>
-                        <li><a href="#faq" class="hover:text-brand-text transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-semibold text-sm mb-3">Contacto</h4>
-                    <ul class="space-y-2 text-sm text-brand-muted">
-                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-brand-accent"></i> hola@getvelia.com</li>
-                        <li><a href="https://wa.me/5491122551204" target="_blank" rel="noopener" class="hover:text-brand-text transition-colors flex items-center gap-2">
-                            <svg class="w-4 h-4 text-brand-green" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                            WhatsApp
-                        </a></li>
-                    </ul>
+
+                <div class="flex gap-16">
+                    <div>
+                        <p class="text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-4">Producto</p>
+                        <ul class="space-y-2.5">
+                            <li><a href="#producto" class="text-sm text-zinc-400 hover:text-white transition-colors">Dashboard</a></li>
+                            <li><a href="#como-funciona" class="text-sm text-zinc-400 hover:text-white transition-colors">Automatización</a></li>
+                            <li><a href="#producto" class="text-sm text-zinc-400 hover:text-white transition-colors">IA de voz</a></li>
+                            <li><a href="#precios" class="text-sm text-zinc-400 hover:text-white transition-colors">Precios</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-4">Contacto</p>
+                        <ul class="space-y-2.5">
+                            <li>
+                                <a href="mailto:hola@getvelia.com" class="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-2">
+                                    <i data-lucide="mail" class="w-3.5 h-3.5"></i> hola@getvelia.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://wa.me/5491122551204" target="_blank" rel="noopener" class="text-sm text-zinc-400 hover:text-white transition-colors flex items-center gap-2">
+                                    <i data-lucide="phone" class="w-3.5 h-3.5"></i> WhatsApp
+                                </a>
+                            </li>
+                            <li>
+                                <span class="text-sm text-zinc-400 flex items-center gap-2">
+                                    <i data-lucide="building-2" class="w-3.5 h-3.5"></i> Buenos Aires, AR
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-white/[.04] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-mutedDark">
-                <p>&copy; 2026 Velia — IA y Automatización para Inmobiliarias</p>
-                <div class="flex gap-4"><a href="#" class="hover:text-brand-text transition-colors">Aviso Legal</a><a href="#" class="hover:text-brand-text transition-colors">Privacidad</a><a href="#" class="hover:text-brand-text transition-colors">Cookies</a></div>
+
+            <div class="mt-12 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-zinc-500">© 2026 Velia. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-xs text-zinc-500 hover:text-zinc-200 transition-colors">Privacidad</a>
+                    <a href="#" class="text-xs text-zinc-500 hover:text-zinc-200 transition-colors">Términos</a>
+                </div>
             </div>
-            <p class="text-center text-xs text-brand-mutedDark mt-6">¿Aún tenés dudas? <a href="https://wa.me/5491122551204" target="_blank" rel="noopener" class="text-brand-accent hover:underline">Escribinos — sin compromiso, sin formularios.</a></p>
         </div>
     </footer>
 
-    <!-- ═══ STICKY MOBILE BAR ═══ -->
-    <div id="sticky-bar" class="sticky-mobile fixed bottom-0 left-0 right-0 z-40 glass border-t border-white/[.04] p-3 flex gap-2">
-        <a href="https://wa.me/5491122551204" target="_blank" rel="noopener"
-            class="flex-1 flex items-center justify-center gap-2 bg-brand-green/90 hover:bg-brand-green text-white font-semibold py-3 rounded-xl text-sm transition-colors" data-track="sticky_cta_whatsapp">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-            WhatsApp
-        </a>
-        <a href="#contacto" class="flex-1 flex items-center justify-center bg-brand-accent hover:bg-brand-accentHover text-white font-semibold py-3 rounded-xl text-sm transition-all" data-track="sticky_cta_click">
-            Demo gratis
-        </a>
-    </div>
+    <!-- ═══ WHATSAPP FLOTANTE ═══ -->
+    <a href="https://wa.me/5491122551204?text=Hola%2C%20vengo%20de%20la%20web%20de%20Velia%20y%20quiero%20saber%20m%C3%A1s"
+        target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"
+        class="fixed bottom-6 right-6 z-50 group">
+        <span class="absolute inset-0 rounded-full bg-emerald-500 blur-lg opacity-35 group-hover:opacity-55 transition-opacity duration-300"></span>
+        <span class="relative flex items-center justify-center w-14 h-14 rounded-full bg-emerald-500 group-hover:bg-emerald-400 text-white shadow-xl shadow-black/40 transition-all duration-300 group-hover:scale-105 group-active:scale-95">
+            <svg viewBox="0 0 24 24" class="w-7 h-7" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </span>
+    </a>
 
     <script>
         (function () {
-            /* === LUCIDE ICONS === */
             lucide.createIcons();
 
-            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-            /* === TRACKING === */
-            function trackEvent(n, p = {}) { console.log('[Track]', n, p); document.dispatchEvent(new CustomEvent('velia_track', { detail: { event: n, ...p } })); if (typeof gtag !== 'undefined') gtag('event', n, p) }
-            document.querySelectorAll('[data-track]').forEach(el => { el.addEventListener('click', () => trackEvent(el.dataset.track, { label: el.textContent.trim().substring(0, 60) })) });
-
-            /* === SCROLL DEPTH === */
-            const st = new Set();
-            window.addEventListener('scroll', () => { const p = Math.round(window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100);[25, 50, 75].forEach(t => { if (p >= t && !st.has(t)) { st.add(t); trackEvent('scroll_depth_' + t) } }) }, { passive: true });
-
-            /* === SMOOTH SCROLL === */
-            document.querySelectorAll('a[href^="#"]').forEach(a => { a.addEventListener('click', function (e) { const t = document.querySelector(this.getAttribute('href')); if (t) { e.preventDefault(); const y = t.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top: y, behavior: 'smooth' }); t.setAttribute('tabindex', '-1'); t.focus({ preventScroll: true }); const mm = document.getElementById('mobile-menu'); if (mm && !mm.classList.contains('hidden')) mm.classList.add('hidden') } }) });
+            /* === HEADER SCROLL === */
+            var header = document.getElementById('site-header');
+            function onScroll() {
+                if (window.scrollY > 20) {
+                    header.style.background = 'rgba(9,9,11,.8)';
+                    header.style.backdropFilter = 'blur(20px)';
+                    header.style.webkitBackdropFilter = 'blur(20px)';
+                    header.style.borderBottom = '1px solid rgba(255,255,255,.04)';
+                    header.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,.2)';
+                } else {
+                    header.style.background = 'transparent';
+                    header.style.backdropFilter = 'none';
+                    header.style.webkitBackdropFilter = 'none';
+                    header.style.borderBottom = '1px solid transparent';
+                    header.style.boxShadow = 'none';
+                }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
 
             /* === MOBILE MENU === */
-            const mb = document.getElementById('mobile-menu-btn'), mm = document.getElementById('mobile-menu');
-            mb?.addEventListener('click', () => { const o = mm.classList.toggle('hidden'); mb.setAttribute('aria-expanded', !o ? 'true' : 'false') });
-
-            /* === STICKY MOBILE BAR === */
-            const hero = document.getElementById('inicio'), sb = document.getElementById('sticky-bar');
-            if (hero && sb) { new IntersectionObserver(([e]) => sb.classList.toggle('show', !e.isIntersecting), { threshold: 0.1 }).observe(hero) }
-
-            /* === FAQ ACCORDION === */
-            document.querySelectorAll('.faq-btn').forEach(btn => { btn.addEventListener('click', () => { const ex = btn.getAttribute('aria-expanded') === 'true'; const ans = document.getElementById(btn.getAttribute('aria-controls')); document.querySelectorAll('.faq-btn').forEach(b => { b.setAttribute('aria-expanded', 'false'); const icon = b.querySelector('.faq-icon'); if (icon) icon.style.transform = ''; document.getElementById(b.getAttribute('aria-controls'))?.classList.remove('open'); b.closest('[role="listitem"]')?.classList.remove('faq-item-active') }); if (!ex) { btn.setAttribute('aria-expanded', 'true'); const icon = btn.querySelector('.faq-icon'); if (icon) icon.style.transform = 'rotate(180deg)'; ans?.classList.add('open'); btn.closest('[role="listitem"]')?.classList.add('faq-item-active'); trackEvent('faq_open', { question: btn.textContent.trim().substring(0, 50) }) } }) });
+            var mbtn = document.getElementById('mobile-menu-btn');
+            var mmenu = document.getElementById('mobile-menu');
+            mbtn.addEventListener('click', function () {
+                var hidden = mmenu.classList.toggle('hidden');
+                mbtn.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+            });
+            mmenu.querySelectorAll('a').forEach(function (a) {
+                a.addEventListener('click', function () { mmenu.classList.add('hidden'); });
+            });
 
             /* === SCROLL REVEAL === */
             if (!prefersReduced) {
-                const ro = new IntersectionObserver((es) => { es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target) } }) }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
-                document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
-                document.querySelectorAll('.cta-pulse').forEach(el => ro.observe(el));
+                var ro = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+                    });
+                }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+                document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el); });
+            } else {
+                document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
             }
 
-            /* === CARD GLOW FOLLOW MOUSE === */
-            document.querySelectorAll('.glow-card').forEach(card => {
-                card.addEventListener('mousemove', e => {
-                    const rect = card.getBoundingClientRect();
-                    card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
-                    card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+            /* === WAVEFORM (análisis de voz) === */
+            var wf = document.getElementById('waveform');
+            var heights = [40, 65, 35, 80, 55, 45, 70, 30, 60, 75, 40, 55, 85, 45, 65, 50, 35, 70, 55, 40, 60, 75, 30, 50];
+            heights.forEach(function (h, i) {
+                var bar = document.createElement('div');
+                bar.className = 'wave-bar w-[3px] rounded-full';
+                bar.style.height = h + '%';
+                bar.style.background = 'linear-gradient(to top, rgba(16,185,129,.5), rgba(110,231,183,.8))';
+                bar.style.animationDelay = (i * 0.06) + 's';
+                bar.style.animationDuration = (1 + (i % 3) * 0.3) + 's';
+                wf.appendChild(bar);
+            });
+
+            /* === CHAT WHATSAPP === */
+            var waBox = document.getElementById('wa-messages');
+            var leadCard = document.getElementById('lead-card');
+            var msgs = [
+                { from: 'user', text: 'Hola, vi el departamento de 3 ambientes en Palermo. ¿Sigue disponible?', time: '10:32' },
+                { from: 'bot', text: '¡Hola! Soy Lucía, asistente de Inmobiliaria Sosa. El depto de 3 amb en Palermo está disponible. Tiene 85m², balcón con parrilla y cochera. ¿Querés agendar una visita?', time: '10:32' },
+                { from: 'user', text: 'Sí, el jueves a las 15hs me vendría bien', time: '10:33' },
+                { from: 'bot', text: 'Perfecto, te agendo para el jueves 19 de junio a las 15:00. Te envío la ubicación por acá. ¡Nos vemos!', time: '10:33' }
+            ];
+
+            function buildMsg(m) {
+                var wrap = document.createElement('div');
+                wrap.className = 'wa-msg flex ' + (m.from === 'user' ? 'justify-end' : 'justify-start');
+                var bubble = document.createElement('div');
+                bubble.className = 'max-w-[80%] px-3 py-2 rounded-2xl ' + (m.from === 'user' ? 'rounded-br-md' : 'rounded-bl-md');
+                bubble.style.background = m.from === 'user' ? '#005c4b' : '#1f2c34';
+                bubble.innerHTML = '<p class="text-[13px] leading-relaxed" style="color:rgba(255,255,255,.9)">' + m.text + '</p>' +
+                    '<p class="text-[10px] text-right mt-1" style="color:rgba(255,255,255,.3)">' + m.time + '</p>';
+                wrap.appendChild(bubble);
+                return wrap;
+            }
+
+            function playChat() {
+                msgs.forEach(function (m) { waBox.appendChild(buildMsg(m)); });
+                var nodes = waBox.querySelectorAll('.wa-msg');
+                if (prefersReduced) {
+                    nodes.forEach(function (n) { n.classList.add('visible'); });
+                    leadCard.style.opacity = '1';
+                    leadCard.style.transform = 'none';
+                    return;
+                }
+                nodes.forEach(function (n, i) {
+                    setTimeout(function () { n.classList.add('visible'); }, 600 + i * 800);
                 });
-            });
-
-            /* === PARTICLE CANVAS === */
-            if (!prefersReduced) {
-                const canvas = document.getElementById('particle-canvas');
-                if (canvas) {
-                    const ctx = canvas.getContext('2d');
-                    let particles = [], raf;
-                    function resize() { const r = canvas.parentElement.getBoundingClientRect(); canvas.width = r.width; canvas.height = r.height; }
-                    resize(); window.addEventListener('resize', resize);
-                    for (let i = 0; i < 50; i++) {
-                        particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: .5 + Math.random() * 1.5, vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.2, a: 0.04 + Math.random() * 0.08 });
-                    }
-                    function draw() {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height);
-                        particles.forEach(p => {
-                            p.x += p.vx; p.y += p.vy;
-                            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-                            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                            ctx.fillStyle = `rgba(124,58,237,${p.a})`; ctx.fill();
-                        });
-                        /* Connection lines */
-                        for (let i = 0; i < particles.length; i++) {
-                            for (let j = i + 1; j < particles.length; j++) {
-                                const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
-                                const dist = Math.sqrt(dx * dx + dy * dy);
-                                if (dist < 120) {
-                                    ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
-                                    ctx.strokeStyle = `rgba(124,58,237,${0.03 * (1 - dist / 120)})`; ctx.lineWidth = 0.5; ctx.stroke();
-                                }
-                            }
-                        }
-                        raf = requestAnimationFrame(draw);
-                    }
-                    draw();
-                    document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(raf); else draw(); });
-                }
+                setTimeout(function () {
+                    leadCard.style.opacity = '1';
+                    leadCard.style.transform = 'none';
+                }, 600 + nodes.length * 800 + 300);
             }
 
-            /* === WHATSAPP CHAT ANIMATION === */
-            const waMessages = document.getElementById('wa-messages');
-            if (waMessages) {
-                const msgs = [
-                    { type: 'in', text: 'Hola, busco un 3 ambientes en Palermo con balcón. Presupuesto hasta 200k USD.', time: '14:32' },
-                    { type: 'out', text: '¡Hola! Tenemos 3 opciones que coinciden con lo que buscás:', time: '14:32' },
-                    { type: 'out', text: '🏠 Palermo Soho — 3 amb, 85m², balcón · USD 189.000\n🏠 Palermo Hollywood — 3 amb, 92m², terraza · USD 195.000\n🏠 Palermo Chico — 3 amb, 78m², balcón · USD 175.000', time: '14:32' },
-                    { type: 'out', text: '¿Te interesa agendar una visita a alguno? Puedo coordinar para esta semana.', time: '14:33' },
-                    { type: 'in', audio: true, text: '0:12', time: '14:35' },
-                    { type: 'out', text: '¡Perfecto! Te agendo visita al de Palermo Soho para el jueves a las 16hs. Te paso la dirección 📍', time: '14:35' }
-                ];
-
-                function createMsg(m) {
-                    const div = document.createElement('div');
-                    div.className = `wa-msg wa-msg-${m.type}`;
-                    if (m.audio) {
-                        const bars = Array.from({length: 22}, () => Math.floor(3 + Math.random() * 16));
-                        div.innerHTML = `<div class="wa-msg-audio"><div class="play-btn"><svg width="10" height="12" viewBox="0 0 10 12" fill="white"><polygon points="0,0 10,6 0,12"/></svg></div><div class="wa-waveform">${bars.map(h => `<span style="height:${h}px"></span>`).join('')}</div><span style="font-size:11px;color:rgba(255,255,255,.5)">${m.text}</span></div><div class="wa-msg-time">${m.time}</div>`;
-                    } else {
-                        div.innerHTML = `<div style="white-space:pre-line">${m.text}</div><div class="wa-msg-time">${m.time}</div>`;
-                    }
-                    return div;
+            var chatSeen = false;
+            new IntersectionObserver(function (entries, obs) {
+                if (entries[0].isIntersecting && !chatSeen) {
+                    chatSeen = true;
+                    playChat();
+                    obs.disconnect();
                 }
-
-                function showMessages() {
-                    if (prefersReduced) { msgs.forEach(m => { const el = createMsg(m); el.classList.add('visible'); waMessages.appendChild(el); }); return; }
-                    msgs.forEach(m => waMessages.appendChild(createMsg(m)));
-                    requestAnimationFrame(() => {
-                        waMessages.querySelectorAll('.wa-msg').forEach((el, i) => { setTimeout(() => el.classList.add('visible'), i * 700); });
-                    });
-                }
-
-                const chatBlock = document.getElementById('wa-chat-block');
-                if (chatBlock && !prefersReduced) {
-                    new IntersectionObserver(([e]) => { if (e.isIntersecting && !chatBlock.__loaded) { chatBlock.__loaded = true; showMessages(); } }, { threshold: 0.3 }).observe(chatBlock);
-                } else { showMessages(); }
-            }
-
-            /* === NAV SCROLL EFFECT === */
-            const header = document.getElementById('site-header');
-            if (header) {
-                let lastScroll = 0;
-                window.addEventListener('scroll', () => {
-                    const scrollY = window.scrollY;
-                    if (scrollY > 100) { header.style.borderBottomColor = 'rgba(255,255,255,.06)'; }
-                    else { header.style.borderBottomColor = 'rgba(255,255,255,.04)'; }
-                    lastScroll = scrollY;
-                }, { passive: true });
-            }
-
-            /* === FORM VALIDATION === */
-            const form = document.getElementById('form-diagnostico'), fbtn = document.getElementById('form-submit-btn'), fmsg = document.getElementById('form-messages');
-            let firstFocus = false;
-            form?.querySelector('input')?.addEventListener('focus', () => { if (!firstFocus) { firstFocus = true; trackEvent('form_start') } }, { once: true });
-
-            function showErr(msg) { fmsg.innerHTML = `<div class="bg-red-500/10 border border-red-500/20 text-red-300 text-sm p-4 rounded-xl mb-4">${msg}</div>`; fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' }) }
-            function clearErr() { fmsg.innerHTML = '' }
-
-            form?.addEventListener('submit', e => {
-                e.preventDefault(); clearErr(); trackEvent('form_submit_attempt');
-                const fd = new FormData(form); const errs = [];
-                if (!fd.get('nombre') || fd.get('nombre').trim().length < 2) errs.push('Ingresá tu nombre');
-                if (!fd.get('whatsapp') || fd.get('whatsapp').replace(/\D/g, '').length < 9) errs.push('Ingresá un número de WhatsApp válido');
-                if (!fd.get('inmobiliaria') || fd.get('inmobiliaria').trim().length < 2) errs.push('Ingresá el nombre de tu inmobiliaria');
-                if (!fd.get('agentes')) errs.push('Seleccioná la cantidad de agentes');
-                if (errs.length) { showErr(errs.map(e => '• ' + e).join('<br>')); return }
-                fbtn.innerHTML = '<span>Enviando tu solicitud…</span>'; fbtn.disabled = true;
-
-                const data = { nombre_completo: fd.get('nombre'), whatsapp: fd.get('whatsapp'), inmobiliaria: fd.get('inmobiliaria'), cantidad_agentes: fd.get('agentes'), problema: fd.get('problema') || '', fuente: 'velia-landing' };
-
-                fetch('https://n8n-n8n.t2te1u.easypanel.host/webhook/velia-lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
-                    .then(response => {
-                        if (!response.ok) throw new Error('Error');
-                        trackEvent('form_submit_success');
-                        fmsg.innerHTML = `<div class="bg-brand-green/10 border border-brand-green/20 text-brand-green p-6 rounded-xl text-center"><p class="font-semibold mb-2">Listo, recibimos tu solicitud.</p><p class="text-sm text-brand-muted">Te contactamos hoy por WhatsApp para agendar tu demo de 10 minutos.</p><p class="text-sm text-brand-muted mt-2">Si es urgente, escribinos ahora por <a href="https://wa.me/5491122551204" target="_blank" rel="noopener" class="text-brand-accent underline">WhatsApp</a>.</p></div>`;
-                        form.querySelectorAll('input,select,textarea,button').forEach(el => { el.disabled = true; el.classList.add('opacity-50') });
-                        fmsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    })
-                    .catch(() => {
-                        trackEvent('form_submit_error');
-                        showErr('Hubo un problema al enviar tu solicitud. Intentá de nuevo o contactanos por WhatsApp.');
-                        fbtn.innerHTML = 'Quiero mi demo gratis <i data-lucide="arrow-right" class="w-5 h-5"></i>'; fbtn.disabled = false;
-                        lucide.createIcons();
-                    });
-            });
+            }, { threshold: 0.3 }).observe(waBox);
         })();
     </script>
 </body>
